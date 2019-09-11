@@ -1,0 +1,62 @@
+/**************************
+LISTS
+**************************/
+ul,
+ol {
+  margin: 0 0;
+  padding: 0; 
+}
+ul {
+  list-style: none; 
+}
+ol {
+  list-style: none;
+  counter-reset: item; 
+}
+ul li {
+  font-weight: normal;
+  line-height: 28px;
+  margin-bottom: 28px;
+  /* padding-left: 30px; */
+  position: relative; 
+}
+
+/* ul li:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 2px solid #F4614D;
+  border-radius: 50%;
+  top: 7px;
+  left: 0;
+  font-size: 18px;
+  position: absolute; } */
+
+ol li{
+	counter-increment: item;
+	line-height: 24px;
+	font-weight: 700;
+	margin-bottom: 15px;
+	padding-left: 25px;
+	position: relative;
+}
+ol li:before{
+	content: counter(item) ".";
+  font-family: --primary-font;
+	position: absolute;
+	left: 0;
+	top: -4px;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+li {
+   color: --color-white;  
+}
+
+dt {
+	font-weight: 700;
+}
+dd {
+  margin: 0 0 1.5em;
+}

@@ -1,0 +1,8 @@
+# modulos eliminados
+node_modules
+# package-lock
+package-lock.json
+# style
+css/style.css
+# js
+js/app.js
