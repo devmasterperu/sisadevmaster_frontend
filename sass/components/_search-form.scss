@@ -14,16 +14,24 @@
     width: 100%;
     
 }
-.card-search .search{
+.card-search input[type="search"] {
     padding-right: 40px;
-    position: relative;
     border-color: var(--primary-grey-light);
     border-radius: 30px;
     border-top-style: solid;
     border-left-style: solid;
     border-right-style: solid;
 }
-
-.card-search .search::before {
+.card-search .form-group {
+    position: relative;
+}
+.card-search .form-group::before {
     font-family: "Linearicons";
+    content: "\e922";
+    color: red;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    font-size: 22px;
 }
