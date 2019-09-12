@@ -11,7 +11,8 @@
     --color-black: #000;
     --color-white: #fff;
 
-    --primary-grey-light: #f7f7f7;
+    // --primary-grey-light: #f7f7f7;
+    --primary-grey-light: #dfdfdf;
     --secondary-grey-light: #eeeeee;
 
     --primary-grey-dark: #777;
@@ -20,6 +21,12 @@
     /** Font **/
     --primary-font: 'Raleway', sans-serif;
     // $secondary-font: ;
+
+    /** Background **/
+    --primary-background: #eff0f2;
+
+    /** Shadow **/
+    --primary-shadow: 0 13px 10px 0 rgba(0, 0, 0, 0.16);
 
     /** Grid **/
     // $grid-width: 114rem;
