@@ -17,7 +17,7 @@ gulp.task("css", function(){
                 browsers: ['last 2 versions']
             }
         ))
-        .pipe(cleanCSS())
+        // .pipe(cleanCSS())
         .pipe(rename("style.min.css"))
         .pipe(concat("style.min.css"))
         .pipe(gulp.dest("css/public/"));
