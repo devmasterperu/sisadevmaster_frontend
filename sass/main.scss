@@ -1,5 +1,8 @@
 /*+ bootstrap **/
 @import "base/bootstrap";
+/** mmenu **/
+@import "base/mmenu";
+
 /** abstracts **/
 @import "abstracts/functions";
 @import "abstracts/mixins";
@@ -15,7 +18,7 @@
 /** components **/
 @import "components/bg-video";
 /** layout **/
-// @import "layout/menu";
+@import "layout/s-mmenu";
 // @import "layout/grid";
 @import "layout/header";
 // @import "layout/navigation";

@@ -9,7 +9,7 @@ nav:not(.mm-menu) {
 }
 .header,
 .footer {
-	background: #4bb5ef;
+	background: var(--primary-color);
 	font-size: 16px;
 	font-weight: bold;
 	color: #fff;
@@ -56,4 +56,19 @@ nav:not(.mm-menu) {
 }
 .content {
 	padding: 150px 50px 50px 50px;
+}
+/**/
+// .mm-menu {
+// 	background: var(--primary-color);
+// }
+
+// .mm-panel,
+.mm-navbar,
+.mm-panel,
+.mm-divider {
+    background: var(--primary-color);
+}
+
+.mm-listitem {
+    color: var(--color-white);
 }
