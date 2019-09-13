@@ -7,14 +7,11 @@
     // $quinary-color: ;
     // $senary-color: ;
     // $septenary-color: ;
-
     --color-black: #000;
     --color-white: #fff;
-
-    // --primary-grey-light: #f7f7f7;
-    --primary-grey-light: #dfdfdf;
+    // --primary-grey-light: #F7F7F7;
+    --primary-grey-light: #DFDFDF;
     --secondary-grey-light: #eeeeee;
-
     --primary-grey-dark: #777;
     --secondary-grey-dark: #999;
 
@@ -27,6 +24,14 @@
 
     /** Shadow **/
     --primary-shadow: 0 13px 10px 0 rgba(0, 0, 0, 0.16);
+
+    /** Breakpoint **/
+    --break-movil-small: 576px;
+    --break-movil-big: 767px;
+    --break-tablet-initial: 768px;
+    --break-tablet-end: 991px;
+    --break-desktop-smal-initial: 992px;
+    --break-desktop-small-end: 1199px;
 
     /** Grid **/
     // $grid-width: 114rem;

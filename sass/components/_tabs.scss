@@ -1,0 +1,32 @@
+.nav-pills {
+    border-bottom: 1px solid var(--primary-color);
+}
+.nav-pills .nav-link {
+    font-size: 17px;
+    color: #CCCCCC;
+    text-transform: uppercase;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--primary-color) var(--primary-color) transparent;
+    border-radius: .25rem .25rem 0 0;
+    padding: 16px 43px;
+}
+.nav-pills .nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--color-white);
+}
+.nav-pills .nav-item {
+    margin-bottom: -1px;
+}
+.nav-pills .nav-item:not(:last-child) {
+    margin-right: 10px;
+}
+.nav-pills .nav-item:first-child {
+    margin-left: 75px;
+}
+.tab-content>.tab-pane {
+    padding: 57px;
+    color: var(--color-black);
+    line-height: 28px;
+    font-weight: 300;
+}
