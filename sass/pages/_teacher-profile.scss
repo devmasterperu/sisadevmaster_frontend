@@ -1,9 +1,0 @@
-.card-title .configure::before {
-    @include linearicons;
-    content: '\e672';
-    font-size: 28px;
-    color: var(--color-white);
-}
-.card-title .dropdown-toggle::after {
-    color: var(--color-white);
-}

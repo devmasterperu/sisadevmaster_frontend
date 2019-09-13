@@ -1,0 +1,18 @@
+.card-title.return {
+    padding-left: 0;
+    a {
+        color: var(--color-white);
+        font-size: 30px;
+        
+        &:hover {
+            text-decoration: none;
+        }
+        span {
+            display: inline-block;
+            @include transition;
+        }
+        &:hover span {
+           transform: translateX(-7px);
+        }
+    }
+}

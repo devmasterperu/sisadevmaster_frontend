@@ -18,10 +18,12 @@
 @import "base/utilities";
 /** components **/
 @import "components/bg-video";
-@import "components/title";
+@import "components/card-title";
 @import "components/card-content";
 @import "components/search-form";
 @import "components/tabs";
+@import "components/card-title-return";
+@import "components/card-title-config";
 /** layout **/
 @import "layout/s-mmenu";
 // @import "layout/grid";
@@ -30,4 +32,3 @@
 /** page **/
 @import "pages/home";
 @import "pages/programing-teacher";
-@import "pages/teacher-profile";

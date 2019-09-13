@@ -3,14 +3,23 @@
     border-left-style: none;
     border-right-style: none;
     border-radius: 0;
+    &:focus {
+        border-top-style: none;
+        border-left-style: none;
+        border-right-style: none;
+        box-shadow: none;
+        border-color: var(--primary-color);
+    } 
 }
-.form-control:focus {
+
+select.form-control {
     border-top-style: none;
     border-left-style: none;
     border-right-style: none;
-    box-shadow: none;
-    border-color: var(--primary-color);
-}
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
 
 /* button */
 .btn {

@@ -12231,6 +12231,7 @@ body.modal-open .mm-slideout {
   /** Color **/
   --primary-color: #FF2B45;
   --secondary-color: #FFF9EA;
+  --tertiary-color: #11213F;
   --color-black: #000;
   --color-white: #fff;
   --primary-grey-light: #DFDFDF;
@@ -12458,6 +12459,14 @@ figure {
   border-color: var(--primary-color);
 }
 
+select.form-control {
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
 /* button */
 .btn {
   border-radius: 30px;
@@ -12497,8 +12506,9 @@ figure {
   padding-left: 40px;
 }
 
-.card-title h3 {
+.card-title h4 {
   color: var(--color-white);
+  margin-bottom: 0;
 }
 
 .card-content {
@@ -12508,6 +12518,13 @@ figure {
   -webkit-box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
   margin-bottom: 13px;
+}
+
+.card-content .required {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
+  vertical-align: middle;
 }
 
 .card-search {
@@ -12560,7 +12577,7 @@ figure {
 
 .nav-pills .nav-link {
   font-size: 17px;
-  color: #CCCCCC;
+  color: var(--color-black);
   text-transform: uppercase;
   border-width: 1px;
   border-style: solid;
@@ -12593,7 +12610,45 @@ figure {
   font-weight: 300;
 }
 
+.card-title.return {
+  padding-left: 0;
+}
+
+.card-title.return a {
+  color: var(--color-white);
+  font-size: 30px;
+}
+
+.card-title.return a:hover {
+  text-decoration: none;
+}
+
+.card-title.return a span {
+  display: inline-block;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.card-title.return a:hover span {
+  -webkit-transform: translateX(-7px);
+          transform: translateX(-7px);
+}
+
+.card-title.configure {
+  padding-left: 0;
+}
+
+.card-title.configure .icon-cog {
+  color: var(--color-white);
+  font-size: 28px;
+}
+
+.card-title.configure .dropdown-toggle::after {
+  color: var(--color-white);
+}
+
 /** layout **/
+/* s-mmenu */
 nav:not(.mm-menu) {
   display: none;
 }
@@ -12605,7 +12660,7 @@ nav:not(.mm-menu) {
 
 .header,
 .footer {
-  background: var(--primary-color);
+  background: var(--tertiary-color);
   font-size: 16px;
   font-weight: bold;
   color: #fff;
@@ -12666,13 +12721,22 @@ nav:not(.mm-menu) {
 .mm-navbar,
 .mm-panel,
 .mm-divider {
-  background: var(--primary-color);
+  background: var(--tertiary-color);
 }
 
 .mm-listitem {
   color: var(--color-white);
 }
 
+.mm-listitem:after {
+  border-color: #293753;
+}
+
+.mm-btn_next:after {
+  border-color: var(--color-white);
+}
+
+/* header */
 /** page **/
 /* home */
 .main-home .col-lg-6 {
@@ -12735,15 +12799,4 @@ nav:not(.mm-menu) {
 /* programacion docente */
 .table-content {
   overflow-x: scroll;
-}
-
-.card-title .configure::before {
-  font-family: 'Linearicons';
-  content: '\e672';
-  font-size: 28px;
-  color: var(--color-white);
-}
-
-.card-title .dropdown-toggle::after {
-  color: var(--color-white);
 }

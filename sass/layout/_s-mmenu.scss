@@ -1,3 +1,4 @@
+/* s-mmenu */
 nav:not(.mm-menu) {
 	display: none;
 }
@@ -8,7 +9,7 @@ nav:not(.mm-menu) {
 }
 .header,
 .footer {
-	background: var(--primary-color);
+	background: var(--tertiary-color);
 	font-size: 16px;
 	font-weight: bold;
 	color: #fff;
@@ -67,9 +68,15 @@ nav:not(.mm-menu) {
 .mm-navbar,
 .mm-panel,
 .mm-divider {
-    background: var(--primary-color);
+    background: var(--tertiary-color);
 }
 
 .mm-listitem {
     color: var(--color-white);
+}
+.mm-listitem:after {
+	border-color: #293753;
+}
+.mm-btn_next:after {
+	border-color: var(--color-white);
 }

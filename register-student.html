@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card-title d-flex align-items-center">
-                            <h3>Alumno</h3>
+                            <h4>Alumno</h4>
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -38,55 +38,52 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="name"><strong>Nombres</strong></label>
+                                            <label for="name"><strong>Nombres</strong><span class="required">*</span></label>
                                             <input type="text" class="form-control" id="name">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="lastName"><strong>Apellidos</strong></label>
+                                            <label for="lastName"><strong>Apellidos</strong><span class="required">*</span></label>
                                             <input type="text" class="form-control" id="lastName">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="typeDocument"><strong>Tipo Documento</strong></label>
+                                            <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
                                             <select name="" id="typeDocument" class="form-control">
                                                 <option value="">Partida de Nacimiento</option>
                                                 <option value="">Dni</option>
                                                 <option value="">Pasaporte</option>
+                                                <option value="">Ruc</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="numberDocument"><strong>Número Documento</strong></label>
+                                            <label for="numberDocument"><strong>Número Documento</strong><span class="required">*</span></label>
                                             <input type="text" class="form-control" id="numberDocument">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="email"><strong>Correo</strong></label>
+                                            <label for="email"><strong>Correo</strong><span class="required">*</span></label>
                                             <input type="email" class="form-control" id="email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="curse"><strong>Fecha de Nacimiento</strong></label>
-                                            <select name="" id="curse" class="form-control">
-                                                <option value="">Analisis y Diseño</option>
-                                                <option value="">SQL Server</option>
-                                                <option value="">Desarrollo Frontend</option>
-                                            </select>
+                                            <label for="birthdate"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
+                                            <input type="date" class="form-control" id="birthdate">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="typeInstitution"><strong>Tipo Institución</strong></label>
+                                            <label for="typeInstitution"><strong>Tipo Institución</strong><span class="required">*</span></label>
                                             <select name="" id="typeInstitution" class="form-control">
                                                 <option value="">Universidad</option>
                                                 <option value="">Instituto</option>
@@ -96,13 +93,13 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="nameInstitution"><strong>Nombre Institución</strong></label>
+                                            <label for="nameInstitution"><strong>Nombre Institución</strong><span class="required">*</span></label>
                                             <input type="text" class="form-control" id="nameInstitution">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="department"><strong>Departamento</strong></label>
+                                            <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
                                             <select name="" id="Department" class="form-control">
                                                 <option value="">Lima</option>
                                             </select>
@@ -110,7 +107,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="province"><strong>Provincia</strong></label>
+                                            <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
                                             <select name="" id="Province" class="form-control">
                                                 <option value="">Huaura</option>
                                             </select>
@@ -118,7 +115,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="district"><strong>Distrito</strong></label>
+                                            <label for="district"><strong>Distrito</strong><span class="required">*</span></label>
                                             <select name="" id="district" class="form-control">
                                                 <option value="">Huacho</option>
                                             </select>
@@ -126,20 +123,20 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="address"><strong>Dirección</strong></label>
+                                            <label for="address"><strong>Dirección</strong><span class="required">*</span></label>
                                             <input type="text" class="form-control" id="address">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1"><strong>Genero</strong></label>
+                                            <label for="gender"><strong>Género</strong><span class="required">*</span></label>
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="" checked>
+                                                    <label class="form-check-label" for="inlineRadio1" checked>Masculino</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="">
                                                     <label class="form-check-label" for="inlineRadio2">Femenino</label>
                                                 </div>
                                             </div>
@@ -147,7 +144,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="phone1"><strong>Teléfono 1</strong></label>
+                                            <label for="phone1"><strong>Teléfono 1</strong><span class="required">*</span></label>
                                             <input type="text" class="form-control" id="phone1">
                                         </div>
                                     </div>
@@ -170,8 +167,8 @@
         </div>
         <nav id="menu">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><span>About us</span>
+                <li><a href="#">Perfil</a></li>
+                <li><span>Cursos</span>
                     <ul>
                         <li><a href="#about/history">History</a></li>
                         <li><span>The team</span>
@@ -184,11 +181,7 @@
                         <li><a href="#about/address">Our address</a></li>
                     </ul>
                 </li>
-                <li><a href="#contact">Contact</a></li>
-
-                <li class="Divider">Other demos</li>
-                <li><a href="advanced.html">Advanced demo</a></li>
-                <li><a href="onepage.html">One page demo</a></li>
+                <li><a href="#">Pagos</a></li>
             </ul>
         </nav>
     </div>
