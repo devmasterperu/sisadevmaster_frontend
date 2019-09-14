@@ -7,7 +7,7 @@ a {
 a,
 a:link,
 a:hover {
-    color: --color-black;
+    color: var(--color-black);
 }
 a:hover,
 a:active {

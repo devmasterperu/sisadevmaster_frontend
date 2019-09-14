@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="card-title d-flex align-items-center">
-                                    <h3>Asistencia</h3>
+                                    <h4>Calificación</h4>
                                 </div>
                             </div>
                         </div>
@@ -48,17 +48,14 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="date"><strong>Fecha</strong></label>
-                                            <input type="date" class="form-control" id="date">
+                                            <label for="nameQualification"><strong>Nombre</strong></label>
+                                            <input type="text" class="form-control" id="nameQualification" placeholder="Ejm. E.V. 1">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="payment"><strong>Modo de Pago</strong></label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                            </div>
+                                            <label for="weight"><strong>Peso %</strong></label>
+                                            <input type="text" class="form-control" id="weight" placeholder="30">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 d-flex justify-content-end">
@@ -70,21 +67,25 @@
                                 <table class="table table-striped u-margin-top-small">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Peso %</th>
                                             <th scope="col">Accción</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="row">dd/mm/yyyy</td>
+                                            <th scope="row">P.V. 1</th>
+                                            <td>50</td>
                                             <td><a  href="#"><span class="icon-cross2"></span></a></td>
                                         </tr>
                                         <tr>
-                                            <td scope="row">dd/mm/yyyy</td>
+                                            <th scope="row">P.V. 2</th>
+                                            <td>30</td>
                                             <td><a  href="#"><span class="icon-cross2"></span></a></td>
                                         </tr>
                                         <tr>
-                                            <td scope="row">dd/mm/yyyy</td>
+                                            <th scope="row">P.F. 3</th>
+                                            <td>20</td>
                                             <td><a  href="#"><span class="icon-cross2"></span></a></td>
                                         </tr>
                                     </tbody>

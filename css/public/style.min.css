@@ -12422,7 +12422,7 @@ a {
 a,
 a:link,
 a:hover {
-  color: --color-black;
+  color: var(--color-black);
 }
 
 a:hover,
@@ -12645,6 +12645,49 @@ select.form-control {
 
 .card-title.configure .dropdown-toggle::after {
   color: var(--color-white);
+}
+
+.card-content.curse {
+  display: block;
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  -webkit-box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-content.curse .curse__hover {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+}
+
+.card-content.curse .curse__img {
+  visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 235px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card-content.curse .curse__info {
+  z-index: 2;
+  background-color: #fff;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 16px 24px 24px 24px;
 }
 
 /** layout **/

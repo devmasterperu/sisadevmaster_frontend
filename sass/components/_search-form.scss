@@ -6,32 +6,31 @@
     margin-bottom: 13px;
     padding-left: 40px;
     padding-right: 40px;
-}
-.card-search .form-group {
-    margin-bottom: 0;
-}
-.card-search form {
-    width: 100%;
-    
-}
-.card-search input[type="search"] {
-    padding-right: 40px;
-    border-color: var(--primary-grey-light);
-    border-radius: 30px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-}
-.card-search .form-group {
-    position: relative;
-}
-.card-search .form-group::before {
-    font-family: "Linearicons";
-    content: "\e922";
-    color: red;
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    font-size: 22px;
+    .form-group {
+        margin-bottom: 0;
+    }
+    form {
+        width: 100%;    
+    }
+    input[type="search"] {
+        padding-right: 40px;
+        border-color: var(--primary-grey-light);
+        border-radius: 30px;
+        border-top-style: solid;
+        border-left-style: solid;
+        border-right-style: solid;
+    }
+    .form-group {
+        position: relative;
+    }
+    .form-group::before {
+        font-family: "Linearicons";
+        content: "\e922";
+        color: red;
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        font-size: 22px;
+    }
 }
