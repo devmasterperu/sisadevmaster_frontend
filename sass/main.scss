@@ -1,5 +1,7 @@
-/*+ bootstrap **/
+/** bootstrap **/
 @import "base/bootstrap";
+/** magnific popup **/
+@import "base/magnific-popup";
 /** mmenu **/
 @import "base/mmenu";
 
@@ -15,6 +17,7 @@
 @import "base/link";
 @import "base/media";
 @import "base/form-control";
+@import "base/table";
 @import "base/utilities";
 /** components **/
 @import "components/bg-video";
@@ -25,6 +28,7 @@
 @import "components/card-title-return";
 @import "components/card-title-config";
 @import "components/card-content-curse";
+@import "components/btn-icon";
 /** layout **/
 @import "layout/s-mmenu";
 // @import "layout/grid";
