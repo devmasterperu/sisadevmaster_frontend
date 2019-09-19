@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-register-usuario',
+  selector: 'app-register-student',
   templateUrl: './register-student.component.html'
 })
 
-export class RegisterUsuarioComponent {
-  title = '';
+export class RegisterStudentComponent {
+
 }
