@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/** bootstrap **/
+
+@import "sass/base/bootstrap";
+
+/** magnific popup **/
+
+@import "sass/base/magnific-popup";
+
+/** mmenu **/
+
+@import "sass/base/mmenu";
+
+/** abstracts **/
+
+@import "sass/abstracts/functions";
+@import "sass/abstracts/mixins";
+@import "sass/abstracts/variables";
+
+/** base **/
+
+@import "sass/base/keyframes";
+@import "sass/base/base";
+@import "sass/base/typography";
+@import "sass/base/list";
+@import "sass/base/link";
+@import "sass/base/media";
+@import "sass/base/form-control";
+@import "sass/base/table";
+@import "sass/base/utilities";
+
+/** components **/
+
+@import "sass/components/bg-video";
+@import "sass/components/card-title";
+@import "sass/components/card-content";
+@import "sass/components/search-form";
+@import "sass/components/tabs";
+@import "sass/components/card-title-return";
+@import "sass/components/card-title-config";
+@import "sass/components/card-content-curse";
+@import "sass/components/btn-icon";
+
+/** layout **/
+
+@import "sass/layout/s-mmenu";
+// @import "layout/grid";
+@import "sass/layout/header";
+// @import "layout/navigation";
+
+/** page **/
+
+@import "sass/pages/home";
+@import "sass/pages/programing-teacher";
