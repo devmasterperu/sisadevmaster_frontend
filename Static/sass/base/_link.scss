@@ -1,0 +1,16 @@
+/**************************
+LINKS
+**************************/
+a {
+    text-decoration: none;  
+}
+a,
+a:link,
+a:hover {
+    color: var(--color-black);
+}
+a:hover,
+a:active {
+    text-decoration: underline;
+    outline: 0; 
+}
