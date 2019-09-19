@@ -9,6 +9,6 @@ import { RegisterTeacherComponent } from './components/register-teacher/register
 export const ROUTES: Routes = [
   { path: 'registroAlumno', component: RegisterStudentComponent },
   { path: 'registroDocente', component: RegisterTeacherComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'registroUsuario' },
-  { path: '**', pathMatch: 'full', redirectTo: 'registroUsuario' },
+  { path: '', pathMatch: 'full', redirectTo: 'registroAlumno' },
+  { path: '**', pathMatch: 'full', redirectTo: 'registroAlumno' },
 ];
