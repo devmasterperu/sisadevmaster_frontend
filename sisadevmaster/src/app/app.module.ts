@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
+import { ListStudentComponent } from './components/list-student/list-student.component';
 
 
 // importando rutas
@@ -22,7 +23,8 @@ import { ROUTES } from './app.routes';
     HeaderComponent,
     MenuComponent,
     RegisterStudentComponent,
-    RegisterTeacherComponent
+    RegisterTeacherComponent,
+    ListStudentComponent
   ],
   imports: [
     BrowserModule,
