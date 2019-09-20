@@ -6,6 +6,7 @@ import { RegisterTeacherComponent } from './components/register-teacher/register
 import { ListStudentComponent } from './components/list-student/list-student.component';
 import { ProgrammingCurseComponent } from './components/programming-curse/programming-curse.component';
 import { CurseComponent } from './components/curse/curse.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 // para cualquier ruta (path: ''), me redireccionara al registroUsuario
 export const ROUTES: Routes = [
@@ -14,6 +15,7 @@ export const ROUTES: Routes = [
   { path: 'listar_alumnos', component: ListStudentComponent },
   { path: 'programacion_curso', component: ProgrammingCurseComponent },
   { path: 'cursos', component: CurseComponent },
+  { path: 'inscripcion', component: InscriptionComponent },
   { path: '', pathMatch: 'full', redirectTo: 'registro_alumno' },
   { path: '**', pathMatch: 'full', redirectTo: 'registro_alumno' },
 ];
