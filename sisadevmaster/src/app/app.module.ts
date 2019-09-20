@@ -20,6 +20,7 @@ import { RegisterStudentComponent } from './components/register-student/register
 import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
 import { ListStudentComponent } from './components/list-student/list-student.component';
 import { ProgrammingCurseComponent } from './components/programming-curse/programming-curse.component';
+import { CurseComponent } from './components/curse/curse.component';
 
 
 // importando rutas
@@ -37,7 +38,8 @@ import { StudentService } from './services/student.service';
     RegisterStudentComponent,
     RegisterTeacherComponent,
     ListStudentComponent,
-    ProgrammingCurseComponent
+    ProgrammingCurseComponent,
+    CurseComponent
   ],
   imports: [
     BrowserModule,
