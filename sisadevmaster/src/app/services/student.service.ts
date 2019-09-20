@@ -13,10 +13,6 @@ export class StudentService {
   }
 
   getListStudent() {
-    this.http
-            .get('https://devmasterwebapi.azurewebsites.net/api/Users')
-            .subscribe(resp => {
-              console.log(resp);
-            });
+    return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Users');
   }
 }
