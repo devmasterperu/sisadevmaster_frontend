@@ -9,10 +9,10 @@ import { ProgrammingCurseComponent } from './components/programming-curse/progra
 
 // para cualquier ruta (path: ''), me redireccionara al registroUsuario
 export const ROUTES: Routes = [
-  { path: 'registroAlumno', component: RegisterStudentComponent },
-  { path: 'registroDocente', component: RegisterTeacherComponent },
-  { path: 'listarAlumnos', component: ListStudentComponent },
-  { path: 'programacion-curso', component: ProgrammingCurseComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'registroAlumno' },
-  { path: '**', pathMatch: 'full', redirectTo: 'registroAlumno' },
+  { path: 'registro_alumno', component: RegisterStudentComponent },
+  { path: 'registro_docente', component: RegisterTeacherComponent },
+  { path: 'listar_alumnos', component: ListStudentComponent },
+  { path: 'programacion_curso', component: ProgrammingCurseComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'registro_alumno' },
+  { path: '**', pathMatch: 'full', redirectTo: 'registro_alumno' },
 ];
