@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+/*
+  Para trabajar con formularios
+*/
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
@@ -14,8 +18,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 /* componentes agregados */
-import { HeaderComponent } from './components/header/header.component';
-import { MenuComponent } from './components/menu/menu.component';
+// import { HeaderComponent } from './components/header/header.component';
+// import { MenuComponent } from './components/menu/menu.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
 import { ListStudentComponent } from './components/list-student/list-student.component';
@@ -34,8 +38,8 @@ import { StudentService } from './services/student.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    MenuComponent,
+    // HeaderComponent,
+    // MenuComponent,
     RegisterStudentComponent,
     RegisterTeacherComponent,
     ListStudentComponent,
@@ -46,6 +50,7 @@ import { StudentService } from './services/student.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot( ROUTES, { useHash: true } )
   ],

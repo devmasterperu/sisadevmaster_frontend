@@ -1,3 +1,12 @@
+.form-group {
+    >span {
+        display: block;
+        margin-top: 5px;
+        font-size: 15px;
+        color: var(--primary-color);
+    }
+}
+
 .form-control {
     border-top-style: none;
     border-left-style: none;
@@ -9,7 +18,7 @@
         border-right-style: none;
         box-shadow: none;
         border-color: var(--primary-color);
-    } 
+    }
 }
 
 select.form-control {
@@ -18,22 +27,26 @@ select.form-control {
     border-right-style: none;
     border-radius: 0;
     -webkit-appearance: none;
-  }
+}
 
 
 /* button */
+
 .btn {
     border-radius: 30px;
     padding: 11px 20px;
 }
+
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
+
 .btn-primary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
+
 .btn-primary:not(:disabled):not(.disabled):active {
     background-color: var(--primary-color);
     border-color: var(--primary-color);

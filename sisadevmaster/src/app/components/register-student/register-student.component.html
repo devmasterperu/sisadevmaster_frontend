@@ -1,138 +1,201 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card-title d-flex align-items-center">
-                <h4>Alumno</h4>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card-title d-flex align-items-center">
+        <h4>Alumno</h4>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="card-content">
+        <form (ngSubmit)="registerStudent(formRegisterStudent)" #formRegisterStudent="ngForm" novalidate="" action=""
+          method="">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="name"><strong>Nombres</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="usuario.name" minlength="3"
+                  #varName="ngModel" autofocus required>
+                <span *ngIf="varName.errors?.required">
+                  Campo obligatorio
+                </span>
+                <span *ngIf="varName.errors?.minlength">
+                  Requiere de al menos {{ varName.errors.minlength.requiredLength }} caracteres
+                </span>
+              </div>
             </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="card-content">
-                <form action="" method="" autocomplete="off">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="name"><strong>Nombres</strong><span class="required">*</span></label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                        </div>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="lastName"><strong>Apellidos</strong><span class="required">*</span></label>
-                                <input type="text" class="form-control" id="lastName">
-                            </div>
-                        </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="lastName"><strong>Apellidos</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="usuario.lastname"
+                  minlength="3" #varLastName="ngModel" required>
+                <span *ngIf="varLastName.errors?.required">
+                  Campo obligatorio
+                </span>
+                <span *ngIf="varLastName.errors?.minlength">
+                  Requiere de al menos {{ varLastName.errors.minlength.requiredLength }} caracteres
+                </span>
+              </div>
+            </div>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
-                                <select name="" id="typeDocument" class="form-control">
-                  <option value="">Partida de Nacimiento</option>
-                  <option value="">Dni</option>
-                  <option value="">Pasaporte</option>
-                  <option value="">Ruc</option>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
+                <select class="form-control" id="typeDocument" name="typeDocument" [(ngModel)]="usuario.typeDocument"
+                  required>
+                  <option *ngFor="let item of typeDocument" [value]="item.code">{{ item.name }}</option>
                 </select>
-                            </div>
-                        </div>
+              </div>
+            </div>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="numberDocument"><strong>Número Documento</strong><span class="required">*</span></label>
-                                <input type="text" class="form-control" id="numberDocument">
-                            </div>
-                        </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="numberDocument"><strong>Número Documento</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="numberDocument" name="NumberDocument"
+                  [(ngModel)]="usuario.numberDocument" minlength="7" pattern="[0-9]{1,9}" #varTypeDocument="ngModel"
+                  required>
+                <span *ngIf="varTypeDocument.errors?.required">
+                  Campo obligatorio
+                </span>
+                <span *ngIf="varTypeDocument.errors?.pattern">
+                  Solo números
+                </span>
+                <span *ngIf="varTypeDocument.errors?.minlength">
+                  Requiere de al menos {{ varTypeDocument.errors.minlength.requiredLength }} caracteres
+                </span>
+              </div>
+            </div>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="email"><strong>Correo</strong><span class="required">*</span></label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="birthdate"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
-                                <input type="date" class="form-control" id="birthdate">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="typeInstitution"><strong>Tipo Institución</strong><span class="required">*</span></label>
-                                <select name="" id="typeInstitution" class="form-control">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="email"><strong>Correo</strong><span class="required">*</span></label>
+                <input type="email" class="form-control" id="email" name="Email" [(ngModel)]="usuario.email"
+                  #varEmail="ngModel" required>
+                <span *ngIf="varEmail.errors?.required">
+                  Campo obligatorio
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="birthdate"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
+                <input type="date" class="form-control" id="birthdate" name="Birthdate" [(ngModel)]="usuario.birthdate"
+                  #varBirthdate="ngModel" required>
+                <span *ngIf="varBirthdate.errors?.required">
+                  Campo obligatorio
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="typeInstitution"><strong>Tipo Institución</strong><span class="required">*</span></label>
+                <select name="" id="typeInstitution" class="form-control">
                   <option value="">Universidad</option>
                   <option value="">Instituto</option>
                   <option value="">Cepro</option>
                 </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="nameInstitution"><strong>Nombre Institución</strong><span class="required">*</span></label>
-                                <input type="text" class="form-control" id="nameInstitution">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
-                                <select name="" id="Department" class="form-control">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="nameInstitution"><strong>Nombre Institución</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="nameInstitution" name="NameInstitution"
+                  [(ngModel)]="usuario.nameInstitution" minlength="3" #varNameInstitution="ngModel" required>
+                <span *ngIf="varNameInstitution.errors?.required">
+                  Campo obligatorio
+                </span>
+                <span *ngIf="varNameInstitution.errors?.minlength">
+                  Requiere de al menos {{ varNameInstitution.errors.minlength.requiredLength }} caracteres
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
+                <select name="" id="Department" class="form-control">
                   <option value="">Lima</option>
                 </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
-                                <select name="" id="Province" class="form-control">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
+                <select name="" id="Province" class="form-control">
                   <option value="">Huaura</option>
                 </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="district"><strong>Distrito</strong><span class="required">*</span></label>
-                                <select name="" id="district" class="form-control">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="district"><strong>Distrito</strong><span class="required">*</span></label>
+                <select name="" id="district" class="form-control">
                   <option value="">Huacho</option>
                 </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="address"><strong>Dirección</strong><span class="required">*</span></label>
-                                <input type="text" class="form-control" id="address">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="gender"><strong>Género</strong><span class="required">*</span></label>
-                                <div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="" checked>
-                                        <label class="form-check-label" for="inlineRadio1" checked>Masculino</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="">
-                                        <label class="form-check-label" for="inlineRadio2">Femenino</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="phone1"><strong>Teléfono 1</strong><span class="required">*</span></label>
-                                <input type="text" class="form-control" id="phone1">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="phone2"><strong>Teléfono 2</strong></label>
-                                <input type="text" class="form-control" id="phone2">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">Registrar</button>
-                        </div>
-                    </div>
-                </form>
+              </div>
             </div>
-        </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="address"><strong>Dirección</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="address" name="Address" [(ngModel)]="usuario.address"
+                  minlength="3" #varAddress="ngModel" required>
+                <span *ngIf="varAddress.errors?.required">
+                  Campo obligatorio
+                </span>
+                <span *ngIf="varAddress.errors?.minlength">
+                  Requiere de al menos {{ varAddress.errors.minlength.requiredLength }} caracteres
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="gender"><strong>Género</strong><span class="required">*</span></label>
+                <div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="genderMale" name="gender"
+                      [(ngModel)]="usuario.gender" value="Male" checked>
+                    <label class="form-check-label" for="genderMale" checked>Masculino</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="genderFemale" name="gender"
+                      [(ngModel)]="usuario.gender" value="Female">
+                    <label class="form-check-label" for="genderFemale">Femenino</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="phone1"><strong>Teléfono 1</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="phone1" name="phone1" [(ngModel)]="usuario.phone1"
+                  minlength="7" pattern="[0-9]{1,7}" #varPhone1="ngModel" required>
+
+                <span *ngIf="varPhone1.errors?.required">
+                  Campo obligatorio
+                </span>
+                <span *ngIf="varPhone1.errors?.pattern">
+                  solo numeros
+                </span>
+                <span *ngIf="varPhone1.errors?.minlength">
+                  Requiere de al menos {{ varPhone1.errors.minlength.requiredLength }} caracteres
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="phone2"><strong>Teléfono 2</strong></label>
+                <input type="text" class="form-control" id="phone2">
+              </div>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary" [disabled]="!formRegisterStudent.valid">Registrar</button>
+            </div>
+          </div>
+        </form>
+
+        <pre>
+          {{ usuario | json }}
+        </pre>
+      </div>
     </div>
+  </div>
 </div>
