@@ -1,0 +1,175 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="card-title d-flex align-items-center">
+                        <h4>Curso</h4>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card-title configure d-flex justify-content-center align-items-center">
+
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="http://localhost:4200/#/configurar_calificacion">Config.
+                                Calificación</a>
+                            <a class="dropdown-item" href="http://localhost:4200/#/configurar_asistencia">Config.
+                                Asistencia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card-content">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#home">Notas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#menu1">Asistencia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#menu2">Pagos</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane container active" id="home">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Alumno</th>
+                                        <th scope="col">E.V. 1</th>
+                                        <th scope="col">E.V. 2</th>
+                                        <th scope="col">Trabajo</th>
+                                        <th scope="col">Promedio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Diego Peña Carrillo</th>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                        <th scope="row">15</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sergio Pastor Tantalean</th>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                        <th scope="row">15</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Eder Zorrilla Blas</th>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                        <th scope="row">15</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane container fade" id="menu1">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Alumno</th>
+                                        <th scope="col">dd/mm</th>
+                                        <th scope="col">dd/mm</th>
+                                        <th scope="col">dd/mm</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Diego Peña Carrillo</th>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sergio Pastor Tantalean</th>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Eder Zorrilla Blas</th>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane container fade" id="menu2">
+                            <form action="" method="" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="curse"><strong>Curso</strong></label>
+                                            <input type="text" class="form-control" id="curse">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="payment"><strong>Const. de Pago</strong></label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input"
+                                                    id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose
+                                                    file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="payment"><strong>Monto</strong></label>
+                                            <input type="text" class="form-control" id="payment">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Registrar</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Monto</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Archivo</th>
+                                        <th scope="col">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>SQL SERVER</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href=""><span class="icon-download2"></span></a></td>
+                                        <td><a href=""><span class="icon-cross"></span></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Análisis y Diseño</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href=""><span class="icon-download2"></span></a></td>
+                                        <td><a href=""><span class="icon-cross"></span></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

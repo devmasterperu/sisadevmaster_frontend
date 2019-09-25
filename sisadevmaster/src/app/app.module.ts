@@ -20,13 +20,20 @@ import { AppComponent } from './app.component';
 /* componentes agregados */
 // import { HeaderComponent } from './components/header/header.component';
 // import { MenuComponent } from './components/menu/menu.component';
-import { RegisterStudentComponent } from './components/register-student/register-student.component';
-import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
-import { ListStudentComponent } from './components/list-student/list-student.component';
-import { ProgrammingCurseComponent } from './components/programming-curse/programming-curse.component';
-import { CurseComponent } from './components/curse/curse.component';
-import { InscriptionComponent } from './components/inscription/inscription.component';
-
+/* Componentes Admin */
+import { InscriptionComponent } from './components/admin/inscription/inscription.component';
+/* Componentes Student */
+import { RegisterStudentComponent } from './components/student/register-student/register-student.component';
+import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
+import { ListStudentComponent } from './components/student/list-student/list-student.component';
+import { PerfilComponent } from './components/student/perfil/perfil.component';
+/* Componentes Teacher */
+import { RegisterTeacherComponent } from './components/teacher/register-teacher/register-teacher.component';
+import { ProgrammingCurseComponent } from './components/teacher/programming-curse/programming-curse.component';
+import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teacher.component';
+import { ConfigCurseComponent } from './components/teacher/config-curse/config-curse.component';
+import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
+import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 
 // importando rutas
 import { ROUTES } from './app.routes';
@@ -42,10 +49,15 @@ import { StudentService } from './services/student.service';
     // MenuComponent,
     RegisterStudentComponent,
     RegisterTeacherComponent,
+    PerfilTeacherComponent,
+    ConfigQualificationComponent,
+    ConfigAssistanceComponent,
+    ConfigCurseComponent,
     ListStudentComponent,
     ProgrammingCurseComponent,
-    CurseComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    PerfilComponent,
+    EditStudentComponent
   ],
   imports: [
     BrowserModule,
