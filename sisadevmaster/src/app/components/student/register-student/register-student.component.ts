@@ -23,23 +23,23 @@ export class RegisterStudentComponent {
     gender: null
   };
 
-  typeDocument = [{
-    code: 1,
-    name: 'DNI'
-  },
-  {
-    code: 2,
-    name: 'PARTIDA DE NACIMIENTO'
-  },
-  {
-    code: 3,
-    name: 'LIBRETA ELECTORAL'
-  },
-  {
-    code: 4,
-    name: 'RUC'
-  }
-];
+  // typeDocument = [{
+  //   code: 1,
+  //   name: 'DNI'
+  // },
+  // {
+  //   code: 2,
+  //   name: 'PARTIDA DE NACIMIENTO'
+  // },
+  // {
+  //   code: 3,
+  //   name: 'LIBRETA ELECTORAL'
+  // },
+  // {
+  //   code: 4,
+  //   name: 'RUC'
+  // }
+  // ];
 
   documentTypes: any[] = [];
   constructor( private documentTypesService:DocumentTypesService ) {

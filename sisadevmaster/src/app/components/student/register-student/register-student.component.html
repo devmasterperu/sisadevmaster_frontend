@@ -43,7 +43,7 @@
                 <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
                 <select class="form-control" id="typeDocument" name="typeDocument" [(ngModel)]="usuario.typeDocument"
                   required>
-                  <option *ngFor="let item of typeDocument" [value]="item.code">{{ item.name }}</option>
+                  <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}</option>
                 </select>
               </div>
             </div>
