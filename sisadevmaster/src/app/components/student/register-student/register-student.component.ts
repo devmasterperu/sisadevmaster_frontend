@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 // agregamos
 import { NgForm } from '@angular/forms';
+/* Para nuestro servicio */
+import { DocumentTypesService } from '../../../services/document-types.service';
 
 @Component({
   selector: 'app-register-student',
@@ -39,7 +41,15 @@ export class RegisterStudentComponent {
   }
 ];
 
-  constructor() { }
+  documentTypes: any[] = [];
+  constructor( private documentTypesService:DocumentTypesService ) {
+    this.documentTypesService
+                            .getListTypeServices()
+                            .subscribe( (data: any) => {
+                              this.documentTypes = data;
+                              console.log(this.documentTypes);
+                            });
+  }
 
   // este forma recuerda que esta colocado como ATRIBUTO de la etiqueta <form> #forma
   registerStudent( formRegisterStudent:NgForm ) {
