@@ -22,6 +22,7 @@ import { AppComponent } from './app.component';
 // import { MenuComponent } from './components/menu/menu.component';
 /* Componentes Admin */
 import { InscriptionComponent } from './components/admin/inscription/inscription.component';
+import { PerfilAdminComponent } from './components/admin/perfill/perfil-admin.component';
 /* Componentes Student */
 import { RegisterStudentComponent } from './components/student/register-student/register-student.component';
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
@@ -29,7 +30,7 @@ import { ListStudentComponent } from './components/student/list-student/list-stu
 import { PerfilComponent } from './components/student/perfil/perfil.component';
 /* Componentes Teacher */
 import { RegisterTeacherComponent } from './components/teacher/register-teacher/register-teacher.component';
-import { ProgrammingCurseComponent } from './components/teacher/programming-curse/programming-curse.component';
+import { ProgrammingCurseComponent } from './components/admin/programming-curse/programming-curse.component';
 import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teacher.component';
 import { ConfigCurseComponent } from './components/teacher/config-curse/config-curse.component';
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
@@ -56,6 +57,7 @@ import { StudentService } from './services/student.service';
     ListStudentComponent,
     ProgrammingCurseComponent,
     InscriptionComponent,
+    PerfilAdminComponent,
     PerfilComponent,
     EditStudentComponent
   ],
