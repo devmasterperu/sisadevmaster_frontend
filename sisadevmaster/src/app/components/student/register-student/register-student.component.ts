@@ -1,9 +1,10 @@
+import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
 // agregamos
 import { NgForm } from '@angular/forms';
 /* Para nuestro servicio */
 import { DocumentTypesService } from '../../../services/document-types.service';
-
+import { UbigeoService } from '../../../services/ubigeo.service';
 import { StudentService } from '../../../services/student.service';
 
 @Component({
@@ -44,30 +45,54 @@ export class RegisterStudentComponent {
   // ];
 
   documentTypes: any[] = [];
-  constructor( private documentTypesService:DocumentTypesService, private _studentService:StudentService ) {
-    this.documentTypesService
+  dataDepartament: any[] = [];
+  dataProvince: any;
+  dataDistrict: any;
+
+  constructor( private _documentTypesService:DocumentTypesService, private _ubigeoService:UbigeoService, private _studentService:StudentService ) {
+    this._documentTypesService
                             .getListTypeServices()
                             .subscribe( (data: any) => {
                               this.documentTypes = data;
-                              console.log(this.documentTypes);
                             });
-  }
 
-  // este forma recuerda que esta colocado como ATRIBUTO de la etiqueta <form> #forma
-  // registerStudent( formRegisterStudent:NgForm ) {
-  //   console.log('Formulario Posteado');
-  //   console.log(formRegisterStudent);
-  //   console.log('NgForm ', formRegisterStudent);
-  //   console.log('Valor Forma ', formRegisterStudent.value);
-  //   console.log('Usuario ', this.usuario);
-  // }
+    this._ubigeoService
+                      .getListUbigeoDepartament()
+                      .subscribe( (data: any) => {
+                        this.dataDepartament = data;
+                      });
+  }
 
   /* formRegisterStudent which we have received from the registration form. */
   registerStudent(formRegisterStudent) {
     // console.log(formRegisterStudent.value);
-    this._studentService.postRegisterStudent()
-      .subscribe((resp) => {
-        console.log(resp);
-      });
+    this._studentService
+                        .postRegisterStudent()
+                        .subscribe((resp) => {
+                          console.log(resp);
+                        });
+  }
+
+  /*
+  * ✅ For Dropdown Cascadin
+  */
+
+  // change select departament
+  changeDepartament(departamentId) {
+    this._ubigeoService
+                      .getListUbigeoProvince(departamentId)
+                      .subscribe(data => {
+                        this.dataProvince = data;
+                        // console.log(data);
+                      });
+  }
+
+  changeProvince(provinceId) {
+    this._ubigeoService
+                      .getListUbigeoDistrict(provinceId)
+                      .subscribe(data => {
+                        this.dataDistrict = data;
+                        // console.log(data);
+                      });
   }
 }

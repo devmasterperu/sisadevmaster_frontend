@@ -43,6 +43,7 @@
                 <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
                 <select class="form-control" id="typeDocument" name="typeDocument" [(ngModel)]="usuario.typeDocument"
                   required>
+                  <option value="" >Seleccione tipo documento</option>
                   <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}</option>
                 </select>
               </div>
@@ -112,16 +113,18 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
-                <select name="" id="Department" class="form-control">
-                  <option value="">Lima</option>
+                <select name="" id="Department" class="form-control" (change)="changeDepartament($event.target.value)">
+                  <option value="" >Seleccione Departamento</option>
+                  <option *ngFor="let item of dataDepartament"[value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
-                <select name="" id="Province" class="form-control">
-                  <option value="">Huaura</option>
+                <select name="" id="Province" class="form-control" (change)="changeProvince($event.target.value)">
+                  <option value="" >Seleccione Provincia</option>
+                  <option *ngFor="let item of dataProvince" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
             </div>
@@ -129,7 +132,8 @@
               <div class="form-group">
                 <label for="district"><strong>Distrito</strong><span class="required">*</span></label>
                 <select name="" id="district" class="form-control">
-                  <option value="">Huacho</option>
+                  <option value="" >Seleccione Distrito</option>
+                  <option *ngFor="let item of dataDistrict" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
             </div>
