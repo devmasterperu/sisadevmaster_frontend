@@ -8,3 +8,6 @@
 https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/proxy.md
 https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS
 2. https://lasseschultebraucks.com/angular/2018/02/28/dealing-cors-in-angular.html
+
+## Recuerda
+- toda importacion que termine en Module, debes agregador en imports.

@@ -10,6 +10,7 @@
         <form (ngSubmit)="registerStudent(formRegisterStudent)" #formRegisterStudent="ngForm" novalidate="" action=""
           method="">
           <div class="row">
+            <input type="text" class="form-control" name="userTypeId" value="3" [(ngModel)]="usuario.userTypeId"> <!-- userTypeId -->
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="name"><strong>Nombres</strong><span class="required">*</span></label>
@@ -27,7 +28,7 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="lastName"><strong>Apellidos</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="usuario.lastname"
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="usuario.lastName"
                   minlength="3" #varLastName="ngModel" required>
                 <span *ngIf="varLastName.errors?.required">
                   Campo obligatorio
@@ -40,8 +41,8 @@
 
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
-                <select class="form-control" id="typeDocument" name="typeDocument" [(ngModel)]="usuario.typeDocument"
+                <label for="documentTypeId"><strong>Tipo Documento</strong><span class="required">*</span></label>
+                <select class="form-control" id="documentTypeId" name="documentTypeId" [(ngModel)]="usuario.documentTypeId"
                   required>
                   <option value="" >Seleccione tipo documento</option>
                   <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}</option>
@@ -51,9 +52,9 @@
 
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="numberDocument"><strong>Número Documento</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="numberDocument" name="NumberDocument"
-                  [(ngModel)]="usuario.numberDocument" minlength="7" pattern="[0-9]{1,9}" #varTypeDocument="ngModel"
+                <label for="documentNumber"><strong>Número Documento</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="documentNumber" name="documentNumber"
+                  [(ngModel)]="usuario.documentNumber" minlength="7" pattern="[0-9]{1,9}" #varTypeDocument="ngModel"
                   required>
                 <span *ngIf="varTypeDocument.errors?.required">
                   Campo obligatorio
@@ -70,7 +71,7 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="email"><strong>Correo</strong><span class="required">*</span></label>
-                <input type="email" class="form-control" id="email" name="Email" [(ngModel)]="usuario.email"
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="usuario.email"
                   #varEmail="ngModel" required>
                 <span *ngIf="varEmail.errors?.required">
                   Campo obligatorio
@@ -79,8 +80,8 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="birthdate"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
-                <input type="date" class="form-control" id="birthdate" name="Birthdate" [(ngModel)]="usuario.birthdate"
+                <label for="dateOfBirth"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
+                <input type="datetime-local" class="form-control" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="usuario.dateOfBirth"
                   #varBirthdate="ngModel" required>
                 <span *ngIf="varBirthdate.errors?.required">
                   Campo obligatorio
@@ -90,18 +91,21 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="typeInstitution"><strong>Tipo Institución</strong><span class="required">*</span></label>
-                <select name="" id="typeInstitution" class="form-control">
-                  <option value="">Universidad</option>
-                  <option value="">Instituto</option>
-                  <option value="">Cepro</option>
+                <select name="organizationType" id="typeInstitution" class="form-control" [(ngModel)]="usuario.organizationType">
+                  <option value="0">Seleccione Institución</option>
+                  <option value="I">Instituto</option>
+                  <option value="C1">Colegio</option>
+                  <option value="C2">CETPRO</option>
+                  <option value="U">Universidad</option>
+                  <option value="O">Otro</option>
                 </select>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="nameInstitution"><strong>Nombre Institución</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="nameInstitution" name="NameInstitution"
-                  [(ngModel)]="usuario.nameInstitution" minlength="3" #varNameInstitution="ngModel" required>
+                <label for="organizationName"><strong>Nombre Institución</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="organizationName" name="organizationName"
+                  [(ngModel)]="usuario.organizationName" minlength="3" #varNameInstitution="ngModel" required>
                 <span *ngIf="varNameInstitution.errors?.required">
                   Campo obligatorio
                 </span>
@@ -114,8 +118,8 @@
               <div class="form-group">
                 <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
                 <select name="" id="Department" class="form-control" (change)="changeDepartament($event.target.value)">
-                  <option value="" >Seleccione Departamento</option>
-                  <option *ngFor="let item of dataDepartament"[value]="item.code">{{ item.name | lowercase }}</option>
+                  <option value="0" >Seleccione Departamento</option>
+                  <option *ngFor="let item of dataDepartament" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
             </div>
@@ -123,24 +127,24 @@
               <div class="form-group">
                 <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
                 <select name="" id="Province" class="form-control" (change)="changeProvince($event.target.value)">
-                  <option value="" >Seleccione Provincia</option>
+                  <option value="0" >Seleccione Provincia</option>
                   <option *ngFor="let item of dataProvince" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="district"><strong>Distrito</strong><span class="required">*</span></label>
-                <select name="" id="district" class="form-control">
-                  <option value="" >Seleccione Distrito</option>
+                <label for="locationId"><strong>Distrito</strong><span class="required">*</span></label>
+                <select name="locationId" id="locationId" class="form-control"  [(ngModel)]="usuario.locationId">
+                  <option value="0" >Seleccione Distrito</option>
                   <option *ngFor="let item of dataDistrict" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="address"><strong>Dirección</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="address" name="Address" [(ngModel)]="usuario.address"
+                <label for="homeAdress"><strong>Dirección</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="homeAdress" name="homeAdress" [(ngModel)]="usuario.homeAdress"
                   minlength="3" #varAddress="ngModel" required>
                 <span *ngIf="varAddress.errors?.required">
                   Campo obligatorio
@@ -156,12 +160,12 @@
                 <div>
                   <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" id="genderMale" name="gender"
-                      [(ngModel)]="usuario.gender" value="Male" checked>
+                      [(ngModel)]="usuario.gender" value="M" checked>
                     <label class="form-check-label" for="genderMale" checked>Masculino</label>
                   </div>
                   <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" id="genderFemale" name="gender"
-                      [(ngModel)]="usuario.gender" value="Female">
+                      [(ngModel)]="usuario.gender" value="F">
                     <label class="form-check-label" for="genderFemale">Femenino</label>
                   </div>
                 </div>
@@ -169,8 +173,8 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="phone1"><strong>Teléfono 1</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="phone1" name="phone1" [(ngModel)]="usuario.phone1"
+                <label for="phoneNumber1"><strong>Teléfono 1</strong><span class="required">*</span></label>
+                <input type="text" class="form-control" id="phoneNumber1" name="phoneNumber1" [(ngModel)]="usuario.phoneNumber1"
                   minlength="7" pattern="[0-9]{1,7}" #varPhone1="ngModel" required>
 
                 <span *ngIf="varPhone1.errors?.required">
@@ -186,8 +190,8 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="phone2"><strong>Teléfono 2</strong></label>
-                <input type="text" class="form-control" id="phone2">
+                <label for="phoneNumber2"><strong>Teléfono 2</strong></label>
+                <input type="text" class="form-control" id="phoneNumber2" name="phoneNumber2" [(ngModel)]="usuario.phoneNumber2">
               </div>
             </div>
             <div class="col-lg-12 d-flex justify-content-end">
