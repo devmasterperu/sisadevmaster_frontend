@@ -16,27 +16,42 @@
         </div>
         <div class="col-lg-12">
             <div class="card-content">
-                <form action="" method="" autocomplete="off">
+                <form action="" method="" (ngSubmit)="registerQualification(formRegisterQualification)" #formRegisterQualification="ngForm" novalidate="">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="nameQualification"><strong>Nombre</strong></label>
-                                <input type="text" class="form-control" id="nameQualification" placeholder="Ejm. E.V. 1">
+                                <label for="evaluationName"><strong>Nombre</strong></label>
+                                <input type="text" class="form-control" id="evaluationName" name="evaluationName" [(ngModel)]="qualification.evaluationName" #varEvaluationName="ngModel" minlength="3" autofocus placeholder="Ejm. E.V. 1" required>
+                                <span *ngIf="varEvaluationName.errors?.required">
+                                  Campo obligatorio
+                                </span>
+                                <span *ngIf="varEvaluationName.errors?.minlength">
+                                  Requiere de al menos {{ varEvaluationName.errors.minlength.requiredLength }} caracteres
+                                </span>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="weight"><strong>Peso %</strong></label>
-                                <input type="text" class="form-control" id="weight" placeholder="30">
+                                <label for="percentageValue"><strong>Peso %</strong></label>
+                                <input type="number" class="form-control" id="percentageValue" name="percentageValue" [(ngModel)]="qualification.percentageValue" #varPercentageValue="ngModel" placeholder="30" required>
+                                <span *ngIf="varPercentageValue.errors?.required">
+                                  Campo obligatorio
+                                </span>
+                                <span *ngIf="varPercentageValue.errors?.minlength">
+                                  Requiere de al menos {{ varPercentageValue.errors.minlength.requiredLength }} caracteres
+                                </span>
                             </div>
                         </div>
                         <div class="col-lg-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">Registrar</button>
+                            <button type="submit" class="btn btn-primary" [disabled]="!formRegisterQualification.valid">Registrar</button>
                         </div>
                     </div>
                 </form>
+                <pre>
+                  {{ qualification | json }}
+                </pre>
                 <!-- <div class="table-content"> -->
-                    <table class="table table-striped u-margin-top-small">
+                    <!-- <table class="table table-striped u-margin-top-small">
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
@@ -61,7 +76,7 @@
                                 <td><a  href="#"><span class="icon-cross2"></span></a></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 <!-- </div> -->
             </div>
         </div>
