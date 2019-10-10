@@ -41,6 +41,7 @@ import { ROUTES } from './app.routes';
 
 // servicios
 import { StudentService } from './services/student.service';
+import { TeacherService } from './services/teacher.service';
 
 // RouterModule.forRoot( ROUTES, { useHash: true } ) ✅ dentro de imports agregamos esa linea para el manejo de rutas
 @NgModule({
@@ -69,7 +70,8 @@ import { StudentService } from './services/student.service';
     RouterModule.forRoot( ROUTES, { useHash: true } )
   ],
   providers: [
-    StudentService
+    StudentService,
+    TeacherService
   ],
   bootstrap: [AppComponent]
 })
