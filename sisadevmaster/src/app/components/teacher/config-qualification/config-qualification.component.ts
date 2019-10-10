@@ -5,33 +5,32 @@ import { TeacherService } from '../../../services/teacher.service';
 
 @Component({
   selector: 'app-config-qualification',
-  templateUrl: './config-qualification.component.html',
-  styles: [
-    `
-    .ng-invalid.ng-touched:not(form) {
-      border-bottom-color: #FF2B45;
-    }
-    `
-  ]
+  templateUrl: './config-qualification.component.html'
 })
 
 export class ConfigQualificationComponent {
-  qualification:Object = {
-    evaluationName: null,
-    percentageValue: null
-  }
+
+  customer = {
+    "evaluationName": "Primer parcial",
+    "percentageValue":100
+  };
 
   /*
     ⚠️ Constructor
   */
-  constructor() {
-
+  constructor(private apiService:TeacherService) {
+    this.apiService
+    .createCustomer(this.customer)
+    .subscribe((res) => {
+        console.log(this.customer);
+        console.log("Created a customer");
+        console.log(res);
+    });
   }
 
   /*
   ✅ Formulario Calificación
   */
-  registerQualification(formRegisterQualification) {
-    console.log(formRegisterQualification);
-  }
+
+
 }

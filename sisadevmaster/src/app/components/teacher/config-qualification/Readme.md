@@ -9,6 +9,9 @@
 
 ## En el Componente
 1. qualification debe estar declarado ➡️ qualification:Object = {}
-2. crear la funcion que dispara el <form> ➡️ registerQualification(formRegisterQualification){}
-3. 
+2. crear la funcion que dispara el <form> ➡️ registerQualification(formRegisterQualification){ console.log(formRegisterQualification.value); }
+3. Crear el servicio **(Dentro del servicio teacher.service.ts)**
+4. Crear el método **(Dentro del servicio teacher.service.ts)**
+5. importar el modelo previamente creado
+
 - crear el modelo

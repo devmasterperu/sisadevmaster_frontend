@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="card-title return d-flex justify-content-center align-items-center">
+                        <a href="http://localhost:4200/#/configurar_curso"><span class="icon-arrow-left"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="card-title d-flex align-items-center">
+                        <h4>Calificación</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card-content">
+                <form action="" method="" (ngSubmit)="registerQualification(formRegisterQualification)" #formRegisterQualification="ngForm" novalidate="">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="evaluationName"><strong>Nombre</strong></label>
+                                <input type="text" class="form-control" id="evaluationName" name="evaluationName" [(ngModel)]="qualification.evaluationName" #varEvaluationName="ngModel" minlength="3" autofocus placeholder="Ejm. E.V. 1" required>
+                                <span *ngIf="varEvaluationName.errors?.required">
+                                  Campo obligatorio
+                                </span>
+                                <span *ngIf="varEvaluationName.errors?.minlength">
+                                  Requiere de al menos {{ varEvaluationName.errors.minlength.requiredLength }} caracteres
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="percentageValue"><strong>Peso %</strong></label>
+                                <input type="number" class="form-control" id="percentageValue" name="percentageValue" [(ngModel)]="qualification.percentageValue" #varPercentageValue="ngModel" placeholder="30" required>
+                                <span *ngIf="varPercentageValue.errors?.required">
+                                  Campo obligatorio
+                                </span>
+                                <span *ngIf="varPercentageValue.errors?.minlength">
+                                  Requiere de al menos {{ varPercentageValue.errors.minlength.requiredLength }} caracteres
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary" [disabled]="!formRegisterQualification.valid">Registrar</button>
+                        </div>
+                    </div>
+                </form>
+                <pre>
+                  {{ qualification | json }}
+                </pre>
+                <!-- <div class="table-content"> -->
+                    <!-- <table class="table table-striped u-margin-top-small">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Peso %</th>
+                                <th scope="col">Accción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">P.V. 1</th>
+                                <td>50</td>
+                                <td><a  href="#"><span class="icon-cross2"></span></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">P.V. 2</th>
+                                <td>30</td>
+                                <td><a  href="#"><span class="icon-cross2"></span></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">P.F. 3</th>
+                                <td>20</td>
+                                <td><a  href="#"><span class="icon-cross2"></span></a></td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</div>
