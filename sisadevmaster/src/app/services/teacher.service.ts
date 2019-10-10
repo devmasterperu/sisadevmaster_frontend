@@ -12,8 +12,6 @@ export class TeacherService {
   constructor(private http: HttpClient) {}
 
   public createCustomer(qualificationModel: QualificationModel) {
-    // JSON.stringify transformas de objeto a json
-    console.log('Desde servicio teacher **' + typeof(JSON.stringify(qualificationModel)));
     return this.http.post(`${this.apiURL}/QualificationSettings/`, qualificationModel);
   }
 }

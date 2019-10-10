@@ -23,7 +23,6 @@ export class ConfigQualificationComponent {
     .createCustomer(this.customer)
     .subscribe((res) => {
         console.log(this.customer);
-        console.log("Created a customer");
         console.log(res);
     });
   }
