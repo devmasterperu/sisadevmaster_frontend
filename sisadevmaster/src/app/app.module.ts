@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 *  Manejo de formularios
 */
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 /*
@@ -54,6 +55,7 @@ import { StudentService } from './services/student.service';
 import { TeacherService } from './services/teacher.service';
 
 // RouterModule.forRoot( ROUTES, { useHash: true } ) ✅ dentro de imports agregamos esa linea para el manejo de rutas
+// ⚠️ Eliminar en imports FormsModule, ya que estaremos trabajando con Reactive Forms Validation (Validación de formas reactivas) y no con ngForm
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +78,7 @@ import { TeacherService } from './services/teacher.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot( ROUTES, { useHash: true } )
   ],
