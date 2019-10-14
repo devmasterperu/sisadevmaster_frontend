@@ -1,11 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser'; /* 👶🏼 */
 import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module'; /* 👶🏼 */
+
 /*
-  Para trabajar con formularios
+*  Componente principal
+*/
+import { AppComponent } from './app.component'; /* 👶🏼 */
+
+/*
+*  Manejo rutas
+*/
+import { RouterModule } from '@angular/router';
+
+/*
+*  Manejo de formularios
 */
 import { FormsModule } from '@angular/forms';
 
-import { RouterModule } from '@angular/router';
 
 /*
   Para que no me salga el error No provider for HttpClient! #20355 (No esta en el curso)
@@ -13,11 +25,9 @@ import { RouterModule } from '@angular/router';
 */
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-/* componente principal */
-import { AppComponent } from './app.component';
-
-/* componentes agregados */
+/*
+*  Componentes añadidos
+*/
 // import { HeaderComponent } from './components/header/header.component';
 // import { MenuComponent } from './components/menu/menu.component';
 /* Componentes Admin */

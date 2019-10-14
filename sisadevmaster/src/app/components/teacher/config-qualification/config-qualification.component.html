@@ -16,18 +16,18 @@
       </div>
       <div class="col-lg-12">
           <div class="card-content">
-              <form action="" method="" novalidate="">
+              <form #myform="ngForm" (ngSubmit)="register(myform)" action="" method=""> <!--  novalidate="" -->
                   <div class="row">
                       <div class="col-lg-6">
                           <div class="form-group">
                               <label for="evaluationName"><strong>Nombre</strong></label>
-                              <input type="text" class="form-control" id="evaluationName" name="evaluationName" required>
+                              <input type="text" class="form-control" id="evaluationName" name="evaluationName" ngModel required>
                           </div>
                       </div>
                       <div class="col-lg-6">
                           <div class="form-group">
                               <label for="percentageValue"><strong>Peso %</strong></label>
-                              <input type="number" class="form-control" id="percentageValue" name="percentageValue" required>
+                              <input type="number" class="form-control" id="percentageValue" name="percentageValue" ngModel required>
                           </div>
                       </div>
                       <div class="col-lg-12 d-flex justify-content-end">
