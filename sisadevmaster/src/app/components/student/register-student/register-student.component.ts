@@ -1,7 +1,7 @@
-import { map } from 'rxjs/operators';
-import { Component } from '@angular/core';
-// agregamos
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core'; /* 👶🏼 */
+/* Para formularios */
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 /* Para nuestro servicio */
 import { DocumentTypesService } from '../../../services/document-types.service';
 import { UbigeoService } from '../../../services/ubigeo.service';
@@ -19,58 +19,74 @@ import { StudentService } from '../../../services/student.service';
   ]
 })
 
-export class RegisterStudentComponent {
-  usuario:Object = {
-    name: null,
-    typeDocument: 'TDM',
-    gender: null
-  };
-
-  // typeDocument = [{
-  //   code: 1,
-  //   name: 'DNI'
-  // },
+export class RegisterStudentComponent implements OnInit {
   // {
-  //   code: 2,
-  //   name: 'PARTIDA DE NACIMIENTO'
-  // },
-  // {
-  //   code: 3,
-  //   name: 'LIBRETA ELECTORAL'
-  // },
-  // {
-  //   code: 4,
-  //   name: 'RUC'
+  //   "name": "Juan",
+  //   "lastName": "Quinteros Velarde",
+  //   "documentTypeId": 1,
+  //   "documentNumber": "45896532",
+  //   "email": "abcd@gmail.com",
+  //   "dateOfBirth": "1993-12-14",
+  //   "organizationType": "ES",
+  //   "organizationName": "Organización",
+  //   "locationId": 3,
+  //   "homeAdress": "los cipreses",
+  //   "gender": "M",
+  //   "phoneNumber1": "999725485",
+  //   "phoneNumber2": "-",
+  //   "userTypeId": 2
   // }
-  // ];
+
+  registerStudentForm: FormGroup;
+  submitted = false;
 
   documentTypes: any[] = [];
   dataDepartament: any[] = [];
   dataProvince: any;
   dataDistrict: any;
 
-  constructor( private _documentTypesService:DocumentTypesService, private _ubigeoService:UbigeoService, private _studentService:StudentService ) {
-    this._documentTypesService
-                            .getListTypeServices()
-                            .subscribe( (data: any) => {
-                              this.documentTypes = data;
-                            });
+  /*
+  *  ✅ Constructor
+  */
+  constructor(  private formBuilder: FormBuilder,
+                private objDocumentTypesService: DocumentTypesService,
+                private objUbigeoService: UbigeoService,
+                private objStudentService: StudentService ) { }
 
-    this._ubigeoService
-                      .getListUbigeoDepartament()
-                      .subscribe( (data: any) => {
-                        this.dataDepartament = data;
-                      });
+  ngOnInit() {
+
+    this.registerStudentForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      documentTypeId: [2, Validators.required],
+      documentNumber: [, [Validators.required, Validators.pattern('[0-9]')]],
+      email: ['', [Validators.required, Validators.email]],
+      dateOfBirth: ['', Validators.required],
+      organizationType: ['', Validators.required],
+      organizationName: ['', Validators.required],
+      locationId: [3, Validators.required],
+      homeAdress: ['', Validators.required],
+      gender: ['', Validators.required],
+      phoneNumber1: ['', [Validators.required, Validators.pattern('[0-9]')]],
+      phoneNumber2: ['', Validators.required],
+      userTypeId: [2, Validators.required],
+    });
+
+    this.objDocumentTypesService
+                              .getListTypeServices()
+                              .subscribe( (data: any) => {
+                                this.documentTypes = data;
+                              });
+    this.objUbigeoService
+                        .getListUbigeoDepartament()
+                        .subscribe( (data: any) => {
+                          this.dataDepartament = data;
+                        });
   }
 
-  /* formRegisterStudent which we have received from the registration form. */
-  registerStudent(formRegisterStudent) {
-    // console.log(formRegisterStudent.value);
-    this._studentService
-                        .postRegisterStudent()
-                        .subscribe((resp) => {
-                          console.log(resp);
-                        });
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.registerStudentForm.controls;
   }
 
   /*
@@ -79,7 +95,7 @@ export class RegisterStudentComponent {
 
   // change select departament
   changeDepartament(departamentId) {
-    this._ubigeoService
+    this.objUbigeoService
                       .getListUbigeoProvince(departamentId)
                       .subscribe(data => {
                         this.dataProvince = data;
@@ -88,11 +104,25 @@ export class RegisterStudentComponent {
   }
 
   changeProvince(provinceId) {
-    this._ubigeoService
+    this.objUbigeoService
                       .getListUbigeoDistrict(provinceId)
                       .subscribe(data => {
                         this.dataDistrict = data;
                         // console.log(data);
                       });
+  }
+
+  /*
+  *  ✅ Formulario Registro Estudiante
+  */
+  onSubmitRegisterStudent() {
+    this.submitted = true;
+
+    this.objStudentService
+                        .postRegisterStudent(this.registerStudentForm.value)
+                        .subscribe((resp) => {
+                          console.log(this.registerStudentForm.value);
+                          console.log(resp);
+                        });
   }
 }

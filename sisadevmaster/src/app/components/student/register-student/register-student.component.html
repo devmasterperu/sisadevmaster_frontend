@@ -7,45 +7,48 @@
     </div>
     <div class="col-lg-12">
       <div class="card-content">
-        <form (ngSubmit)="registerStudent(formRegisterStudent)" #formRegisterStudent="ngForm" novalidate="" action=""
-          method="">
+        <form [formGroup]="registerStudentForm" (ngSubmit)="onSubmitRegisterStudent()">
           <div class="row">
-            <input type="text" class="form-control" name="userTypeId" value="3" [(ngModel)]="usuario.userTypeId"> <!-- userTypeId -->
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="name"><strong>Nombres</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="usuario.name" minlength="3"
-                  #varName="ngModel" autofocus required>
-                <span *ngIf="varName.errors?.required">
-                  Campo obligatorio
-                </span>
-                <span *ngIf="varName.errors?.minlength">
-                  Requiere de al menos {{ varName.errors.minlength.requiredLength }} caracteres
-                </span>
+                <input  type="text"
+                        class="form-control"
+                        id="name"
+                        formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.name.errors">
+                    <div *ngIf="f.name.errors.required">Campo obligatorio</div>
+                </div>
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="lastName"><strong>Apellidos</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="usuario.lastName"
-                  minlength="3" #varLastName="ngModel" required>
-                <span *ngIf="varLastName.errors?.required">
-                  Campo obligatorio
-                </span>
-                <span *ngIf="varLastName.errors?.minlength">
-                  Requiere de al menos {{ varLastName.errors.minlength.requiredLength }} caracteres
-                </span>
+                <input  type="text"
+                        class="form-control"
+                        id="lastName"
+                        formControlName="lastName"
+                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.lastName.errors">
+                    <div *ngIf="f.lastName.errors.required">Campo obligatorio</div>
+                </div>
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="documentTypeId"><strong>Tipo Documento</strong><span class="required">*</span></label>
-                <select class="form-control" id="documentTypeId" name="documentTypeId" [(ngModel)]="usuario.documentTypeId"
-                  required>
-                  <option value="" >Seleccione tipo documento</option>
-                  <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}</option>
+                <select class="form-control"
+                        id="documentTypeId"
+                        formControlName="documentTypeId"
+                        required>
+                  <option value="0">Seleccione tipo documento</option>
+                  <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}
+                  </option>
                 </select>
               </div>
             </div>
@@ -53,10 +56,17 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="documentNumber"><strong>Número Documento</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="documentNumber" name="documentNumber"
-                  [(ngModel)]="usuario.documentNumber" minlength="7" pattern="[0-9]{1,9}" #varTypeDocument="ngModel"
-                  required>
-                <span *ngIf="varTypeDocument.errors?.required">
+                <input  type="text"
+                        class="form-control"
+                        id="documentNumber"
+                        formControlName="documentNumber"
+                        [ngClass]="{ 'is-invalid': submitted && f.documentNumber.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.documentNumber.errors">
+                    <div *ngIf="f.documentNumber.errors.required">Campo obligatorio</div>
+                    <div *ngIf="f.documentNumber.errors.pattern">Solo números</div>
+                </div>
+                <!-- <span *ngIf="varTypeDocument.errors?.required">
                   Campo obligatorio
                 </span>
                 <span *ngIf="varTypeDocument.errors?.pattern">
@@ -64,34 +74,46 @@
                 </span>
                 <span *ngIf="varTypeDocument.errors?.minlength">
                   Requiere de al menos {{ varTypeDocument.errors.minlength.requiredLength }} caracteres
-                </span>
+                </span> -->
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="email"><strong>Correo</strong><span class="required">*</span></label>
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="usuario.email"
-                  #varEmail="ngModel" required>
-                <span *ngIf="varEmail.errors?.required">
-                  Campo obligatorio
-                </span>
+                <input  type="email"
+                        class="form-control"
+                        id="email"
+                        formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.email.errors">
+                    <div *ngIf="f.email.errors.required">Campo obligatorio</div>
+                    <div *ngIf="f.email.errors.email">Debe ser una dirección de correo electrónico válida</div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="dateOfBirth"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
-                <input type="datetime-local" class="form-control" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="usuario.dateOfBirth"
-                  #varBirthdate="ngModel" required>
-                <span *ngIf="varBirthdate.errors?.required">
-                  Campo obligatorio
-                </span>
+                <input  type="date"
+                        class="form-control"
+                        id="dateOfBirth"
+                        formControlName="dateOfBirth"
+                        [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.dateOfBirth.errors">
+                    <div *ngIf="f.dateOfBirth.errors.required">Campo obligatorio</div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="typeInstitution"><strong>Tipo Institución</strong><span class="required">*</span></label>
-                <select name="organizationType" id="typeInstitution" class="form-control" [(ngModel)]="usuario.organizationType">
+                <select class="form-control"
+                        id="typeInstitution"
+                        formControlName="organizationType"
+                        required>
                   <option value="0">Seleccione Institución</option>
                   <option value="I">Instituto</option>
                   <option value="C1">Colegio</option>
@@ -104,21 +126,24 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="organizationName"><strong>Nombre Institución</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="organizationName" name="organizationName"
-                  [(ngModel)]="usuario.organizationName" minlength="3" #varNameInstitution="ngModel" required>
-                <span *ngIf="varNameInstitution.errors?.required">
-                  Campo obligatorio
-                </span>
-                <span *ngIf="varNameInstitution.errors?.minlength">
-                  Requiere de al menos {{ varNameInstitution.errors.minlength.requiredLength }} caracteres
-                </span>
+                <input  type="text"
+                        class="form-control"
+                        id="organizationName"
+                        formControlName="organizationName"
+                        [ngClass]="{ 'is-invalid': submitted && f.organizationName.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.organizationName.errors">
+                    <div *ngIf="f.organizationName.errors.required">Campo obligatorio</div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
-                <select name="" id="Department" class="form-control" (change)="changeDepartament($event.target.value)">
-                  <option value="0" >Seleccione Departamento</option>
+                <select class="form-control"
+                        id="Department"
+                        (change)="changeDepartament($event.target.value)">
+                  <option value="0">Seleccione Departamento</option>
                   <option *ngFor="let item of dataDepartament" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
@@ -126,8 +151,10 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
-                <select name="" id="Province" class="form-control" (change)="changeProvince($event.target.value)">
-                  <option value="0" >Seleccione Provincia</option>
+                <select class="form-control"
+                        id="Province"
+                        (change)="changeProvince($event.target.value)">
+                  <option value="0">Seleccione Provincia</option>
                   <option *ngFor="let item of dataProvince" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
@@ -135,8 +162,11 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="locationId"><strong>Distrito</strong><span class="required">*</span></label>
-                <select name="locationId" id="locationId" class="form-control"  [(ngModel)]="usuario.locationId">
-                  <option value="0" >Seleccione Distrito</option>
+                <select class="form-control"
+                        id="locationId"
+                        formControlName="locationId"
+                        required>
+                  <option value="0">Seleccione Distrito</option>
                   <option *ngFor="let item of dataDistrict" [value]="item.code">{{ item.name | lowercase }}</option>
                 </select>
               </div>
@@ -144,14 +174,15 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="homeAdress"><strong>Dirección</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="homeAdress" name="homeAdress" [(ngModel)]="usuario.homeAdress"
-                  minlength="3" #varAddress="ngModel" required>
-                <span *ngIf="varAddress.errors?.required">
-                  Campo obligatorio
-                </span>
-                <span *ngIf="varAddress.errors?.minlength">
-                  Requiere de al menos {{ varAddress.errors.minlength.requiredLength }} caracteres
-                </span>
+                <input  type="text"
+                        class="form-control"
+                        id="homeAdress"
+                        formControlName="homeAdress"
+                        [ngClass]="{ 'is-invalid': submitted && f.homeAdress.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.homeAdress.errors">
+                    <div *ngIf="f.homeAdress.errors.required">Campo obligatorio</div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
@@ -159,13 +190,20 @@
                 <label for="gender"><strong>Género</strong><span class="required">*</span></label>
                 <div>
                   <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="genderMale" name="gender"
-                      [(ngModel)]="usuario.gender" value="M" checked>
+                    <input  type="radio"
+                            class="form-check-input"
+                            id="genderMale"
+                            formControlName="gender"
+                            value="M"
+                            checked>
                     <label class="form-check-label" for="genderMale" checked>Masculino</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="genderFemale" name="gender"
-                      [(ngModel)]="usuario.gender" value="F">
+                    <input  type="radio"
+                            class="form-check-input"
+                            id="genderFemale"
+                            formControlName="gender"
+                            value="F">
                     <label class="form-check-label" for="genderFemale">Femenino</label>
                   </div>
                 </div>
@@ -174,29 +212,31 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="phoneNumber1"><strong>Teléfono 1</strong><span class="required">*</span></label>
-                <input type="text" class="form-control" id="phoneNumber1" name="phoneNumber1" [(ngModel)]="usuario.phoneNumber1"
-                  minlength="7" pattern="[0-9]{1,7}" #varPhone1="ngModel" required>
-
-                <span *ngIf="varPhone1.errors?.required">
-                  Campo obligatorio
-                </span>
-                <span *ngIf="varPhone1.errors?.pattern">
-                  solo numeros
-                </span>
-                <span *ngIf="varPhone1.errors?.minlength">
-                  Requiere de al menos {{ varPhone1.errors.minlength.requiredLength }} caracteres
-                </span>
+                <input  type="text"
+                        class="form-control"
+                        id="phoneNumber1"
+                        formControlName="phoneNumber1"
+                        [ngClass]="{ 'is-invalid': submitted && f.phoneNumber1.errors }"
+                        required>
+                <div class="invalid-feedback" *ngIf="submitted && f.phoneNumber1.errors">
+                    <div *ngIf="f.phoneNumber1.errors.required">Campo obligatorio</div>
+                    <div *ngIf="f.phoneNumber1.errors.pattern">Solo números</div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="phoneNumber2"><strong>Teléfono 2</strong></label>
-                <input type="text" class="form-control" id="phoneNumber2" name="phoneNumber2" [(ngModel)]="usuario.phoneNumber2">
+                <input  type="text"
+                        class="form-control"
+                        id="phoneNumber2"
+                        formControlName="phoneNumber2"
+                        [ngClass]="{ 'is-invalid': submitted && f.phoneNumber2.errors }">
               </div>
             </div>
             <div class="col-lg-12 d-flex justify-content-end">
-                <!-- [disabled]="!formRegisterStudent.valid" -->
-              <button type="submit" class="btn btn-primary" >Registrar</button>
+              <!-- [disabled]="!formRegisterStudent.valid" -->
+              <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
           </div>
         </form>
