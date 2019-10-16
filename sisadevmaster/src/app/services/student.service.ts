@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'; /* 👶🏼 */
-import { HttpClient } from '@angular/common/http'; /* 👶🏼 */
+/* Para metodos HTTP */
+import { HttpClient } from '@angular/common/http';
 
 /* Importando Modelo */
 import { UsersModel } from '../components/models/users.model';

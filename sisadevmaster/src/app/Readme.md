@@ -18,3 +18,6 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS
 ## Uso de formularios
 1. Template (Validaciones por HTML5)
 2. Data (Validaciones por JS)
+
+## Validaciones con Validators
+- Numero de documento: Maxlength no trabaja bien cuando trabajas con un input de tipo number
