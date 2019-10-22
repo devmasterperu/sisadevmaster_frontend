@@ -1,15 +1,41 @@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+	font-size: 1em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
             <div class="card-search">
                 <form action="" method="">
                     <div class="form-group">
-                        <input type="search" class="form-control magnifier" id="exampleInputEmail1" placeholder="Ejm.: Jesús Alexander Gonzales Manrique" #searchBox (keyup)="search(searchBox.value)">
+                        <!-- <input type="search" class="form-control magnifier" id="exampleInputEmail1" placeholder="Ejm.: Jesús Alexander Gonzales Manrique" #searchBox (keyup)="search(searchBox.value)">
                         <div>
                           <div *ngFor="let teacher of dataTeacher">
                               {{teacher.name}}
-                          </div>
-                      </div>
+                          </div> -->
+                          <!-- <label for="tags"></label>
+                          <input type="text" id="tags">
+                          <input type="hidden" id="topicID"/>
+                          <p>You selected <span id="results"></span></p> -->
+
+                          <input type="text" id="topics" /><input type="hidden" id="topicID" />
+
+                          <br/><br/><br/><br/>
+
+                          <p>You selected <span id="results"></span></p>
+                      <!-- </div> -->
                     </div>
                 </form>
             </div>
