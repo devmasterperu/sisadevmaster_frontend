@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'; /* 👶🏼 */
-// import { NgForm} from '@angular/forms';
+/* Para formularios */
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Para nuestro servicio */
@@ -11,18 +11,14 @@ import { TeacherService } from '../../../services/teacher.service';
 })
 
 export class ConfigQualificationComponent implements OnInit {
-  // customer = {
-  //   "evaluationName": "Primer parcial",
-  //   "percentageValue":100
-  // };
-
   registerForm: FormGroup;
   submitted = false;
 
   /*
   *  ✅ Constructor
   */
-  constructor(private formBuilder: FormBuilder, private objTeacherService: TeacherService) {
+  constructor(  private formBuilder: FormBuilder,
+                private objTeacherService: TeacherService ) {
     /*
      *  Se dispara automaticamente al cargar la pagina
      */

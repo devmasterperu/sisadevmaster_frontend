@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; /* 👶🏼 */
+
+/* Para nuestro servicio */
 import { StudentService } from '../../../services/student.service';
 
 @Component({
@@ -13,10 +15,6 @@ export class ListStudentComponent {
   constructor( private studentService: StudentService) {
     this.studentService
                       .getListStudent()
-                      // .subscribe( resp => {
-                      //   console.log(resp);
-
-                      // });
                       .subscribe( (data: any) => {
                         this.nuevosAlumnos = data;
                         console.log(this.nuevosAlumnos);
