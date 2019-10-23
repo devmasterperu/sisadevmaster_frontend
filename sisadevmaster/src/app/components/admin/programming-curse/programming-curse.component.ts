@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+/* Para formularios */
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Para nuestro servicio */
 import { AdminService } from '../../../services/admin.service';
-import { element } from 'protractor';
+import { CurseService } from '../../../services/curse.service';
 
 declare var $: any;
 
@@ -11,35 +13,77 @@ declare var $: any;
   templateUrl: './programming-curse.component.html'
 })
 
-export class ProgrammingCurseComponent {
-  // dataTeacher: any[] = [];
-  constructor( private objAdminService: AdminService  ) {
-    this.objAdminService
-                      .getSearchTeacher()
-                      .subscribe( (data: any) => {
+export class ProgrammingCurseComponent implements OnInit {
+  registerUpcomingCoursesForm: FormGroup;
+  courses: any[] = [];
 
-                        $(document).ready(() => {
-                          // http://jsfiddle.net/dhoerster/BXYpt/
-                          console.log(data);
-
-                          $( '#topics' ).autocomplete({
-                            minLength: 0,
-                            source: [
-                                  { label: 'Choice1', value: 'value1', id: '01' },
-                                  { label: 'Choice2', value: 'value2', id: '02' }
-                                ],
-                            focus: ( event, ui ) => {
-                                $( '#topics' ).val( ui.item.label );
-                                return false;
-                            },
-                            select: ( event, ui ) => {
-                                $( '#topics' ).val( ui.item.label );
-                                $('#topicID').val(ui.item.id);
-                                $( '#results').text($('#topicID').val());
-                                return false;
-                        }
-                    });
-                        });
-                      });
+  constructor(  private formBuilder: FormBuilder,
+                private objAdminService: AdminService,
+                private objCurseService: CurseService  ) {
   }
+
+  ngOnInit() {
+    this.objAdminService
+                        .getSearchTeacher()
+                        .subscribe( (data: any) => {
+                            $(document).ready(() => {
+                                // http://jsfiddle.net/dhoerster/BXYpt/
+                                const dataArray = new Array();
+                                for (let i = 0; i < data.length; i++) {
+                                    // creando 1 objeto por cada registro, con las propiedades que solicita autocomplete jquery ui
+                                    const dataObject = new Object();
+                                    dataObject[ 'label' ] = data[i].name;
+                                    dataObject[ 'id' ] = data[i].id;
+                                    // agregando 1 objeto por cada iteración al arreglo
+                                    dataArray.push(dataObject);
+                                }
+                                $( '#searchTeacher' ).autocomplete({
+                                    minLength: 0,
+                                    source: dataArray,
+                                    focus: ( event, ui ) => {
+                                        $( '#searchTeacher' ).val( ui.item.value );
+                                        return false;
+                                    },
+                                    select: ( event, ui ) => {
+                                        $( '#searchTeacher'  ).val( ui.item.value);
+                                        $( '#userId' ).val(ui.item.id);
+                                        $( '#userName' ).val($('#searchTeacher').val());
+                                        return false;
+                                    }
+                                });
+                            });
+                        });
+
+    // Obtener valores del formulario
+    this.registerUpcomingCoursesForm = this.formBuilder.group({
+        groupName: ['grupo-name'],
+        courseId: [1],
+        userId: [61],
+        modality: ['modality'],
+        schedule: ['schedule'],
+        minVacant: [1],
+        maxVacant: [1],
+        numSessions: [1],
+        numHours: [1],
+        maxNumAbsence: [1],
+        minGrade: [1],
+        startDate: ['2019-10-22T18:22:51.401Z'],
+        endDate: ['2019-10-22T18:22:51.401Z']
+    });
+
+    // Obtener cursos
+    this.objCurseService
+                        .getListCourses()
+                        .subscribe( (data: any) => {
+                          this.courses = data;
+                        });
+  }
+
+    onSubmitRegisterUpcomingCourses() {
+    this.objAdminService
+                        .postProgrammingCurse(this.registerUpcomingCoursesForm.value)
+                        .subscribe((resp) => {
+                            console.log(this.registerUpcomingCoursesForm.value);
+                        });
+    }
 }

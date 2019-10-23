@@ -13,29 +13,20 @@ table {
 .ui-draggable, .ui-droppable {
 	background-position: top;
 }
+.ui-autocomplete-input {
+  width: 100%;
+}
+
 </style>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card-search">
-                <form action="" method="">
+            <div class="card-search d-flex justify-content-center align-items-center">
+                <form>
                     <div class="form-group">
-                        <!-- <input type="search" class="form-control magnifier" id="exampleInputEmail1" placeholder="Ejm.: Jesús Alexander Gonzales Manrique" #searchBox (keyup)="search(searchBox.value)">
-                        <div>
-                          <div *ngFor="let teacher of dataTeacher">
-                              {{teacher.name}}
-                          </div> -->
-                          <!-- <label for="tags"></label>
-                          <input type="text" id="tags">
-                          <input type="hidden" id="topicID"/>
-                          <p>You selected <span id="results"></span></p> -->
-
-                          <input type="text" id="topics" /><input type="hidden" id="topicID" />
-
-                          <br/><br/><br/><br/>
-
-                          <p>You selected <span id="results"></span></p>
-                      <!-- </div> -->
+                      <input  type="search"
+                              id="searchTeacher"
+                              class="form-control">
                     </div>
                 </form>
             </div>
@@ -47,97 +38,143 @@ table {
         </div>
         <div class="col-lg-12">
             <div class="card-content">
-                <form action="" method="" autocomplete="off">
+                <form [formGroup]="registerUpcomingCoursesForm" (ngSubmit)="onSubmitRegisterUpcomingCourses()">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Docente</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="userId"><strong>Id Docente</strong></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="userId"
+                                        name="userId">
+                            </div>
+                        </div>
+                        <!-- No se envia el nombre del docente, solo su id como input oculto userId -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="userName"><strong>Docente</strong></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="userName">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Curso</strong></label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Analisis y Diseño</option>
-                                    <option value="">SQL Server</option>
-                                    <option value="">Desarrollo Frontend</option>
+                                <label for="courseId"><strong>Curso</strong></label>
+                                <select id="courseId"
+                                        class="form-control"
+                                        name="courseId">
+                                    <option  *ngFor="let item of courses" [value]="item.id">{{ item.name }}</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Fecha Inicio</strong></label>
-                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="startDate"><strong>Fecha Inicio</strong></label>
+                                <input  type="date"
+                                        class="form-control"
+                                        id="startDate"
+                                        name="startDate">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Fecha Fin</strong></label>
-                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="endDate"><strong>Fecha Fin</strong></label>
+                                <input  type="date"
+                                        class="form-control"
+                                        id="endDate"
+                                        name="endDate">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Grupo</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="groupName"><strong>Grupo</strong></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="groupName"
+                                        name="groupName">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Modalidad</strong></label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Presencial</option>
-                                    <option value="">Semipresencial</option>
-                                    <option value="">Virtual</option>
+                                <label for="modality"><strong>Modalidad</strong></label>
+                                <select id="modality"
+                                        class="form-control"
+                                        name="modality">
+                                    <option value="presencial">Presencial</option>
+                                    <option value="semipresencial">Semipresencial</option>
+                                    <option value="virtual">Virtual</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Min. Vacante</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="minVacant"><strong>Min. Vacante</strong></label>
+                                <input  type="number"
+                                        class="form-control"
+                                        id="minVacant"
+                                        name="minVacant">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Max. Vacante</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="maxVacant"><strong>Max. Vacante</strong></label>
+                                <input  type="number"
+                                        class="form-control"
+                                        id="maxVacant"
+                                        name="maxVacant">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Núm. Sesiones</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="numSessions"><strong>Núm. Sesiones</strong></label>
+                                <input  type="number"
+                                        class="form-control"
+                                        id="numSessions"
+                                        name="numSessions">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Núm. Horas</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="numHours"><strong>Núm. Horas</strong></label>
+                                <input  type="number"
+                                        class="form-control"
+                                        id="numHours"
+                                        name="numHours">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Max. Inasistencia</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="maxNumAbsence"><strong>Max. Inasistencia</strong></label>
+                                <input  type="number"
+                                        class="form-control"
+                                        id="maxNumAbsence"
+                                        name="maxNumAbsence">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Nota Min.
-                                        Aprobatoria</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="minGrade"><strong>Nota Min. Aprobatoria</strong></label>
+                                <input  type="number"
+                                        class="form-control"
+                                        id="minGrade"
+                                        name="minGrade">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1"><strong>Horario</strong></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label for="schedule"><strong>Horario</strong></label>
+                                <select id="schedule"
+                                        class="form-control"
+                                        name="schedule">
+                                  <option value="lunes-miercoles-viernes">Lunes, Miercoles y Viernes</option>
+                                  <option value="solo-sabados">Solo Sábados</option>
+                                  <option value="solo-domingo">Solo Domingos</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-12 d-flex justify-content-end">
@@ -145,8 +182,22 @@ table {
                         </div>
                     </div>
                 </form>
-
-                <table class="table table-striped u-margin-top-small">
+                <pre>
+                    "groupName": "string",
+                    "courseId": 0,
+                    "userId": 0,
+                    "modality": "string",
+                    "schedule": "string",
+                    "minVacant": 0,
+                    "maxVacant": 0,
+                    "numSessions": 0,
+                    "numHours": 0,
+                    "maxNumAbsence": 0,
+                    "minGrade": 0,
+                    "startDate": "2019-10-22T18:22:51.401Z",
+                    "endDate": "2019-10-22T18:22:51.401Z"
+                </pre>
+                <!-- <table class="table table-striped u-margin-top-small">
                     <thead>
                         <tr>
                             <th scope="col">Nombre Grupo</th>
@@ -189,7 +240,7 @@ table {
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
 
             </div>
         </div>
