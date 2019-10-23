@@ -1,9 +1,4 @@
-// se visualiza dentro del archivo scripts.js
-
-document.addEventListener("DOMContentLoaded", () => {
-    //   new Mmenu("#my-menu");
-});
-
+// se visualiza dentro del archivo assets/js/app.js
 new Mmenu(document.querySelector('#menu'));
 
 document.addEventListener('click', function(evnt) {
