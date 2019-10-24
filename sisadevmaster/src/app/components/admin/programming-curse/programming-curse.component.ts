@@ -62,22 +62,25 @@ export class ProgrammingCurseComponent implements OnInit {
                               });
                           });
 
+
       // Obtener valores del formulario
-      this.registerUpcomingCoursesForm = this.formBuilder.group({
-          groupName: ['grupo-name'],
-          courseId: [1],
-          userId: [61],
-          modality: ['modality'],
-          schedule: ['schedule'],
-          minVacant: [1],
-          maxVacant: [1],
-          numSessions: [1],
-          numHours: [1],
-          maxNumAbsence: [1],
-          minGrade: [1],
-          startDate: ['2019-10-22T18:22:51.401Z'],
-          endDate: ['2019-10-22T18:22:51.401Z']
-      });
+      this.registerUpcomingCoursesForm = this.formBuilder.group(
+        {
+          groupName: [''],
+          courseId: [''],
+          userId: [],
+          modality: [''],
+          schedule: [''],
+          minVacant: [],
+          maxVacant: [],
+          numSessions: [],
+          numHours: [],
+          maxNumAbsence: [],
+          minGrade: [],
+          startDate: ['2019-10-22T18:22:51.401'],
+          endDate: ['2019-10-22T18:22:51.401']
+        }
+      );
 
       // Obtener cursos
       this.objCurseService
@@ -87,14 +90,29 @@ export class ProgrammingCurseComponent implements OnInit {
                           });
   }
 
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.registerUpcomingCoursesForm.controls;
+  }
+
   /*
   *  ✅ Formulario Programación Curso
   */
   onSubmitRegisterUpcomingCourses() {
-    this.objAdminService
-                        .postProgrammingCurse(this.registerUpcomingCoursesForm.value)
-                        .subscribe((resp) => {
+      // https://www.quora.com/What-is-the-difference-between-two-functions-Number-value-and-parseInt-value-in-JavaScript
+      /*
+      *  El valor que obtenemos del combo box es un string y nosotros debemos de enviarlo al servicio como número, por ello debemos de
+      *  verificar si el valor del input courseId es un string, para poderlo parsear a número y luego asignarlo como tal al JSON
+      *  registerUpcomingCoursesForm
+      */
+      if ( typeof(this.registerUpcomingCoursesForm.value.courseId) === 'string' ) {
+        this.registerUpcomingCoursesForm.value[ 'courseId' ]  = parseInt(this.registerUpcomingCoursesForm.value.courseId);
+      }
+
+      this.objAdminService
+                          .postProgrammingCurse(this.registerUpcomingCoursesForm.value)
+                          .subscribe((resp) => {
                             console.log(this.registerUpcomingCoursesForm.value);
-                        });
+                          });
   }
 }

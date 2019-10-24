@@ -45,12 +45,12 @@
           </div>
           <div class="col-lg-9">
             <div class="perfil-info">
-              <h4>Jesus Gonzales</h4>
-              <strong>Alumno</strong>
+              <h4>{{ dataUser.name }} {{dataUser.lastName}}</h4>
+              <strong>Estudiante</strong>
               <ul class="perfil-info__data">
-                <li> <span class="icon-map-marker"></span>Galeria Callao 105 Dpto. 307</li>
-                <li> <span class="icon-phone-outgoing"></span>6567062</li>
-                <li> <span class="icon-envelope"></span>gmanriqe@gmail.com</li>
+                <li> <span class="icon-map-marker"></span>{{ dataUser.homeAdress}}</li>
+                <li> <span class="icon-phone-outgoing"></span>{{ dataUser.phoneNumber1}}</li>
+                <li> <span class="icon-envelope"></span>{{ dataUser.email}}</li>
               </ul>
             </div>
           </div>
@@ -59,7 +59,7 @@
     </div>
     <div class="col-lg-12">
         <div class="card-title d-flex align-items-center">
-            <h4>Curso</h4>
+            <h4>Cursos</h4>
         </div>
     </div>
     <div class="col-lg-12">

@@ -24,9 +24,9 @@ table {
             <div class="card-search d-flex justify-content-center align-items-center">
                 <form>
                     <div class="form-group">
-                      <input  type="search"
-                              id="searchTeacher"
-                              class="form-control">
+                      <input    type="search"
+                                id="searchTeacher"
+                                class="form-control">
                     </div>
                 </form>
             </div>
@@ -43,10 +43,15 @@ table {
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="userId"><strong>Id Docente</strong></label>
-                                <input  type="text"
+                                <input  type="number"
                                         class="form-control"
                                         id="userId"
-                                        name="userId">
+                                        formControlName="userId"
+                                        [ngClass]="{ 'is-invalid': f.userId.errors }">
+                                <div class="invalid-feedback" *ngIf="f.userId.errors">
+                                  <div *ngIf="f.userId.errors.required">Campo obligatorio</div>
+                                  <div *ngIf="f.userId.errors.pattern">Solo texto</div>
+                                </div>
                             </div>
                         </div>
                         <!-- No se envia el nombre del docente, solo su id como input oculto userId -->
@@ -64,7 +69,7 @@ table {
                                 <label for="courseId"><strong>Curso</strong></label>
                                 <select id="courseId"
                                         class="form-control"
-                                        name="courseId">
+                                        formControlName="courseId">
                                     <option  *ngFor="let item of courses" [value]="item.id">{{ item.name }}</option>
                                 </select>
                             </div>
@@ -76,7 +81,7 @@ table {
                                 <input  type="date"
                                         class="form-control"
                                         id="startDate"
-                                        name="startDate">
+                                        formControlName="startDate">
                             </div>
                         </div>
 
@@ -86,7 +91,7 @@ table {
                                 <input  type="date"
                                         class="form-control"
                                         id="endDate"
-                                        name="endDate">
+                                        formControlName="endDate">
                             </div>
                         </div>
 
@@ -96,7 +101,7 @@ table {
                                 <input  type="text"
                                         class="form-control"
                                         id="groupName"
-                                        name="groupName">
+                                        formControlName="groupName">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -104,7 +109,8 @@ table {
                                 <label for="modality"><strong>Modalidad</strong></label>
                                 <select id="modality"
                                         class="form-control"
-                                        name="modality">
+                                        name="modality"
+                                        formControlName="modality">
                                     <option value="presencial">Presencial</option>
                                     <option value="semipresencial">Semipresencial</option>
                                     <option value="virtual">Virtual</option>
@@ -117,7 +123,8 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="minVacant"
-                                        name="minVacant">
+                                        name="minVacant"
+                                        formControlName="minVacant">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -126,7 +133,8 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="maxVacant"
-                                        name="maxVacant">
+                                        name="maxVacant"
+                                        formControlName="maxVacant">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -135,7 +143,8 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="numSessions"
-                                        name="numSessions">
+                                        name="numSessions"
+                                        formControlName="numSessions">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -144,7 +153,8 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="numHours"
-                                        name="numHours">
+                                        name="numHours"
+                                        formControlName="numHours">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -153,7 +163,8 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="maxNumAbsence"
-                                        name="maxNumAbsence">
+                                        name="maxNumAbsence"
+                                        formControlName="maxNumAbsence">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -162,7 +173,8 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="minGrade"
-                                        name="minGrade">
+                                        name="minGrade"
+                                        formControlName="minGrade">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -170,7 +182,8 @@ table {
                                 <label for="schedule"><strong>Horario</strong></label>
                                 <select id="schedule"
                                         class="form-control"
-                                        name="schedule">
+                                        name="schedule"
+                                        formControlName="schedule">
                                   <option value="lunes-miercoles-viernes">Lunes, Miercoles y Viernes</option>
                                   <option value="solo-sabados">Solo Sábados</option>
                                   <option value="solo-domingo">Solo Domingos</option>
@@ -182,21 +195,6 @@ table {
                         </div>
                     </div>
                 </form>
-                <pre>
-                    "groupName": "string",
-                    "courseId": 0,
-                    "userId": 0,
-                    "modality": "string",
-                    "schedule": "string",
-                    "minVacant": 0,
-                    "maxVacant": 0,
-                    "numSessions": 0,
-                    "numHours": 0,
-                    "maxNumAbsence": 0,
-                    "minGrade": 0,
-                    "startDate": "2019-10-22T18:22:51.401Z",
-                    "endDate": "2019-10-22T18:22:51.401Z"
-                </pre>
                 <!-- <table class="table table-striped u-margin-top-small">
                     <thead>
                         <tr>

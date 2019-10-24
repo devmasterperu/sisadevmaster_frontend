@@ -38,7 +38,10 @@ import { ConfigCurseComponent } from './components/teacher/config-curse/config-c
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 
-import { HomeComponent } from './components/home/home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { AppDashboardHeaderComponent } from './layout/app-dashboard-header/app-dashboard-header.component';
+import { AppDashboardOffcanvasComponent } from './layout/app-dashboard-offcanvas/app-dashboard-offcanvas.component';
+import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashboard.component';
 
 // RouterModule.forRoot( ROUTES, { useHash: true } ) ✅ dentro de imports agregamos esa linea para el manejo de rutas
 // ⚠️ Eliminar en imports FormsModule, ya que estaremos trabajando con Reactive Forms Validation (Validación de formas reactivas) y no con ngForm
@@ -59,7 +62,10 @@ import { HomeComponent } from './components/home/home/home.component';
     PerfilAdminComponent,
     PerfilComponent,
     EditStudentComponent,
-    HomeComponent
+    HomeComponent,
+    AppDashboardHeaderComponent,
+    AppDashboardOffcanvasComponent,
+    LayoutDashboardComponent
   ],
   imports: [
     BrowserModule,

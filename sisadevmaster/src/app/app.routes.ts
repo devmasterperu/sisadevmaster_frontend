@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 
-// lo que importara dentro del layout base
-/* Admin */
+import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashboard.component';
+/* Home */
+import { HomeComponent } from './components/home/home.component';
+/* Administrador */
 import { InscriptionComponent } from './components/admin/inscription/inscription.component';
 import { PerfilAdminComponent } from './components/admin/perfill/perfil-admin.component';
-/* Student */
+/* Estudiante */
 import { RegisterStudentComponent } from './components/student/register-student/register-student.component';
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
@@ -17,26 +19,46 @@ import { ConfigCurseComponent } from './components/teacher/config-curse/config-c
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 
-
-// para cualquier ruta (path: ''), me redireccionara al registroUsuario
 export const ROUTES: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'registro_alumno' },
+    // Rutas con menos caracteres innecesario: Redirigir al Login
+    { path: '', pathMatch: 'full', redirectTo: 'login' },
 
-  { path: 'inscripcion', component: InscriptionComponent },
+    // Ruta para Home
+    { path: 'login', component: HomeComponent },
 
-  { path: 'perfil_admin', component: PerfilAdminComponent },
-
-  { path: 'registro_alumno', component: RegisterStudentComponent },
-  { path: 'editar_alumno', component: EditStudentComponent },
-  { path: 'listar_alumnos', component: ListStudentComponent },
-  { path: 'perfil_alumno', component: PerfilComponent },
-
-  { path: 'registro_docente', component: RegisterTeacherComponent },
-  { path: 'programacion_curso', component: ProgrammingCurseComponent },
-  { path: 'perfil_docente', component: PerfilTeacherComponent },
-  { path: 'configurar_curso', component: ConfigCurseComponent },
-  { path: 'configurar_calificacion', component: ConfigQualificationComponent },
-  { path: 'configurar_asistencia', component: ConfigAssistanceComponent },
-
-  { path: '**', pathMatch: 'full', redirectTo: 'registro_alumno' },
+    // Rutas para Administrador
+    {
+    path: 'administrador',
+    component: LayoutDashboardComponent,
+    children: [
+        { path: '', component: PerfilAdminComponent },
+        { path: 'inscripcion', component: InscriptionComponent },
+        { path: 'registro_docente', component: RegisterTeacherComponent },
+        { path: 'registro_estudiante', component: RegisterStudentComponent },
+        { path: 'programacion_curso', component: ProgrammingCurseComponent },
+        { path: 'listar_alumnos', component: ListStudentComponent },
+        { path: 'editar_alumno', component: EditStudentComponent },
+    ]
+    },
+    // Rutas para Estudiantes
+    {
+    path: 'estudiante',
+    component: LayoutDashboardComponent,
+    children: [
+        { path: '', component: PerfilComponent },
+    ]
+    },
+    // Rutas para Docentes
+    {
+    path: 'docente',
+    component: LayoutDashboardComponent,
+    children: [
+        { path: '', component: PerfilTeacherComponent },
+        { path: 'configurar_calificacion', component: ConfigQualificationComponent },
+        { path: 'configurar_asistencia', component: ConfigAssistanceComponent },
+        { path: 'configurar_curso', component: ConfigCurseComponent },
+    ]
+    },
+    // Rutas con más caracteres innecesario: Redirigir al Login
+    { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
