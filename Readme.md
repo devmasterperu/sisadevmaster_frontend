@@ -32,7 +32,27 @@ Plugins recomendados para los siguientes editores:
 - TypeScript Importer
 
 ## Primer proyecto con Angular Cli
+
 1. $ng new nombre-proyecto (Creacion del proyecto)
 - Crear las rutas? yes
 - Que extension de CSS utilizaras? scss
 - $ng serve -o (Comando para ejecutar el proyecto)
+
+## Clases en los input para formularios
+
+- ng-dirty: Le dice que el formulario HA SIDO modificado por el usuario
+- ng-pristine: Le dice que el formulario NO HA SIDO modificado por el usuario
+
+## LocalStorage vs SesionStore
+
+- LocalStorage: Almacena la información de forma indefinida o hasta que se decida limpiar los datos del navegador.
+- SesionStore: Almacena información mientras la pestaña donde se esté utilizando siga abierta, una vez cerrada, la información se elimina.
+
+## JSON.stringify y su inversa JSON.parse
+
+- https://ed.team/blog/que-es-y-como-utilizar-localstorage-y-sessionstorage
+- JSON.stringify: es una función incorporada en JSON que nos permite tomar un objeto o matriz de JavaScript y crear una cadena JSON a partir de él.
+- JSON.parse: El método JSON.parse () en JavaScript se usa para analizar una cadena JSON que está escrita en un formato JSON y devolver un objeto JavaScript.
+
+## Multilayout en Angular
+- https://stackblitz.com/edit/angular-multi-layout-example-mbbyyr?file=app/app.routing.ts
