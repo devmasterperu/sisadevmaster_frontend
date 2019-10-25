@@ -44,9 +44,10 @@
                                 <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
                                 <select class="form-control"
                                         id="documentTypeId"
-                                        formControlName="documentTypeId">
-                                  <option value="0">Seleccione tipo documento</option>
-                                  <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}
+                                        formControlName="documentTypeId"
+                                        >
+                                    <option value="0" selected>Seleccione Tipo Documento</option>
+                                    <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}
                                 </select>
                             </div>
                         </div>
@@ -100,12 +101,8 @@
                                 <select class="form-control"
                                       id="typeInstitution"
                                       formControlName="organizationType">
-                                <option value="0">Seleccione Institución</option>
-                                <option value="I">Instituto</option>
-                                <option value="C1">Colegio</option>
-                                <option value="C2">CETPRO</option>
-                                <option value="U">Universidad</option>
-                                <option value="O">Otro</option>
+                                    <option value="0" disabled>Seleccione Institución</option>
+                                    <option *ngFor="let item of typeInstitution" [value]="item.code">{{ item.name | lowercase }}</option>
                               </select>
                             </div>
                         </div>
@@ -129,7 +126,7 @@
                                 <select class="form-control"
                                       id="Department"
                                       (change)="changeDepartament($event.target.value)">
-                                  <option value="0">Seleccione Departamento</option>
+                                  <option value="0" disabled>Seleccione Departamento</option>
                                   <option *ngFor="let item of dataDepartament" [value]="item.code">{{ item.name | lowercase }}</option>
                               </select>
                             </div>

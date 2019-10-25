@@ -16,13 +16,21 @@ import { TeacherService } from '../../../services/teacher.service';
 })
 
 export class RegisterTeacherComponent implements OnInit {
-  registerTeacherForm: FormGroup;
-  submitted = false;
+    registerTeacherForm: FormGroup;
+    submitted = false;
 
-  documentTypes: any[] = [];
-  dataDepartament: any;
-  dataProvince: any;
-  dataDistrict: any;
+    documentTypes: any[] = [];
+    dataDepartament: any;
+    dataProvince: any;
+    dataDistrict: any;
+
+    typeInstitution = [
+        { name: 'Instituto', code: 'I' },
+        { name: 'Colegio', code: 'C1' },
+        { name: 'Cetpro', code: 'C2' },
+        { name: 'Universidad', code: 'U' },
+        { name: 'Otro', code: 'O' },
+    ];
 
   /*
   *  ✅ Constructor
@@ -37,21 +45,23 @@ export class RegisterTeacherComponent implements OnInit {
   *  ✅ ngOnInit
   */
   ngOnInit() {
+    // Obtener valores del formulario
+    // Se envia el valor en duro del userTypeId: 2 = Docente
     this.registerTeacherForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('^[A-Za-z ]*$')]],
       lastName: ['', [Validators.required, Validators.pattern('^[A-Za-z ]*$')]],
-      documentTypeId: [2, Validators.required],
+      documentTypeId: ['', Validators.required],
       documentNumber: [, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],
       organizationType: ['', Validators.required],
       organizationName: ['', [Validators.required, Validators.pattern('^[A-Za-z ]*$')]],
-      locationId: [3, Validators.required],
+      locationId: ['', Validators.required],
       homeAdress: ['', Validators.required],
       gender: ['', Validators.required],
       phoneNumber1: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(7), Validators.maxLength(9)]],
       phoneNumber2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      userTypeId: [1, Validators.required],
+      userTypeId: [2, Validators.required],
     });
 
     this.objDocumentTypesService
@@ -99,6 +109,18 @@ export class RegisterTeacherComponent implements OnInit {
   */
   onSubmitRegisterTeacher() {
     this.submitted = true;
+    // https://www.quora.com/What-is-the-difference-between-two-functions-Number-value-and-parseInt-value-in-JavaScript
+    /*
+    *  El valor que obtenemos del combo box es un string y nosotros debemos de enviarlo al servicio como número, por ello debemos de
+    *  verificar si el valor del input es un string, para poderlo parsear a número y luego asignarlo como tal al JSON
+    *  registerTeacherForm
+    */
+    if ( typeof(this.registerTeacherForm.value.documentTypeId) === 'string' ) {
+        this.registerTeacherForm.value[ 'documentTypeId' ]  = parseInt(this.registerTeacherForm.value.documentTypeId);
+    }
+    if ( typeof(this.registerTeacherForm.value.locationId) === 'string' ) {
+        this.registerTeacherForm.value[ 'locationId' ]  = parseInt(this.registerTeacherForm.value.locationId);
+    }
 
     this.objTeacherService
                         .postRegisterTeacher(this.registerTeacherForm.value)
