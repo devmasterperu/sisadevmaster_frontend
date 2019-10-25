@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Para nuestro servicio */
 import { AdminService } from '../../../services/admin.service';
-import { CurseService } from '../../../services/curse.service';
+import { CourseService } from '../../../services/course.service';
 
 /* jQuery ui */
 declare var $: any;
@@ -23,7 +23,7 @@ export class ProgrammingCurseComponent implements OnInit {
   */
   constructor(  private formBuilder: FormBuilder,
                 private objAdminService: AdminService,
-                private objCurseService: CurseService  ) {}
+                private objCurseService: CourseService  ) {}
 
   /*
   *  ✅ ngOnInit
