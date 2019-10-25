@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="card-title return d-flex justify-content-center align-items-center">
-                        <a href="http://localhost:4200/#/configurar_curso"><span class="icon-arrow-left"></span></a>
+                        <a [routerLink]="['/docente/configurar_curso']"><span class="icon-arrow-left"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -22,15 +22,6 @@
                             <div class="form-group">
                                 <label for="date"><strong>Fecha</strong></label>
                                 <input type="date" class="form-control" id="date">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="payment"><strong>Modo de Pago</strong></label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-12 d-flex justify-content-end">
