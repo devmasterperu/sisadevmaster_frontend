@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core'; /* 👶🏼 */
 import { HttpClient } from '@angular/common/http';
 
 /* Importando Modelo Qualificacion */
-import { QualificationModel } from '../components/models/teacher/config-qualification.model';
+import { QualificationModel } from '../models/teacher/config-qualification.model';
 /* Importando Modelo UsersModel */
-import { UsersModel } from '../components/models/users.model';
+import { UsersModel } from '../models/users.model';
 
 @Injectable()
 

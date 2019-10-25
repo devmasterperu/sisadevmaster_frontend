@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'; /* 👶🏼 */
 import { HttpClient } from '@angular/common/http';
 
 /* Importando Modelo */
-import { ProgrammingCurseModel } from '../components/models/programming-curse.model';
+import { ProgrammingCurseModel } from '../models/programming-curse.model';
 
 @Injectable({
   providedIn: 'root'
