@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core'; /* 👶🏼 */
 /* Para metodos HTTP */
 import { HttpClient } from '@angular/common/http';
 
-/* Importando Modelo Qualificacion */
-import { QualificationModel } from '../models/teacher/config-qualification.model';
-/* Importando Modelo UsersModel */
+/* Importando Modelo Qualification */
+import { QualificationModel } from '../models/config-qualification.model';
+/* Importando Modelo Users */
 import { UsersModel } from '../models/users.model';
 
 @Injectable()

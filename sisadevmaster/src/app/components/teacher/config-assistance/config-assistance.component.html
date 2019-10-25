@@ -16,12 +16,19 @@
         </div>
         <div class="col-lg-12">
             <div class="card-content">
-                <form action="" method="" autocomplete="off">
+                <form [formGroup]="registerAssistanceForn" (ngSubmit)="onSubmitregisterAssistance()" autocomplete="off">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="date"><strong>Fecha</strong></label>
-                                <input type="date" class="form-control" id="date">
+                                <label for="assistanceDate"><strong>Fecha</strong></label>
+                                <input  type="date"
+                                        class="form-control"
+                                        id="assistanceDate"
+                                        formControlName="assistanceDate"
+                                        [ngClass]="{ 'is-invalid': f.assistanceDate.errors }">
+                                <div class="invalid-feedback" *ngIf="f.assistanceDate.errors">
+                                    <div *ngIf="f.assistanceDate.errors.required">Campo obligatorio</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-12 d-flex justify-content-end">
@@ -38,16 +45,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td scope="row">dd/mm/yyyy</td>
-                                <td><a  href="#"><span class="icon-cross2"></span></a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">dd/mm/yyyy</td>
-                                <td><a  href="#"><span class="icon-cross2"></span></a></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">dd/mm/yyyy</td>
+                            <tr *ngFor="let item of assistanceSettings">
+                                <td scope="row">{{ item.assistanceDate }}</td>
                                 <td><a  href="#"><span class="icon-cross2"></span></a></td>
                             </tr>
                         </tbody>

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core'; /* 👶🏼 */
 /* Para metodos HTTP */
 import { HttpClient } from '@angular/common/http';
 
+/* Importando Modelo Qualification */
+import { QualificationModel } from '../models/assistance-settings.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +28,18 @@ export class CourseService {
         return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Users/' + id + '/UpcomingCourses');
     }
 
-    // Calificacion
+    // Listar Calificación
     getQualificationSettings(upcomingCourses) {
         return this.http.get('https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/' + upcomingCourses + '/QualificationSettings');
+    }
+
+    // Listar Asistencia
+    getListAssistanceSettings(upcomingCourses) {
+        return this.http.get('https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/' + upcomingCourses + '/AssistanceSettings')
+    }
+
+    // Agregar Asistencia
+    postAddAssistanceSettings(qualificationModel: QualificationModel) {
+        return this.http.post('https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/23/AssistanceSettings', qualificationModel);
     }
 }
