@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Para nuestro servicio */
 import { TeacherService } from '../../../services/teacher.service';
+import { CourseService } from '../../../services/course.service';
 
 @Component({
   selector: 'app-config-qualification',
@@ -11,27 +12,36 @@ import { TeacherService } from '../../../services/teacher.service';
 })
 
 export class ConfigQualificationComponent implements OnInit {
-  registerForm: FormGroup;
-  submitted = false;
-
+    registerForm: FormGroup;
+    submitted = false;
+    upcomingCourses: any;
+    qualificationSettings: any;
   /*
-  *  ✅ Constructor
+  *    ✅ Constructor
+  *    Se dispara automaticamente al cargar la pagina
   */
   constructor(  private formBuilder: FormBuilder,
-                private objTeacherService: TeacherService ) {
-    /*
-     *  Se dispara automaticamente al cargar la pagina
-     */
+                private objTeacherService: TeacherService,
+                private objCourseService: CourseService ) {
   }
 
   /*
-  *  ✅ ngOnInit
+  *    ✅ ngOnInit
+  *    Se carga automaticamente al cargar la página
   */
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       evaluationName: ['', Validators.required],
-      percentageValue: [ , Validators.required]
+      percentageValue: [ , [Validators.required, Validators.min(0), Validators.max(100)]]
     });
+
+    this.upcomingCourses = 23;
+    this.objCourseService
+                        .getQualificationSettings(this.upcomingCourses)
+                        .subscribe( ( data: any ) => {
+                            this.qualificationSettings = data;
+                            console.log( this.qualificationSettings );
+                        });
   }
 
   // convenience getter for easy access to form fields
@@ -40,21 +50,15 @@ export class ConfigQualificationComponent implements OnInit {
   }
 
   /*
-  *  ✅ Formulario Calificación
+  *  ✅ Formulario Configurar Calificación
   */
   onSubmitRegister() {
     this.submitted = true;
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
-    }
-
     if (this.registerForm.valid) {
       this.objTeacherService
-                            .createCustomer(this.registerForm.value)
+                            .getConfigQualification(this.registerForm.value)
                             .subscribe((res) => {
-                                console.log(this.registerForm.value);
                                 console.log(res);
                             });
     }

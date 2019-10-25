@@ -34,7 +34,7 @@ import { PerfilComponent } from './components/student/perfil/perfil.component';
 import { RegisterTeacherComponent } from './components/teacher/register-teacher/register-teacher.component';
 import { ProgrammingCurseComponent } from './components/admin/programming-curse/programming-curse.component';
 import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teacher.component';
-import { ConfigCurseComponent } from './components/teacher/config-curse/config-curse.component';
+import { ConfigCourseComponent } from './components/teacher/config-course/config-course.component';
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 
@@ -55,7 +55,7 @@ import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashb
     PerfilTeacherComponent,
     ConfigQualificationComponent,
     ConfigAssistanceComponent,
-    ConfigCurseComponent,
+    ConfigCourseComponent,
     ListStudentComponent,
     ProgrammingCurseComponent,
     InscriptionComponent,

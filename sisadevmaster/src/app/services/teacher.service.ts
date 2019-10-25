@@ -10,21 +10,23 @@ import { UsersModel } from '../models/users.model';
 @Injectable()
 
 export class TeacherService {
-  apiURL: string = 'https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/10';
-  apiURLUsers: string = 'https://devmasterwebapi.azurewebsites.net/api/Users';
-  constructor(private http: HttpClient) {}
+    apiURL: string = 'https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/23';
+    apiURLUsers: string = 'https://devmasterwebapi.azurewebsites.net/api/Users';
 
-  public createCustomer(qualificationModel: QualificationModel) {
-    return this.http.post(`${this.apiURL}/QualificationSettings/`, qualificationModel);
-  }
+    constructor(private http: HttpClient) {}
 
-  // send a POST request to the API to create a new data object
-  postRegisterTeacher( usersModel: UsersModel) {
+    // Registrar Configuración Calificación
+    getConfigQualification( qualificationModel: QualificationModel ) {
+        return this.http.post(`${this.apiURL}/QualificationSettings/`, qualificationModel);
+    }
+
+    // Registrar a un Docente
+    postRegisterTeacher( usersModel: UsersModel ) {
     return this.http.post(`${this.apiURLUsers}`, usersModel);
-  }
+    }
 
-  // Tipo de Institución (Dato en duro)
-  getTypeInstitution() {
+    // Tipo de Institución (Dato en duro)
+    getTypeInstitution() {
     return typeInstitutions = [
         { name: 'Instituto', type: 'I' },
         { name: 'Colegio', type: 'C1' },
@@ -32,5 +34,5 @@ export class TeacherService {
         { name: 'Universidad', type: 'U' },
         { name: 'Otro', type: 'O' },
     ];
-  }
+    }
 }

@@ -20,7 +20,13 @@ export class CourseService {
         return this.http.get(`${this.apiURLCourses}`);
     }
 
+    // Cursos asignados por docente
     getListCoursesTeacher(id) {
         return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Users/' + id + '/UpcomingCourses');
+    }
+
+    // Calificacion
+    getQualificationSettings(upcomingCourses) {
+        return this.http.get('https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/' + upcomingCourses + '/QualificationSettings');
     }
 }

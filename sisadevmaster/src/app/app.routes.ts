@@ -15,7 +15,7 @@ import { PerfilComponent } from './components/student/perfil/perfil.component';
 import { RegisterTeacherComponent } from './components/teacher/register-teacher/register-teacher.component';
 import { ProgrammingCurseComponent } from './components/admin/programming-curse/programming-curse.component';
 import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teacher.component';
-import { ConfigCurseComponent } from './components/teacher/config-curse/config-curse.component';
+import { ConfigCourseComponent } from './components/teacher/config-course/config-course.component';
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 
@@ -56,7 +56,7 @@ export const ROUTES: Routes = [
         { path: '', component: PerfilTeacherComponent },
         { path: 'configurar_calificacion', component: ConfigQualificationComponent },
         { path: 'configurar_asistencia', component: ConfigAssistanceComponent },
-        { path: 'configurar_curso', component: ConfigCurseComponent },
+        { path: 'configurar_curso', component: ConfigCourseComponent },
     ]
     },
     // Rutas con más caracteres innecesario: Redirigir al Login
