@@ -10,16 +10,17 @@ import { ProgrammingCurseModel } from '../models/programming-curse.model';
 })
 
 export class AdminService {
-  apiURLUpcomingCourses = 'https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses';
-  constructor( private http: HttpClient) {}
+    apiURLUpcomingCourses = 'https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses';
+    constructor( private http: HttpClient) {}
 
-  // Use GET to load data from API
-  getSearchTeacher() {
-    return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Users?userTypeId=2');
-  }
+    // Busqueda de Docentes
+    getSearchTeacher() {
+        return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Users?userTypeId=2');
+    }
 
-  postProgrammingCurse(programmingCurseModel: ProgrammingCurseModel) {
-    console.log(programmingCurseModel);
-    return this.http.post(`${this.apiURLUpcomingCourses}`, programmingCurseModel);
-  }
+    // Registrando Programación de Curso
+    postProgrammingCurse(programmingCurseModel: ProgrammingCurseModel) {
+        console.log(programmingCurseModel);
+        return this.http.post(`${this.apiURLUpcomingCourses}`, programmingCurseModel);
+    }
 }

@@ -13,6 +13,7 @@ import { ListStudentComponent } from './components/student/list-student/list-stu
 import { PerfilComponent } from './components/student/perfil/perfil.component';
 /* Docente */
 import { RegisterTeacherComponent } from './components/teacher/register-teacher/register-teacher.component';
+import { UpdateTeacherComponent } from './components/teacher/update-teacher/update-teacher.component';
 import { ProgrammingCurseComponent } from './components/admin/programming-curse/programming-curse.component';
 import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teacher.component';
 import { ConfigCourseComponent } from './components/teacher/config-course/config-course.component';
@@ -31,14 +32,15 @@ export const ROUTES: Routes = [
     path: 'administrador',
     component: LayoutDashboardComponent,
     children: [
-        { path: '', component: PerfilAdminComponent },
-        { path: 'inscripcion', component: InscriptionComponent },
-        { path: 'registro_docente', component: RegisterTeacherComponent },
-        { path: 'registro_estudiante', component: RegisterStudentComponent },
-        { path: 'programacion_curso', component: ProgrammingCurseComponent },
-        { path: 'listar_alumnos', component: ListStudentComponent },
-        { path: 'editar_alumno', component: EditStudentComponent },
-    ]
+            { path: '', component: PerfilAdminComponent },
+            { path: 'inscripcion', component: InscriptionComponent },
+            { path: 'registro_docente', component: RegisterTeacherComponent },
+            { path: 'registro_estudiante', component: RegisterStudentComponent },
+            { path: 'programacion_curso', component: ProgrammingCurseComponent },
+            { path: 'listar_alumnos', component: ListStudentComponent },
+            { path: 'editar_alumno', component: EditStudentComponent },
+            { path: 'actualizar_docente', component: UpdateTeacherComponent },
+        ]
     },
     // Rutas para Estudiantes
     {

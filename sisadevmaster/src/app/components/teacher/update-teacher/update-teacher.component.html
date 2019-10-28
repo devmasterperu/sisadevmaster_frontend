@@ -1,0 +1,226 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-title d-flex align-items-center">
+                <h4>Docente</h4>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card-content">
+                <form [formGroup]="updateTeacherForm" (ngSubmit)=onSubmitUpdateTeacher() autocomplete="off">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="name"><strong>Nombres</strong><span class="required">*</span></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="name"
+                                        formControlName="name"
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.name.errors">
+                                    <div *ngIf="f.name.errors.required">Campo obligatorio</div>
+                                    <div *ngIf="f.name.errors.pattern">Solo texto</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="lastName"><strong>Apellidos</strong><span class="required">*</span></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="lastName"
+                                        formControlName="lastName"
+                                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.lastName.errors">
+                                    <div *ngIf="f.lastName.errors.required">Campo obligatorio</div>
+                                    <div *ngIf="f.lastName.errors.pattern">Solo texto</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="typeDocument"><strong>Tipo Documento</strong><span class="required">*</span></label>
+                                <select class="form-control"
+                                        id="documentTypeId"
+                                        formControlName="documentTypeId"
+                                        >
+                                    <option value="0" selected>Seleccione Tipo Documento</option>
+                                    <option *ngFor="let item of documentTypes" [value]="item.id">{{ item.description | lowercase }}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="documentNumber"><strong>Número Documento</strong><span class="required">*</span></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="documentNumber"
+                                        formControlName="documentNumber"
+                                        [ngClass]="{ 'is-invalid': submitted && f.documentNumber.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.documentNumber.errors">
+                                    <div *ngIf="f.documentNumber.errors.required">Campo obligatorio</div>
+                                    <div *ngIf="f.documentNumber.errors.pattern">Solo números</div>
+                                    <div *ngIf="f.documentNumber.errors.maxlength">Máximo 20 caracteres</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="email"><strong>Correo</strong><span class="required">*</span></label>
+                                <input  type="email"
+                                        class="form-control"
+                                        id="email"
+                                        formControlName="email"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.email.errors">
+                                    <div *ngIf="f.email.errors.required">Campo obligatorio</div>
+                                    <div *ngIf="f.email.errors.email">Debe ser una dirección de correo electrónico válida</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="dateOfBirth"><strong>Fecha de Nacimiento</strong><span class="required">*</span></label>
+                                <input  type="date"
+                                        class="form-control"
+                                        id="dateOfBirth"
+                                        formControlName="dateOfBirth"
+                                        [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.dateOfBirth.errors">
+                                    <div *ngIf="f.dateOfBirth.errors.required">Campo obligatorio</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="typeInstitution"><strong>Tipo Institución</strong><span class="required">*</span></label>
+                                <select class="form-control"
+                                      id="typeInstitution"
+                                      formControlName="organizationType">
+                                    <option value="0" disabled>Seleccione Institución</option>
+                                    <option *ngFor="let item of typeInstitution" [value]="item.code">{{ item.name | lowercase }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="organizationName"><strong>Nombre Institución</strong><span class="required">*</span></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="organizationName"
+                                        formControlName="organizationName"
+                                        [ngClass]="{ 'is-invalid': submitted && f.organizationName.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.organizationName.errors">
+                                    <div *ngIf="f.organizationName.errors.required">Campo obligatorio</div>
+                                    <div *ngIf="f.organizationName.errors.pattern">Solo texto</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="department"><strong>Departamento</strong><span class="required">*</span></label>
+                                <select class="form-control"
+                                      id="Department"
+                                      (change)="changeDepartament($event.target.value)">
+                                  <option value="0" disabled>Seleccione Departamento</option>
+                                  <option *ngFor="let item of dataDepartament" [value]="item.code">{{ item.name | lowercase }}</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="province"><strong>Provincia</strong><span class="required">*</span></label>
+                                <select class="form-control"
+                                        id="Province"
+                                        (change)="changeProvince($event.target.value)">
+                                  <option value="0">Seleccione Provincia</option>
+                                  <option *ngFor="let item of dataProvince" [value]="item.code">{{ item.name | lowercase }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="district"><strong>Distrito</strong><span class="required">*</span></label>
+                                <select class="form-control"
+                                        id="locationId"
+                                        formControlName="locationId">
+                                    <option value="0">Seleccione Distrito</option>
+                                    <option *ngFor="let item of dataDistrict" [value]="item.code">{{ item.name | lowercase }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="homeAdress"><strong>Dirección</strong><span class="required">*</span></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="homeAdress"
+                                        formControlName="homeAdress"
+                                        [ngClass]="{ 'is-invalid': submitted && f.homeAdress.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.homeAdress.errors">
+                                    <div *ngIf="f.homeAdress.errors.required">Campo obligatorio</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="gender"><strong>Género</strong><span class="required">*</span></label>
+                                <div>
+                                  <div class="form-check form-check-inline">
+                                    <input  type="radio"
+                                            class="form-check-input"
+                                            id="genderMale"
+                                            formControlName="gender"
+                                            value="M"
+                                            checked>
+                                    <label class="form-check-label" for="genderMale" checked>Masculino</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input  type="radio"
+                                            class="form-check-input"
+                                            id="genderFemale"
+                                            formControlName="gender"
+                                            value="F">
+                                    <label class="form-check-label" for="genderFemale">Femenino</label>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="phoneNumber1"><strong>Teléfono 1</strong><span class="required">*</span></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="phoneNumber1"
+                                        formControlName="phoneNumber1"
+                                        [ngClass]="{ 'is-invalid': submitted && f.phoneNumber1.errors }">
+                                <div class="invalid-feedback" *ngIf="submitted && f.phoneNumber1.errors">
+                                    <div *ngIf="f.phoneNumber1.errors.required">Campo obligatorio</div>
+                                    <div *ngIf="f.phoneNumber1.errors.pattern">Solo números</div>
+                                    <div *ngIf="f.phoneNumber1.errors.minlength">Mínimo 6 caracteres</div>
+                                    <div *ngIf="f.phoneNumber1.errors.maxlength">Máximo 9 caracteres</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="phoneNumber2"><strong>Teléfono 2</strong></label>
+                                <input  type="text"
+                                        class="form-control"
+                                        id="phoneNumber2"
+                                        formControlName="phoneNumber2">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

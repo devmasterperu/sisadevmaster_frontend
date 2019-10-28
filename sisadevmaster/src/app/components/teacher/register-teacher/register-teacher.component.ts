@@ -24,6 +24,7 @@ export class RegisterTeacherComponent implements OnInit {
     dataProvince: any;
     dataDistrict: any;
 
+    // Data en duro
     typeInstitution = [
         { name: 'Instituto', code: 'I' },
         { name: 'Colegio', code: 'C1' },

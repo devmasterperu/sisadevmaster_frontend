@@ -12,6 +12,7 @@ import { UsersModel } from '../models/users.model';
 export class TeacherService {
     apiURL: string = 'https://devmasterwebapi.azurewebsites.net/api/UpcomingCourses/23';
     apiURLUsers: string = 'https://devmasterwebapi.azurewebsites.net/api/Users';
+    apiURLUpdateUser: string = 'https://devmasterdeswebapi.azurewebsites.net/api/Users/76';
 
     constructor(private http: HttpClient) {}
 
@@ -20,19 +21,13 @@ export class TeacherService {
         return this.http.post(`${this.apiURL}/QualificationSettings/`, qualificationModel);
     }
 
-    // Registrar a un Docente
+    // Registrar a un Usuario(Docente)
     postRegisterTeacher( usersModel: UsersModel ) {
-    return this.http.post(`${this.apiURLUsers}`, usersModel);
+        return this.http.post(`${this.apiURLUsers}`, usersModel);
     }
 
-    // Tipo de Institución (Dato en duro)
-    // getTypeInstitution() {
-    // return typeInstitutions = [
-    //     { name: 'Instituto', type: 'I' },
-    //     { name: 'Colegio', type: 'C1' },
-    //     { name: 'Cetpro', type: 'C2' },
-    //     { name: 'Universidad', type: 'U' },
-    //     { name: 'Otro', type: 'O' },
-    // ];
-    // }
+    // Actualizar información de un Usuario(Docente)
+    patchUpdateTeacher( usersModel: UsersModel) {
+        return this.http.post(`${this.apiURLUpdateUser}`, usersModel);
+    }
 }

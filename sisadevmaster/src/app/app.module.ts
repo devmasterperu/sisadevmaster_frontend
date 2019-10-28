@@ -37,6 +37,7 @@ import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teach
 import { ConfigCourseComponent } from './components/teacher/config-course/config-course.component';
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
+import { UpdateTeacherComponent } from './components/teacher/update-teacher/update-teacher.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { AppDashboardHeaderComponent } from './layout/app-dashboard-header/app-dashboard-header.component';
@@ -65,7 +66,8 @@ import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashb
     HomeComponent,
     AppDashboardHeaderComponent,
     AppDashboardOffcanvasComponent,
-    LayoutDashboardComponent
+    LayoutDashboardComponent,
+    UpdateTeacherComponent
   ],
   imports: [
     BrowserModule,
