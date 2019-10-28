@@ -38,7 +38,7 @@ table {
         </div>
         <div class="col-lg-12">
             <div class="card-content">
-                <form [formGroup]="registerUpcomingCoursesForm" (ngSubmit)="onSubmitRegisterUpcomingCourses()">
+                <form [formGroup]="registerUpcomingCoursesForm" (ngSubmit)="onSubmitRegisterUpcomingCourses()" autocomplete="off">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -46,6 +46,7 @@ table {
                                 <input  type="number"
                                         class="form-control"
                                         id="userId"
+                                        readonly="true"
                                         formControlName="userId"
                                         [ngClass]="{ 'is-invalid': f.userId.errors }">
                                 <div class="invalid-feedback" *ngIf="f.userId.errors">
@@ -60,7 +61,8 @@ table {
                                 <label for="userName"><strong>Docente</strong></label>
                                 <input  type="text"
                                         class="form-control"
-                                        id="userName">
+                                        id="userName"
+                                        readonly="true">
                             </div>
                         </div>
 

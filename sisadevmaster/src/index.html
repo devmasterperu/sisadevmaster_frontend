@@ -69,16 +69,24 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-// se visualiza dentro del archivo assets/js/app.js
-new Mmenu(document.querySelector('#menu'));
+    // se visualiza dentro del archivo assets/js/app.js
+    new Mmenu(document.querySelector('#menu'));
 
-document.addEventListener('click', function(evnt) {
-    var anchor = evnt.target.closest('a[href^="#/"]');
-    if (anchor) {
-        alert('Thank you for clicking, but that\'s a demo link.');
-        evnt.preventDefault();
-    }
-});
+    document.addEventListener('click', function(evnt) {
+        var anchor = evnt.target.closest('a[href^="#/"]');
+        if (anchor) {
+            alert('Thank you for clicking, but that\'s a demo link.');
+            evnt.preventDefault();
+        }
+    });
+
+    document.addEventListener(
+        "DOMContentLoaded", () => {
+            new Mmenu( "#my-menu", {
+                wrappers: ["angular"]
+            });
+        }
+    );
   </script>
 </body>
 </html>

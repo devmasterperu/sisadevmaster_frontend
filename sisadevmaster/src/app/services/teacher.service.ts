@@ -26,13 +26,13 @@ export class TeacherService {
     }
 
     // Tipo de Institución (Dato en duro)
-    getTypeInstitution() {
-    return typeInstitutions = [
-        { name: 'Instituto', type: 'I' },
-        { name: 'Colegio', type: 'C1' },
-        { name: 'Cetpro', type: 'C2' },
-        { name: 'Universidad', type: 'U' },
-        { name: 'Otro', type: 'O' },
-    ];
-    }
+    // getTypeInstitution() {
+    // return typeInstitutions = [
+    //     { name: 'Instituto', type: 'I' },
+    //     { name: 'Colegio', type: 'C1' },
+    //     { name: 'Cetpro', type: 'C2' },
+    //     { name: 'Universidad', type: 'U' },
+    //     { name: 'Otro', type: 'O' },
+    // ];
+    // }
 }
