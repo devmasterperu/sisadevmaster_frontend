@@ -50,8 +50,8 @@ Plugins recomendados para los siguientes editores:
 
 ## Crear un servicio por consola
 
-ng generate service services/nombreServicio --spec false
-(services es el nombre de la carpeta donde tendrá nuestros servicio)
+- ng generate service services/nombreServicio --spec false
+- (services es el nombre de la carpeta donde tendrá nuestros servicio)
 (--spect false es para no crear el archivo con extesión .spec)
 
 ## Creación de servicios
@@ -60,6 +60,11 @@ ng generate service services/nombreServicio --spec false
 2. Ahora en el archivo nombrecomponent.component.ts deberas hacer la llamada de eso método en el componente donde quieras que se pinte la info.
 3. Tendrás visible la info por un console.log 😁
 
+## Crear component
+- ng g c components/nombreComponent --nospec
+- (components es el nombre de la carpeta donde tendrá nuestros componentes)
+(--nospec es para no crear el archivo con extesión .spec)
+
 ## Terminos
 
 - API ENDPOINT: This is HTTP endpoint URL using where we post data to the server.
@@ -67,7 +72,6 @@ ng generate service services/nombreServicio --spec false
 - Headers: We need to set request header for our HTTP POST Request.
 - Options: This parameter is optional. Here we pass the object of RequestOptionsArgs that uses headers.
 - Observable: This is the response type of Http.post().
-
 
 ## Clases en los input para formularios
 
@@ -88,3 +92,49 @@ ng generate service services/nombreServicio --spec false
 ## Multilayout en Angular
 
 - https://stackblitz.com/edit/angular-multi-layout-example-mbbyyr?file=app/app.routing.ts
+
+## Constructor Vs ngOnInit
+
+- https://medium.com/@coderonfleek/constructor-vs-ngoninit-angular-2-components-b1a33db0be65
+- https://ultimatecourses.com/blog/angular-constructor-ngoninit-lifecycle-hook
+
+## Formularios Reactivos en Angular
+
+- https://academia-binaria.com/formularios-reactivos-con-Angular/
+
+## Setvalue vs Patchvalue en Angular
+
+- Setvalue y Patchvalue son métodos del Angular Formgroup. Ambos establecen el valor de un control en un grupo de formularios. La clara diferencia es que setvalue no puede excluir algunos controles, mientras que el patchvalue puede hacer exactamente eso.
+Así que supongamos que tenemos un grupo de formularios con 2 controles: Nombre y edad
+Si queremos establecer el valor de un control, esto no funcionará, por lo tanto tenemos que establecer el valor de ambos controles:
+formgroup.setValue ({nombre: 'Mocrosoft', edad: '25'});
+Es necesario mencionar todos los controles dentro del método. Si esto no se hace, arrojará un error.
+Por otro lado, el valor de parche es mucho más fácil en esa parte, digamos que solo queremos asignar el nombre como un nuevo valor:
+formgroup.patchValue ({nombre: 'Mocrosoft'});
+Vea cómo excluimos la edad y esto funcionará sin arrojar ningún error.
+
+- https://ultimatecourses.com/blog/angular-2-form-controls-patch-value-set-value
+- https://medium.com/@samichkhachkhi/setvalue-vs-patchvalue-angular-a64a55e912b8
+
+## METODOS HTTP
+
+- GET (Obtienes registros)
+- POST (Crear registros)
+- PUT (Vas actualizar todos los campos de un recursos)
+- PATCH (Actualizas solo los campos cambiados)
+
+## Validación en Reactive Form
+
+- https://malcoded.com/posts/angular-reactive-form-validation/
+
+## Mejores comandos para Angular CLI
+
+- https://malcoded.com/posts/angular-fundamentals-cli/
+
+## Registrar y Actualizar
+
+- En este sistema se estan creando en vistas diferentes.
+
+## Uploading file Reactive Form
+
+- https://netbasal.com/how-to-implement-file-uploading-in-angular-reactive-forms-89a3fffa1a03
