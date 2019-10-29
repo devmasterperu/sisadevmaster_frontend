@@ -106,15 +106,19 @@
                             </table>
                         </div>
                         <div class="tab-pane container fade" id="menu2">
-                            <form action="" method="" autocomplete="off">
+                            <form [formGroup]="registerPaymentForm" (ngSubmit)=onSubmitRegisterPayment() autocomplete="off">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="payment"><strong>Const. de Pago</strong></label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input"
-                                                    id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose
+                                                <input  type="file"
+                                                        class="custom-file-input"
+                                                        id="file"
+                                                        accept=".png, .jpg, .jpeg, .pdf"
+                                                        name="file"
+                                                        (change)= changeFileInput($event)>
+                                                <label class="custom-file-label" for="file">Choose
                                                     file</label>
                                             </div>
                                         </div>
@@ -122,7 +126,9 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="payment"><strong>Monto</strong></label>
-                                            <input type="text" class="form-control" id="payment">
+                                            <input  type="text"
+                                                    class="form-control"
+                                                    id="payment">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 d-flex justify-content-end">

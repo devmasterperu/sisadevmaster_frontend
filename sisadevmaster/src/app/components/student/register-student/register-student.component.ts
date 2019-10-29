@@ -66,7 +66,7 @@ export class RegisterStudentComponent implements OnInit {
       organizationName: ['', Validators.required],
       locationId: [3, Validators.required],
       homeAdress: ['', Validators.required],
-      gender: ['', Validators.required],
+      gender: ['M', Validators.required],
       phoneNumber1: ['', [Validators.required, Validators.pattern('[0-9]')]],
       phoneNumber2: ['', Validators.required],
       userTypeId: [2, Validators.required],

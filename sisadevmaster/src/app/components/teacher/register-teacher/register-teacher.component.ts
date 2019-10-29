@@ -59,7 +59,7 @@ export class RegisterTeacherComponent implements OnInit {
       organizationName: ['', [Validators.required, Validators.pattern('^[A-Za-z ]*$')]],
       locationId: ['', Validators.required],
       homeAdress: ['', Validators.required],
-      gender: ['', Validators.required],
+      gender: ['M', Validators.required],
       phoneNumber1: ['', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(7), Validators.maxLength(9)]],
       phoneNumber2: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       userTypeId: [2, Validators.required],
@@ -81,6 +81,7 @@ export class RegisterTeacherComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() {
     return this.registerTeacherForm.controls;
+    console.log(this.registerTeacherForm);
   }
 
   /*

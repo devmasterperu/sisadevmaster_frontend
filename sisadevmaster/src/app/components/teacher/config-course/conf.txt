@@ -1,0 +1,12 @@
+
+        // MIME type: .png, .jpg, .jpeg, .pdf
+        // listFormat aquí se guarda los diferentes tipos de formatos como un solo string, divididos por comas
+        // const listFormat = item.target.accept;
+        // const formatType = listFormat.split(',');
+
+        // let i: any;
+        // for ( i = 0; i < formatType.length; i++) {
+        //     if ( formatType[i] === '.png' || formatType[i] === '.jpg' || formatType[i] === '.jpeg' || formatType[i] === '.png') {
+
+        //     }
+        // }

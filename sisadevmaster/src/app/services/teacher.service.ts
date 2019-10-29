@@ -28,6 +28,7 @@ export class TeacherService {
 
     // Actualizar información de un Usuario(Docente)
     patchUpdateTeacher( usersModel: UsersModel) {
-        return this.http.post(`${this.apiURLUpdateUser}`, usersModel);
+        // return this.http.post(`${this.apiURLUpdateUser}`, usersModel);
+        console.log('hola');
     }
 }
