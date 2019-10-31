@@ -51,3 +51,8 @@ select.form-control {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
+
+/* */
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}

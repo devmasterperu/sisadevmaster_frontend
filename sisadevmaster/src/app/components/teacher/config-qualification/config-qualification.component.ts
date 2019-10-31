@@ -14,51 +14,72 @@ export class ConfigQualificationComponent implements OnInit {
     registerForm: FormGroup;
     submitted = false;
     upcomingCourses: any;
-    qualificationSettings: any;
-  /*
-  *    ✅ Constructor
-  *    Se dispara automaticamente al cargar la pagina
-  */
-  constructor(  private formBuilder: FormBuilder,
-                private objCourseService: CourseService ) {
-  }
+    qualificationSettings: any = [];
 
-  /*
-  *    ✅ ngOnInit
-  *    Se carga automaticamente al cargar la página
-  */
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      evaluationName: ['', Validators.required],
-      percentageValue: [ , [Validators.required, Validators.min(0), Validators.max(100)]]
-    });
+    /*
+    *    ✅ Constructor
+    *    Se dispara automaticamente al cargar la pagina
+    */
+    constructor(    private formBuilder: FormBuilder,
+                    private objCourseService: CourseService ) { }
 
-    this.upcomingCourses = 23;
-    this.objCourseService
-                        .getQualificationSettings(this.upcomingCourses)
-                        .subscribe( ( data: any ) => {
-                            this.qualificationSettings = data;
-                            console.log( this.qualificationSettings );
-                        });
-  }
+    /*
+    *    ✅ ngOnInit
+    *    Se carga automaticamente al cargar la página
+    */
+    ngOnInit() {
+        this.registerForm = this.formBuilder.group({
+            evaluationName: ['', Validators.required],
+            percentageValue: [ , [Validators.required, Validators.min(0), Validators.max(100)]]
+        });
 
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.registerForm.controls;
-  }
-
-  /*
-  *  ✅ Formulario Configurar Calificación
-  */
-  onSubmitRegister() {
-    this.submitted = true;
-
-    if (this.registerForm.valid) {
-      this.objCourseService
-                            .getConfigQualification(this.registerForm.value)
-                            .subscribe((res) => {
-                                console.log(res);
+        this.upcomingCourses = 23;
+        this.objCourseService
+                            .getQualificationSettings(this.upcomingCourses)
+                            .subscribe( ( data: any ) => {
+                                this.qualificationSettings = data;
+                                console.log( this.qualificationSettings );
                             });
     }
-  }
+
+    // convenience getter for easy access to form fields
+    get f() {
+    return this.registerForm.controls;
+    }
+
+    /*
+    *  ✅ Formulario Configurar Calificación
+    */
+    // Función declarada para obtener los datos, y pintarla en la tabla de Asistencia luego de la eliminación de un registro
+    fetchData() {
+        this.objCourseService
+                            .getQualificationSettings(this.upcomingCourses)
+                            .subscribe( ( data: any ) => {
+                                this.qualificationSettings = data;
+                            });
+    }
+
+    onSubmitRegister() {
+        this.submitted = true;
+
+        if (this.registerForm.valid) {
+            this.objCourseService
+                                .getConfigQualification(this.registerForm.value)
+                                .subscribe( resp => this.fetchData() );
+        }
+    }
+
+    onClickDeleteQualification(item: any) {
+        this.objCourseService
+                            .deleteQualification(item)
+                            .subscribe( resp =>  this.fetchData() );
+                            /*
+                            *    resp retorna true cuando a sido eliminado
+                            *    how to refresh the page after delete in angular5?
+                            *    https://stackoverflow.com/questions/49133449/how-to-refresh-the-page-after-delete-in-angular5
+                            *    Aquí, obtienes "precisión" de la realidad pero sacrificas el rendimiento al hacer
+                            *    2 llamadas API REST cada vez que eliminas. Disparar una función dentro del .subscrite()
+                            *    Ejm: this.fetchData()
+                            */
+    }
 }

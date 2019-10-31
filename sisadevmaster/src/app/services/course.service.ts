@@ -40,8 +40,13 @@ export class CourseService {
     }
 
     // Agregar Calificación
-    getConfigQualification( qualificationModel: QualificationModel ) {
+    getConfigQualification(qualificationModel: QualificationModel) {
         return this.http.post(`${this.apiURL}/QualificationSettings/`, qualificationModel);
+    }
+
+    // Eliminar Asistencia
+    deleteQualification(qualificationModel: QualificationModel) {
+        return this.http.delete('https://devmasterdeswebapi.azurewebsites.net/api/QualificationSettings/' + qualificationModel );
     }
 
     /*

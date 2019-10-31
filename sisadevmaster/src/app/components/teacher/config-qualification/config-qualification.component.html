@@ -16,7 +16,7 @@
                         <a class="arrow-link" [routerLink]="['/docente/configurar_curso']"><span class="icon-arrow-left"></span></a>
                     </div>
                     <div class="col-lg-12">
-                        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()"> <!--  novalidate="" -->
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()" autocomplete="off"> <!--  novalidate="" -->
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </form>
-                        <table class="table table-striped u-margin-top-small">
+                        <table *ngIf="qualificationSettings.length > 0" class="table table-striped u-margin-top-small">
                             <thead>
                                 <tr>
                                     <th scope="col">Nombre</th>
@@ -63,10 +63,21 @@
                                 <tr *ngFor="let item of qualificationSettings">
                                     <th scope="row">{{ item.evaluationName}}</th>
                                     <td>{{ item.percentageValue }}</td>
-                                    <td><a  href="#"><span class="icon-cross2"></span></a></td>
+                                    <td>
+                                        <!--
+                                            Para la eliminación de un registro, tenemos unos pasos:
+                                            1️⃣ Click en el boton para eliminar el registro seleccionado
+                                            2️⃣ Eliminar el registro de la base de datos y vista
+                                            3️⃣ Mostrar registros restantes en la vista
+                                        -->
+                                        <span (click)="onClickDeleteQualification(item.id)" class="icon-trash2"></span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div *ngIf="qualificationSettings.length === 0" style="margin-top: 40px; background-color: #F2F2F2; padding: 15px 10px; border-left: 3px solid #10213F"> <!-- Comprueba la longitud de la arreglo en la plantilla. Regresa un arreglo vacio [] cuando no tiene informacion assistanceSettings -->
+                            Upsss! No tiene registro de calificación.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,5 +105,10 @@
     }
     .arrow-link:hover span {
         color: #FFF;
+    }
+    .icon-trash2 {
+        color: #FF2B45;
+        font-size: 20px;
+        cursor: pointer;
     }
 </style>

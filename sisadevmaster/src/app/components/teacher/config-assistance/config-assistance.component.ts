@@ -13,16 +13,17 @@ export class ConfigAssistanceComponent implements OnInit {
     registerAssistanceForn: FormGroup;
     upcomingCourses: any;
     assistanceSettings: any = [];
-    registerAssistanceSettings: any;
 
     /*
-    *  ✅ Constructor
+    *    ✅ Constructor
+    *    Se dispara automaticamente al cargar la pagina
     */
     constructor(    private formBuilder: FormBuilder,
                     private objCourseService: CourseService ) { }
 
     /*
     *  ✅ ngOnInit
+    *    Se carga automaticamente al cargar la página
     */
     ngOnInit() {
         this.registerAssistanceForn = this.formBuilder.group({
@@ -43,7 +44,7 @@ export class ConfigAssistanceComponent implements OnInit {
     return this.registerAssistanceForn.controls;
     }
 
-     // Función declarada para obtener los datos, y pintarla en la tabla de Asistencia luego de la eliminación de un registro
+    // Función declarada para obtener los datos, y pintarla en la tabla de Asistencia luego de la eliminación de un registro
     fetchData() {
         this.objCourseService
                             .getListAssistanceSettings(this.upcomingCourses)
@@ -52,7 +53,7 @@ export class ConfigAssistanceComponent implements OnInit {
                             });
     }
 
-    onSubmitregisterAssistance() {
+    onSubmitRegisterAssistance() {
         this.objCourseService
                             .postAddAssistanceSettings(this.registerAssistanceForn.value)
                             .subscribe( resp => this.fetchData() );
@@ -69,6 +70,10 @@ export class ConfigAssistanceComponent implements OnInit {
                             *    Aquí, obtienes "precisión" de la realidad pero sacrificas el rendimiento al hacer
                             *    2 llamadas API REST cada vez que eliminas. Disparar una función dentro del .subscrite()
                             *    Ejm: this.fetchData()
+                            *
+                            *    Mensaje de confirmación antes de eliminar un registro
+                            *    https://stackblitz.com/edit/angular-confirmation-dialog
+                            *    npm install --save @ng-bootstrap/ng-bootstrap
                             */
     }
 }
