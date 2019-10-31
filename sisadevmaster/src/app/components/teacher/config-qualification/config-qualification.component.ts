@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core'; /* 👶🏼 */
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /* Para nuestro servicio */
-import { TeacherService } from '../../../services/teacher.service';
 import { CourseService } from '../../../services/course.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class ConfigQualificationComponent implements OnInit {
   *    Se dispara automaticamente al cargar la pagina
   */
   constructor(  private formBuilder: FormBuilder,
-                private objTeacherService: TeacherService,
                 private objCourseService: CourseService ) {
   }
 
@@ -56,7 +54,7 @@ export class ConfigQualificationComponent implements OnInit {
     this.submitted = true;
 
     if (this.registerForm.valid) {
-      this.objTeacherService
+      this.objCourseService
                             .getConfigQualification(this.registerForm.value)
                             .subscribe((res) => {
                                 console.log(res);

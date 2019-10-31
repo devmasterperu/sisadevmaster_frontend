@@ -46,8 +46,29 @@ export class ConfigAssistanceComponent implements OnInit {
     onSubmitregisterAssistance() {
         this.objCourseService
                             .postAddAssistanceSettings(this.registerAssistanceForn.value)
-                            .subscribe( ( resp ) => {
-                                console.log( resp );
+                            .subscribe( resp => console.log(resp) );
+    }
+
+    // Función que se declara para obtener datos
+    fetchData() {
+        this.objCourseService
+                            .getListAssistanceSettings(this.upcomingCourses)
+                            .subscribe( ( data: any ) => {
+                                this.assistanceSettings = data;
                             });
+    }
+
+    onClickDeleteAssistence(item: any) {
+        this.objCourseService
+                            .deleteAssistanceSettings(item)
+                            .subscribe( resp  => this.fetchData() );
+                            /*
+                            *    resp retorna true cuando a sido eliminado
+                            *    how to refresh the page after delete in angular5?
+                            *    https://stackoverflow.com/questions/49133449/how-to-refresh-the-page-after-delete-in-angular5
+                            *    Aquí, obtienes "precisión" de la realidad pero sacrificas el rendimiento al hacer
+                            *    2 llamadas API REST cada vez que eliminas. Disparar una función dentro del .subscrite()
+                            *    Ejm: this.fetchData()
+                            */
     }
 }

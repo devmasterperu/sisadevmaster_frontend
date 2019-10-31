@@ -12,6 +12,6 @@ export class DocumentTypesService {
     constructor( private http: HttpClient) { }
 
     getListTypeServices() {
-        return this.http.get('https://devmasterwebapi.azurewebsites.net/api/DocumentTypes');
+        return this.http.get('https://devmasterdeswebapi.azurewebsites.net/api/DocumentTypes');
     }
 }

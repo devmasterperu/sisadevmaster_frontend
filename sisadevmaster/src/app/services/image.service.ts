@@ -11,13 +11,11 @@ export class ImageService {
 
     constructor( private http: HttpClient) { }
 
-    /*
-    *    Subida de archivo al servidor
-    *    1️⃣ Enviamos mediante una API un archivo y el servidor retorna con un nombre que no repita.
-    */
     // Envio del archivo, donde me retornar un nombre que no repita
     getRegisterNameFile(file) {
-        console.log(file);
-        return this.http.post('https://devmasterdeswebapi.azurewebsites.net/api/image', file);
+        return this.http.post('https://devmasterdeswebapi.azurewebsites.net/api/image', file, {
+            reportProgress: true,
+            observe: 'events'
+        });
     }
 }

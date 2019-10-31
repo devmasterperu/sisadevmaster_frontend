@@ -5,7 +5,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 /* Para nuestro servicio */
 import { ImageService } from '../../../services/image.service';
 
-import { HttpHeaders } from '@angular/common/http';
+/* Para visualizar la carga del archivo */
+import { HttpEventType } from '@angular/common/http';
 @Component({
   selector: 'app-config-course',
   templateUrl: './config-course.component.html'
@@ -14,7 +15,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class ConfigCourseComponent implements OnInit {
     registerPaymentForm: FormGroup;
     fd: any;
-
+    statusProgress = { status: '', message: '' };
     /*
     *  ✅ Constructor
     */
@@ -51,7 +52,15 @@ export class ConfigCourseComponent implements OnInit {
 
         this.objtImageService
                             .getRegisterNameFile( this.fd )
-                            .subscribe( resp => console.log(resp) );
+                            .subscribe( (events) => {
+                                if (events.type === HttpEventType.UploadProgress) {
+                                    const uploadProgress = Math.round((events.loaded / events.total)  * 100);
+                                    this.statusProgress = { status: 'progress', message: uploadProgress.toString() };
+                                    return this.statusProgress;
+                                }
+                                console.log(events);
+                            });
+
     }
 
     onSubmitRegisterPayment() {

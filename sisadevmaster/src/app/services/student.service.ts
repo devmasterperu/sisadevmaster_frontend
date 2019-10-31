@@ -11,14 +11,14 @@ import { UsersModel } from '../models/users.model';
 // })
 
 export class StudentService {
-  apiURL: string = 'https://devmasterwebapi.azurewebsites.net/api/Users';
+  apiURL: string = 'https://devmasterdeswebapi.azurewebsites.net/api/Users';
   constructor(private http: HttpClient, ) {
     console.log('Llegó! Desde StudentService');
   }
 
   // Use GET to load data from API
   getListStudent() {
-    return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Users');
+    return this.http.get('https://devmasterdeswebapi.azurewebsites.net/api/Users');
   }
 
   // send a POST request to the API to create a new data object

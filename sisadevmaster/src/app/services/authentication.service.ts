@@ -13,6 +13,6 @@ export class authenticationService {
 
   // Use GET to load data from API
   login(user, pass) {
-    return this.http.get('https://devmasterwebapi.azurewebsites.net/api/Login?username=' + user + '&password=' + pass);
+    return this.http.get('https://devmasterdeswebapi.azurewebsites.net/api/Login?username=' + user + '&password=' + pass);
   }
 }

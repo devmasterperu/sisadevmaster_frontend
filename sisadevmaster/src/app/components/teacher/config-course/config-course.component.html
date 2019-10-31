@@ -2,171 +2,202 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-10">
-                    <div class="card-title d-flex align-items-center">
-                        <h4>Curso</h4>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="card-title configure d-flex justify-content-center align-items-center">
-
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" [routerLink]="['/docente/configurar_calificacion']">Config.
-                                Calificación</a>
-                            <a class="dropdown-item" [routerLink]="['/docente/configurar_asistencia']">Config.
-                                Asistencia</a>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="card-title-pseudo">
+                        <h3>Curso</h3>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="card-content">
-                <div class="col-lg-12">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#home">Notas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#menu1">Asistencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#menu2">Pagos</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane container active" id="home">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Alumno</th>
-                                        <th scope="col">E.V. 1</th>
-                                        <th scope="col">E.V. 2</th>
-                                        <th scope="col">Trabajo</th>
-                                        <th scope="col">Promedio</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Diego Peña Carrillo</th>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                        <th scope="row">15</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sergio Pastor Tantalean</th>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                        <th scope="row">15</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Eder Zorrilla Blas</th>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                        <th scope="row">15</th>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="configure-link">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon-cog"></span></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" [routerLink]="['/docente/configurar_calificacion']">Config. Calificación</a>
+                                <a class="dropdown-item" [routerLink]="['/docente/configurar_asistencia']">Config. Asistencia</a>
+                            </div>
                         </div>
-                        <div class="tab-pane container fade" id="menu1">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Alumno</th>
-                                        <th scope="col">dd/mm</th>
-                                        <th scope="col">dd/mm</th>
-                                        <th scope="col">dd/mm</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Diego Peña Carrillo</th>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sergio Pastor Tantalean</th>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Eder Zorrilla Blas</th>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tab-pane container fade" id="menu2">
-                            <form [formGroup]="registerPaymentForm" (ngSubmit)=onSubmitRegisterPayment() autocomplete="off">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="payment"><strong>Const. de Pago</strong></label>
-                                            <div class="custom-file">
-                                                <input  type="file"
-                                                        class="custom-file-input"
-                                                        id="file"
-                                                        accept=".png, .jpg, .jpeg, .pdf"
-                                                        name="file"
-                                                        (change)= changeFileInput($event)>
-                                                <label class="custom-file-label" for="file">Choose
-                                                    file</label>
+                    </div>
+                    <div class="col-lg-12">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#home">Notas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#menu1">Asistencia</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#menu2">Pagos</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane container active" id="home">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Alumno</th>
+                                                <th scope="col">E.V. 1</th>
+                                                <th scope="col">E.V. 2</th>
+                                                <th scope="col">Trabajo</th>
+                                                <th scope="col">Promedio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Diego Peña Carrillo</th>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                                <th scope="row">15</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Sergio Pastor Tantalean</th>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                                <th scope="row">15</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Eder Zorrilla Blas</th>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                                <th scope="row">15</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane container fade" id="menu1">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Alumno</th>
+                                                <th scope="col">dd/mm</th>
+                                                <th scope="col">dd/mm</th>
+                                                <th scope="col">dd/mm</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Diego Peña Carrillo</th>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Sergio Pastor Tantalean</th>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Eder Zorrilla Blas</th>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane container fade" id="menu2">
+                                    <form [formGroup]="registerPaymentForm" (ngSubmit)=onSubmitRegisterPayment() autocomplete="off">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="payment"><strong>Const. de Pago</strong></label>
+                                                    <div class="custom-file">
+                                                        <input  type="file"
+                                                                class="custom-file-input"
+                                                                id="file"
+                                                                accept=".png, .jpg, .jpeg, .pdf"
+                                                                name="file"
+                                                                (change)= changeFileInput($event)>
+                                                        <label class="custom-file-label" for="file">Choose file</label>
+                                                    </div>
+                                                    <div *ngIf="statusProgress.status === 'progress'">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 0%" [style.width.%]="statusProgress.message" >{{ statusProgress.message }}%</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="payment"><strong>Monto</strong></label>
+                                                    <input  type="text"
+                                                            class="form-control"
+                                                            id="payment">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary">Registrar</button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="payment"><strong>Monto</strong></label>
-                                            <input  type="text"
-                                                    class="form-control"
-                                                    id="payment">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary">Registrar</button>
-                                    </div>
+                                    </form>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Monto</th>
+                                                <th scope="col">Estado</th>
+                                                <th scope="col">Archivo</th>
+                                                <th scope="col">Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>xx</td>
+                                                <td>xx</td>
+                                                <td><a href=""><span class="icon-download2"></span></a></td>
+                                                <td><a href=""><span class="icon-cross"></span></a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>xx</td>
+                                                <td>xx</td>
+                                                <td><a href=""><span class="icon-download2"></span></a></td>
+                                                <td><a href=""><span class="icon-cross"></span></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </form>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Monto</th>
-                                        <th scope="col">Estado</th>
-                                        <th scope="col">Archivo</th>
-                                        <th scope="col">Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>xx</td>
-                                        <td>xx</td>
-                                        <td><a href=""><span class="icon-download2"></span></a></td>
-                                        <td><a href=""><span class="icon-cross"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>xx</td>
-                                        <td>xx</td>
-                                        <td><a href=""><span class="icon-download2"></span></a></td>
-                                        <td><a href=""><span class="icon-cross"></span></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+    .configure-link {
+        background-color: #DEE2E6;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        font-size: 28px;
+        transition: .3s all;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+    .configure-link > a {
+        padding: 0;
+        color: #10213F;
+    }
+    .configure-link .dropdown-toggle::after {
+        margin-left: 2px;
+    }
+    .configure-link:hover {
+        background-color: #11213F;
+    }
+    .configure-link:hover > a {
+        color: #FFF;
+    }
+</style>
