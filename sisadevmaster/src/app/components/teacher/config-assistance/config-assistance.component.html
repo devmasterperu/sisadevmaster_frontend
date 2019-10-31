@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </form>
-                        <table class="table table-striped u-margin-top-small">
+                        <table *ngIf="assistanceSettings.length > 0" class="table table-striped u-margin-top-small">
                             <thead>
                                 <tr>
                                     <th scope="col">Fecha</th>
@@ -58,6 +58,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div *ngIf="assistanceSettings.length === 0" style="margin-top: 40px; background-color: #F2F2F2; padding: 15px 10px; border-left: 3px solid #10213F"> <!-- Comprueba la longitud de la arreglo en la plantilla. Regresa un arreglo vacio [] cuando no tiene informacion assistanceSettings -->
+                            Upsss! No tiene registro de asistencia.
+                        </div>
                     </div>
                 </div>
             </div>

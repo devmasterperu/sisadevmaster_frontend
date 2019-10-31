@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ConfigAssistanceComponent implements OnInit {
     registerAssistanceForn: FormGroup;
     upcomingCourses: any;
-    assistanceSettings: any;
+    assistanceSettings: any = [];
     registerAssistanceSettings: any;
 
     /*
@@ -43,19 +43,19 @@ export class ConfigAssistanceComponent implements OnInit {
     return this.registerAssistanceForn.controls;
     }
 
-    onSubmitregisterAssistance() {
-        this.objCourseService
-                            .postAddAssistanceSettings(this.registerAssistanceForn.value)
-                            .subscribe( resp => console.log(resp) );
-    }
-
-    // Función que se declara para obtener datos
+     // Función declarada para obtener los datos, y pintarla en la tabla de Asistencia luego de la eliminación de un registro
     fetchData() {
         this.objCourseService
                             .getListAssistanceSettings(this.upcomingCourses)
                             .subscribe( ( data: any ) => {
                                 this.assistanceSettings = data;
                             });
+    }
+
+    onSubmitregisterAssistance() {
+        this.objCourseService
+                            .postAddAssistanceSettings(this.registerAssistanceForn.value)
+                            .subscribe( resp => this.fetchData() );
     }
 
     onClickDeleteAssistence(item: any) {
