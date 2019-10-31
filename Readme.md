@@ -5,19 +5,21 @@
 1.NodeJS: https://nodejs.org/es/ (Version 10 o superior | que sea la estable)
 
 - Instalación es por instalador
-- Confirmar: $npm -v
+- Confirmar ➡️ $npm -v
+- Junto con Node se te instala otro programita, Npm, que te facilita la vida para instalar, desinstalar y actualizar los módulos de Node. En general, cuando trabajas con Angular se usan muchos módulos de Node, y Npm te ayuda un montón para no volverte loco bajando y actualizando estos módulos.
 
 2.Google Chrome: https://www.google.es/chrome/browser/desktop/
 
 3.TypeScript: http://www.typescriptlang.org/
 
 - Instalar como npm: $npm install -g typescript (Version 2 o superior | Para windows correr el comando como Administrador, haciendo click derecho, y abrir consola como administrador)
-- Confirmar: $tsc --version)
+- Confirmar ➡️ $tsc --version)
 
 4.Angular CLI
 
 - Instalar como npm: $npm install -g @angular/cli (Ultima 6.0 o superior)
-- Confirmar: $ng -v
+- Confirmar ➡️ $ng -v
+- Angular-cli es un módulo de Node,  y ¿para qué sirve? para crearte aplicaciones angular de forma muy rápida. Es como si quisieras hacer una casa pero sin tener idea de albañilería, te ponés a hablar con el arquitecto, le vas diciendo, hacéme 2 habitaciones de 6mts x 5mts, con un baño y 2 puertas. Con Angular-cli pasa algo similar, le indicás (mediante lineas de comando) como querés hacer tu aplicación.
 
 ## Visual Studio Code
 
@@ -61,6 +63,7 @@ Plugins recomendados para los siguientes editores:
 3. Tendrás visible la info por un console.log 😁
 
 ## Crear component
+
 - ng g c components/nombreComponent --nospec
 - (components es el nombre de la carpeta donde tendrá nuestros componentes)
 (--nospec es para no crear el archivo con extesión .spec)
@@ -101,6 +104,8 @@ Plugins recomendados para los siguientes editores:
 ## Formularios Reactivos en Angular
 
 - https://academia-binaria.com/formularios-reactivos-con-Angular/
+- Banana in the box: https://gustavodohara.com/blogangular/banana-in-box-banana-la-caja/
+- two-ways biding = bidireccional (o sea, al mecanismo de actualizar la vista y el modelo al mismo tiempo)
 
 ## Setvalue vs Patchvalue en Angular
 
@@ -138,3 +143,49 @@ Vea cómo excluimos la edad y esto funcionará sin arrojar ningún error.
 ## Uploading file Reactive Form
 
 - https://netbasal.com/how-to-implement-file-uploading-in-angular-reactive-forms-89a3fffa1a03
+- https://www.codingforentrepreneurs.com/blog/file-upload-with-angular/
+- https://developer.mozilla.org/es/docs/Web/Guide/Usando_Objetos_FormData
+- https://www.positronx.io/how-to-use-angular-8-httpclient-to-post-formdata/
+
+## Página /docente/configurar_curso
+
+- Para la subida de archivos('.png, .jpg, .jpge, .pdf'), se valida a traves del atributos HTML5 y tambien con javascript.
+
+## Raddio Button
+
+- https://www.positronx.io/angular-7-radio-buttons-example/
+
+**¿Que es una Interpolación en Angular?**
+
+- La interpolación es la forma de mostrar datos del Componente al DOM (esa representación que hace el browser del HTML con forma de objetos). Su notación es en forma de doble brackets {{}} y lo que está dentro de esos brackets es lo que se quiere mostrar en pantalla «procesado».
+
+**Property Binding**
+
+- Al igual que la Interpolación, Property Binding se usa para pasar datos del Controler al DOM, y los datos van en una única dirección
+
+**¿Cuándo usamos Property Binding y cuando Interpolación?**
+
+- Básicamente, cuando el valor que vas a setear es un string, no hay diferencia entre usar uno y otro, así que podes usar el que más te guste. Te recomiendo usar una forma y mantenerla en todo tu proyecto para facilitar la lectura del mismo.
+
+**Event Binding**
+
+- Ésta es la forma de enviar «algo» del elemento al componente. La sintaxis es (evento)=»template statement». Cualquier acción que haga el usuario (ingresar texto, apretar un botón, scrollear con la ruedita del mouse) es una acción que se puede capturar. Cualquiera de esas acciones puede disparar una acción desde el elemento DOM hacia el Controlador.En cambio, cuando lo que seteás no es un string, entonces sí o sí tenés que usar Property Binding
+- ➡️ <button (click)="onSubmitRegister()">Guardar</button>
+- El target event o evento a capturar (click) en el ejemplo, es cualquier cosa que queremos capturar del usuario (clicks, tecleo de teclas, movimientos del mouse, etc)
+
+**$event y el manejo de eventos**
+
+- Cuando se declara un Event Binding, Angular le asigna al Evento a capturar un handler (o un manejador). Este manejador tiene como objetivo ejecutar la «template statement» cuando el evento ocurra. Además, lo que hace el handler es recibir un objeto llamado $event (este objeto es creado por Angular) y lo deja disponible para la Template statement por si necesita algún dato del evento
+- Por ejemplo, en el Tag HTML «input» que captura datos del teclado del usuario, si uno quisiera capturar qué tecleó el usuario, se podría acceder de la siguiente forma: $event.target.value. El $event cambiará dependiendo del evento que se capture
+
+**¿Y cómo creamos nuestro propio Event Binding?**
+
+- Muy fácil, usando la clase EventEmitter proporcionada por Angular. Esta clase tiene un método llamado emit que envía un mensaje de un controlador a otro. Pero es más fácil verlo con un ejemplo, tenemos un componente dentro de otro y queremos que el componente interno le envié un mensaje al componente externo.
+
+## Deteccion de cambios en Angular
+
+- ¿Que pasa si quieres registrar datos en el formulario y quieres que automaticamente ese registro se vea reflejado en la tabla?
+- Angular tiene una mecanismo denominado ChangeDetector para detectar inconsistencias (cambios), entre el estado del component y la vista.
+- https://blog.ng-classroom.com/blog/angular/Angular-Detect-Changes/
+- https://medium.com/@ltciro/entendiendo-change-detection-en-angular-parte-1-5e644c64c2fe
+- https://academia-binaria.com/deteccion-del-cambio-en-Angular/
