@@ -13,19 +13,19 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a class="arrow-link" [routerLink]="['/docente/configurar_curso']"><span class="icon-arrow-left"></span></a>
+                        <a class="arrow-link" [routerLink]="['/docente/configurar_curso']"><span
+                                class="icon-arrow-left"></span></a>
                     </div>
                     <div class="col-lg-12">
-                        <form [formGroup]="registerAssistanceForn" (ngSubmit)="onSubmitRegisterAssistance()" autocomplete="off">
+                        <form [formGroup]="registerAssistanceForn" (ngSubmit)="onSubmitRegisterAssistance()"
+                            autocomplete="off">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="assistanceDate"><strong>Fecha</strong></label>
-                                        <input  type="date"
-                                                class="form-control"
-                                                id="assistanceDate"
-                                                formControlName="assistanceDate"
-                                                [ngClass]="{ 'is-invalid': f.assistanceDate.errors }">
+                                        <input type="date" class="form-control" id="assistanceDate"
+                                            formControlName="assistanceDate"
+                                            [ngClass]="{ 'is-invalid': f.assistanceDate.errors }">
                                         <div class="invalid-feedback" *ngIf="f.assistanceDate.errors">
                                             <div *ngIf="f.assistanceDate.errors.required">Campo obligatorio</div>
                                         </div>
@@ -53,12 +53,40 @@
                                             2️⃣ Eliminar el registro de la base de datos y vista
                                             3️⃣ Mostrar registros restantes en la vista
                                         -->
-                                        <span (click)="onClickDeleteAssistence(item.id)" class="icon-trash2"></span>
+                                        <span (click)="staticModal.show()" class="icon-trash2"></span>
+                                        <!-- el staticModal del (click) va enlazado con el #staticModal -->
+                                        <!-- <button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button> -->
+                                        <div class="modal fade" bsModal #staticModal="bs-modal"
+                                            [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+                                            aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title pull-left">Confimación</h4>
+                                                        <button type="button" class="close pull-right"
+                                                            aria-label="Close" (click)="staticModal.hide()">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Esta seguro que desea eliminar?.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button"
+                                                            class="btn btn-outline-secondary" (click)="staticModal.hide()">Cancel</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            (click)="onClickDeleteAssistence(item.id)">Ok</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div *ngIf="assistanceSettings.length === 0" style="margin-top: 40px; background-color: #F2F2F2; padding: 15px 10px; border-left: 3px solid #10213F"> <!-- Comprueba la longitud de la arreglo en la plantilla. Regresa un arreglo vacio [] cuando no tiene informacion assistanceSettings -->
+                        <div *ngIf="assistanceSettings.length === 0"
+                            style="margin-top: 40px; background-color: #F2F2F2; padding: 15px 10px; border-left: 3px solid #10213F">
+                            <!-- Comprueba la longitud de la arreglo en la plantilla. Regresa un arreglo vacio [] cuando no tiene informacion assistanceSettings -->
                             Upsss! No tiene registro de asistencia.
                         </div>
                     </div>
@@ -67,6 +95,7 @@
         </div>
     </div>
 </div>
+
 <style>
     .arrow-link {
         background-color: #DEE2E6;
@@ -81,14 +110,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: auto; /* alineamiento de un padre flexible */
+        margin-left: auto;
+        /* alineamiento de un padre flexible */
     }
+
     .arrow-link:hover {
         background-color: #11213F;
     }
+
     .arrow-link:hover span {
         color: #FFF;
     }
+
     .icon-trash2 {
         color: #FF2B45;
         font-size: 20px;

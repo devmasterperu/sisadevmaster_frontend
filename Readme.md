@@ -189,3 +189,28 @@ Vea cómo excluimos la edad y esto funcionará sin arrojar ningún error.
 - https://blog.ng-classroom.com/blog/angular/Angular-Detect-Changes/
 - https://medium.com/@ltciro/entendiendo-change-detection-en-angular-parte-1-5e644c64c2fe
 - https://academia-binaria.com/deteccion-del-cambio-en-Angular/
+
+## Ng Bootstrap
+
+- ngx-bootstrap contiene todos los componentes básicos (y no solo) de Bootstrap con tecnología Angular. Por lo tanto, no necesita incluir componentes JS originales, pero estamos utilizando marcado y CSS proporcionados por Bootstrap.
+- https://valor-software.com/ngx-bootstrap/#/
+1- Agregas el css de bootstrap 4 (Como lo has agregado con Sass)
+2- $ng add ngx-bootstrap --component componentName
+- List of possible commands for adding appropriate component:
+- ng add ngx-bootstrap  --component accordion
+- ng add ngx-bootstrap  --component alerts
+- ng add ngx-bootstrap  --component buttons
+- ng add ngx-bootstrap  --component carousel
+- ng add ngx-bootstrap  --component collapse
+- ng add ngx-bootstrap  --component datepicker
+- ng add ngx-bootstrap  --component dropdowns
+- ng add ngx-bootstrap  --component modals
+- ng add ngx-bootstrap  --component pagination
+- ng add ngx-bootstrap  --component popover
+- ng add ngx-bootstrap  --component progressbar
+- ng add ngx-bootstrap  --component rating
+- ng add ngx-bootstrap  --component sortable
+- ng add ngx-bootstrap  --component tabs
+- ng add ngx-bootstrap  --component timepicker
+- ng add ngx-bootstrap  --component tooltip
+- ng add ngx-bootstrap  --component typeahead

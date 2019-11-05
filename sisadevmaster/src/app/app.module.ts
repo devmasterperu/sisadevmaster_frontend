@@ -44,6 +44,9 @@ import { AppDashboardHeaderComponent } from './layout/app-dashboard-header/app-d
 import { AppDashboardOffcanvasComponent } from './layout/app-dashboard-offcanvas/app-dashboard-offcanvas.component';
 import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashboard.component';
 
+/* Modal Bootstrap */
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 // RouterModule.forRoot( ROUTES, { useHash: true } ) ✅ dentro de imports agregamos esa linea para el manejo de rutas
 // ⚠️ Eliminar en imports FormsModule, ya que estaremos trabajando con Reactive Forms Validation (Validación de formas reactivas) y no con ngForm
 @NgModule({
@@ -75,7 +78,8 @@ import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashb
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot( ROUTES, { useHash: true } )
+    RouterModule.forRoot( ROUTES, { useHash: true } ),
+    ModalModule.forRoot()
   ],
   providers: [
     StudentService,
