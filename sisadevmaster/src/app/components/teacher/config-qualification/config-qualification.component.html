@@ -70,7 +70,31 @@
                                             2️⃣ Eliminar el registro de la base de datos y vista
                                             3️⃣ Mostrar registros restantes en la vista
                                         -->
-                                        <span (click)="onClickDeleteQualification(item.id)" class="icon-trash2"></span>
+                                        <span (click)="staticModal.show()" class="icon-trash2"></span>
+                                        <div class="modal fade" bsModal #staticModal="bs-modal"
+                                            [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+                                            aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title pull-left">Confimación</h4>
+                                                        <button type="button" class="close pull-right"
+                                                            aria-label="Close" (click)="staticModal.hide()">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Esta seguro que desea eliminar?.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button"
+                                                            class="btn btn-outline-secondary" (click)="staticModal.hide()">Cancel</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            (click)="onClickDeleteQualification(item.id)" >Ok</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
