@@ -9,5 +9,10 @@
 }
 
 @mixin transition {
-    transition: all .2s;
+    transition: all .2s linear 0s;
+}
+
+@mixin transition-config-icon {
+    transition: background-color .4s linear 0s,
+                color .3s linear .4s;
 }

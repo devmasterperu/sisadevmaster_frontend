@@ -1,0 +1,248 @@
+<style>
+    .perfil-avatar figure {
+        text-align: center;
+    }
+
+    .perfil-avatar img {
+        border-radius: 50%;
+        margin-bottom: 10px;
+        background-color: var(--secondary-color);
+    }
+
+    .perfil-info h4 {
+        margin-bottom: 0;
+    }
+
+    .perfil-info strong {
+        color: var(--primary-color);
+        font-size: 15px;
+    }
+
+    .perfil-info li {
+        margin-bottom: 7px;
+        padding-left: 24px;
+        position: relative;
+    }
+
+    .perfil-info span {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--primary-color);
+    }
+
+    .perfil-info__data {
+        margin-top: 12px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="card-title-pseudo">
+                        <h3>Curso</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card-content">
+                <div class="row d-flex align-items-center" *ngFor="let item of dataCourse">
+                    <div class="col-6">
+                        <h4>{{ item.courseName }} <span style="font-size: 17px;">({{ item.groupName }})</span>
+                        </h4>
+                        <span style="display: block">Devmaster - Centro de Entrenamiento en Tecnología</span>
+                        <div class="inicio">
+                            <span>Inicio</span>
+                            <div class="num">{{ item.newDate }}</div>
+                            <div class="mes">{{ item.newMonth }}</div>
+                        </div>
+                        <h5 class="subtitle-content u-margin-top-small">
+                            Detalle
+                        </h5>
+                        <ul class="info-general-description">
+                            <li>
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                                <p><strong>Horario: </strong> {{ item.schedule }}</p>
+                            </li>
+                            <li>
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <p><strong>Duración: </strong>{{ item.numHours }} Hrs.</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                                <p><strong>Sesiones: </strong>{{ item.numSessions }}</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <p><strong>Modalidad: </strong>{{ item.modality }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <figure>
+                            <img src="http://devmaster.pe/files/curso/20190806180408.png" alt="Hero">
+                        </figure>
+                    </div>
+                    <div class="col-lg-12">
+                        <h5 class="subtitle-content">
+                            Mi Aula
+                        </h5>
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="pill" href="#home">Notas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#menu1">Asistencia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#menu2">Pagos</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="home">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th *ngFor="let item of dataNotaCourseConfig" >{{ item }}</th>
+                                            <!-- <th>{{ item[1] }}</th>
+                                            <th>{{ item[2] }}</th>
+                                            <th>{{ item[3] }}</th>
+                                            <th>{{ item[4] }}</th>
+                                            <th>{{ item[5] }}</th>
+                                            <th>{{ item[6] }}</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let itemStudent of dataNotaCourseStudent; index as i">
+                                            <td>{{ i + 1 }}</td>
+                                            <td>{{ itemStudent.InscriptionId }}</td>
+                                            <td>{{ itemStudent.Name }}</td>
+                                            <th *ngFor="let itemNotas of itemStudent.Notas">{{ itemNotas.Value }}</th>
+                                            <th>{{ itemStudent.Promedio}}</th>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <th scope="row">Eder Zorrilla Blas</th>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <th scope="row">15</th>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane container fade" id="menu1">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Alumno</th>
+                                            <th scope="col">dd/mm</th>
+                                            <th scope="col">dd/mm</th>
+                                            <th scope="col">dd/mm</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Diego Peña Carrillo</th>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Sergio Pastor Tantalean</th>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Eder Zorrilla Blas</th>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane container fade" id="menu2">
+                                <form [formGroup]="registerPaymentForm" (ngSubmit)=onSubmitRegisterPayment() autocomplete="off">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="payment"><strong>Const. de Pago</strong></label>
+                                                <div class="custom-file">
+                                                    <input  type="file"
+                                                            class="custom-file-input"
+                                                            id="file"
+                                                            accept=".png, .jpg, .jpeg, .pdf"
+                                                            name="file"
+                                                            (change)= changeFileInput($event)>
+                                                    <label class="custom-file-label" for="file">Choose file</label>
+                                                </div>
+                                                <div *ngIf="statusProgress.status === 'progress'">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 0%" [style.width.%]="statusProgress.message" >{{ statusProgress.message }}%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="payment"><strong>Monto</strong></label>
+                                                <input  type="text"
+                                                        class="form-control"
+                                                        id="payment">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary">Registrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Monto</th>
+                                            <th scope="col">Estado</th>
+                                            <th scope="col">Archivo</th>
+                                            <th scope="col">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>xx</td>
+                                            <td>xx</td>
+                                            <td><a href=""><span class="icon-download2"></span></a></td>
+                                            <td><a href=""><span class="icon-cross"></span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>xx</td>
+                                            <td>xx</td>
+                                            <td><a href=""><span class="icon-download2"></span></a></td>
+                                            <td><a href=""><span class="icon-cross"></span></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="configure-icon">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Configurar <span class="icon-cog"></span></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" [routerLink]="['/docente/curso/'+item.upcomingCourseId+'/configurar_calificacion']">Config. Calificación</a>
+                                <a class="dropdown-item" [routerLink]="['/docente/curso/'+item.upcomingCourseId+'/configurar_asistencia']">Config. Asistencia</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

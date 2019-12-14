@@ -1,5 +1,6 @@
-html { /* equal to :root (pseudo-clase) */
-    font-size: 17px; 
+/* equal to :root (pseudo-clase) */
+html {
+    font-size: 17px;
 }
 body {
     -webkit-font-smoothing: antialiased;
@@ -7,7 +8,7 @@ body {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 1em;
-    line-height: 1; /* line-height 1? */
+    line-height: 1;
     text-rendering: optimizeLegibility;
 
     background-color: var(--primary-background);
@@ -16,7 +17,7 @@ body {
 /* selection text */
 ::-moz-selection {
     color: var(--primary-color);
-} 
+}
 ::selection {
     color: var(--primary-color);
 }

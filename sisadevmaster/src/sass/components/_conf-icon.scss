@@ -1,0 +1,27 @@
+/* componente - configure-link */
+.configure-icon {
+}
+.configure-icon > a {
+    padding: 0;
+    max-width: 170px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background-color: #11213F;
+    border-radius: 5px;
+    color: var(--color-white);
+    font-size: 18px;
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+
+    @include transition-config-icon;
+}
+.configure-icon .dropdown-toggle::after {
+    display: none;
+}
+.configure-icon a:hover {
+    background-color: #11213F;
+}
+.configure-icon:hover > a {
+    color: #FFF;
+}

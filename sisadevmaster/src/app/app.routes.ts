@@ -19,6 +19,7 @@ import { PerfilTeacherComponent } from './components/teacher/perfil/perfil-teach
 import { ConfigCourseComponent } from './components/teacher/config-course/config-course.component';
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
+import { CourseComponent } from './components/teacher/course/course.component';
 
 export const ROUTES: Routes = [
     // Rutas con menos caracteres innecesario: Redirigir al Login
@@ -56,9 +57,12 @@ export const ROUTES: Routes = [
     component: LayoutDashboardComponent,
     children: [
         { path: '', component: PerfilTeacherComponent },
-        { path: 'configurar_calificacion', component: ConfigQualificationComponent },
-        { path: 'configurar_asistencia', component: ConfigAssistanceComponent },
+        // { path: 'configurar_calificacion', component: ConfigQualificationComponent },
+        { path: 'curso/:id/configurar_calificacion', component: ConfigQualificationComponent },
+        // { path: 'configurar_asistencia', component: ConfigAssistanceComponent },
+        { path: 'curso/:id/configurar_asistencia', component: ConfigAssistanceComponent },
         { path: 'configurar_curso', component: ConfigCourseComponent },
+        { path: 'curso/:id', component: CourseComponent }
     ]
     },
     // Rutas con más caracteres innecesario: Redirigir al Login

@@ -214,3 +214,11 @@ Vea cómo excluimos la edad y esto funcionará sin arrojar ningún error.
 - ng add ngx-bootstrap  --component timepicker
 - ng add ngx-bootstrap  --component tooltip
 - ng add ngx-bootstrap  --component typeahead
+
+## ¿Como obtener parametros de la URL?
+
+- https://stackoverflow.com/questions/40275862/how-to-get-parameter-on-angular2-route-in-angular-way/40276279 
+
+## Comunicación entre componentes
+
+- https://medium.com/angular-chile/comunicaci%C3%B3n-entre-componentes-explicado-con-dragon-ball-z-angular-7-parte-1-f1c67f745515

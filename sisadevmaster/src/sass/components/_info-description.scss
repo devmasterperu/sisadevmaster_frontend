@@ -1,0 +1,18 @@
+    .info-general-description li {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .info-general-description p {
+        margin-bottom: 0;
+    }
+
+    .info-general-description i {
+        display: inline-block;
+        width: 32px;
+        font-size: 20px;
+        color: #909090;
+        margin-right: 5px;
+        text-align: center;
+    }

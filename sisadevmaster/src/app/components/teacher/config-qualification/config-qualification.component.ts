@@ -5,6 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 /* Para nuestro servicio */
 import { CourseService } from '../../../services/course.service';
 
+/* Para obtener parametro de la uri */
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-config-qualification',
   templateUrl: './config-qualification.component.html'
@@ -15,13 +18,14 @@ export class ConfigQualificationComponent implements OnInit {
     submitted = false;
     upcomingCourses: any;
     qualificationSettings: any = [];
-
+    idReturnView: any;
     /*
     *    ✅ Constructor
     *    Se dispara automaticamente al cargar la pagina
     */
     constructor(    private formBuilder: FormBuilder,
-                    private objCourseService: CourseService ) { }
+                    private objCourseService: CourseService ,
+                    private route: ActivatedRoute ) { }
 
     /*
     *    ✅ ngOnInit
@@ -33,7 +37,14 @@ export class ConfigQualificationComponent implements OnInit {
             percentageValue: [ , [Validators.required, Validators.min(0), Validators.max(100)]]
         });
 
-        this.upcomingCourses = 23;
+        // this.upcomingCourses = 23;
+        // Obteniendo parametro de la URI ➡️ this.route.snapshot.paramMap.get(' ')
+        this.upcomingCourses = this.route.snapshot.paramMap.get('id');
+
+        // Retornar al curso correspondiente
+        this.idReturnView = new Array();
+        this.idReturnView.push(this.upcomingCourses);
+
         this.objCourseService
                             .getQualificationSettings(this.upcomingCourses)
                             .subscribe( ( data: any ) => {
@@ -61,10 +72,9 @@ export class ConfigQualificationComponent implements OnInit {
 
     onSubmitRegister() {
         this.submitted = true;
-
         if (this.registerForm.valid) {
             this.objCourseService
-                                .getConfigQualification(this.registerForm.value)
+                                .getConfigQualification(this.registerForm.value, this.upcomingCourses)
                                 .subscribe( resp => this.fetchData() );
         }
     }

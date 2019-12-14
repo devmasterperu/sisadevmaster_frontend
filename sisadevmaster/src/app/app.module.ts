@@ -38,6 +38,7 @@ import { ConfigCourseComponent } from './components/teacher/config-course/config
 import { ConfigQualificationComponent } from './components/teacher/config-qualification/config-qualification.component';
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 import { UpdateTeacherComponent } from './components/teacher/update-teacher/update-teacher.component';
+import { CourseComponent } from './components/teacher/course/course.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { AppDashboardHeaderComponent } from './layout/app-dashboard-header/app-dashboard-header.component';
@@ -70,7 +71,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppDashboardHeaderComponent,
     AppDashboardOffcanvasComponent,
     LayoutDashboardComponent,
-    UpdateTeacherComponent
+    UpdateTeacherComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,

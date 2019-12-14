@@ -13,7 +13,7 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a class="arrow-link" [routerLink]="['/docente/configurar_curso']"><span
+                        <a class="arrow-link" *ngFor="let item of idReturnView" [routerLink]="['/docente/curso/'+ item]"><span
                                 class="icon-arrow-left"></span></a>
                     </div>
                     <div class="col-lg-12">

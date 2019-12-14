@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
       // jquinteros76
       // ON1A0LAH
       this.loginUserForm = this.formBuilder.group({
-          username: ['', Validators.required],
-          password: ['', Validators.required]
+          username: ['jquinteros76', Validators.required],
+          password: ['ON1A0LAH', Validators.required]
       });
     }
 

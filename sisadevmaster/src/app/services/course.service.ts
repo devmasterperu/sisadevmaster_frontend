@@ -7,6 +7,7 @@ import { AssistenceModel } from '../models/assistance-settings.model';
 /* Importando Modelo Qualification */
 import { QualificationModel } from '../models/config-qualification.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,8 +41,8 @@ export class CourseService {
     }
 
     // Agregar Calificación
-    getConfigQualification(qualificationModel: QualificationModel) {
-        return this.http.post(`${this.apiURL}/QualificationSettings/`, qualificationModel);
+    getConfigQualification(qualificationModel: QualificationModel, idCourse) {
+        return this.http.post('https://devmasterdeswebapi.azurewebsites.net/api/UpcomingCourses/' + idCourse + '/QualificationSettings/', qualificationModel);
     }
 
     // Eliminar Asistencia
@@ -58,12 +59,18 @@ export class CourseService {
     }
 
     // Agregar Asistencia
-    postAddAssistanceSettings(assistenceModel: AssistenceModel) {
-        return this.http.post('https://devmasterdeswebapi.azurewebsites.net/api/UpcomingCourses/23/AssistanceSettings', assistenceModel);
+    postAddAssistanceSettings(assistenceModel: AssistenceModel, idCourse) {
+        return this.http.post('https://devmasterdeswebapi.azurewebsites.net/api/UpcomingCourses/' + idCourse + '/AssistanceSettings', assistenceModel);
     }
 
     // Eliminar Asistencia
     deleteAssistanceSettings(assistenceModel: AssistenceModel) {
         return this.http.delete('https://devmasterdeswebapi.azurewebsites.net/api/AssistanceSettings/' + assistenceModel );
+    }
+
+    /* Calificacion de Usuario por Curso */
+    getUserQualifications(userId) {
+        console.log(userId);
+        return this.http.get('https://devmasterdeswebapi.azurewebsites.net/api/UserQualifications?UpcomingCourseId=' + userId);
     }
 }
