@@ -8,7 +8,6 @@ import { InscriptionComponent } from './components/admin/inscription/inscription
 import { PerfilAdminComponent } from './components/admin/perfill/perfil-admin.component';
 /* Estudiante */
 import { RegisterStudentComponent } from './components/student/register-student/register-student.component';
-import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
 import { PerfilComponent } from './components/student/perfil/perfil.component';
 /* Docente */
@@ -39,7 +38,6 @@ export const ROUTES: Routes = [
             { path: 'registro_estudiante', component: RegisterStudentComponent },
             { path: 'programacion_curso', component: ProgrammingCurseComponent },
             { path: 'listar_alumnos', component: ListStudentComponent },
-            { path: 'editar_alumno', component: EditStudentComponent },
             { path: 'actualizar_docente', component: UpdateTeacherComponent },
         ]
     },

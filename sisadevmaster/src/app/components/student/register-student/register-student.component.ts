@@ -40,8 +40,8 @@ export class RegisterStudentComponent implements OnInit {
   registerStudentForm: FormGroup;
   submitted = false;
 
-  documentTypes: any[] = [];
-  dataDepartament: any[] = [];
+  documentTypes: any = [];
+  dataDepartament: any = [];
   dataProvince: any;
   dataDistrict: any;
 

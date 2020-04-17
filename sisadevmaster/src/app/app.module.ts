@@ -27,9 +27,10 @@ import { InscriptionComponent } from './components/admin/inscription/inscription
 import { PerfilAdminComponent } from './components/admin/perfill/perfil-admin.component';
 // Componentes Student
 import { RegisterStudentComponent } from './components/student/register-student/register-student.component';
-import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
+// import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
 import { PerfilComponent } from './components/student/perfil/perfil.component';
+
 // Componentes Teacher
 import { RegisterTeacherComponent } from './components/teacher/register-teacher/register-teacher.component';
 import { ProgrammingCurseComponent } from './components/admin/programming-curse/programming-curse.component';
@@ -47,9 +48,11 @@ import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashb
 
 /* Modal Bootstrap */
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CurseStudentComponent } from './components/student/curse/curse-student.component';
 
 // RouterModule.forRoot( ROUTES, { useHash: true } ) ✅ dentro de imports agregamos esa linea para el manejo de rutas
-// ⚠️ Eliminar en imports FormsModule, ya que estaremos trabajando con Reactive Forms Validation (Validación de formas reactivas) y no con ngForm
+// ⚠️ Eliminar en imports FormsModule, ya que estaremos trabajando con Reactive
+// Forms Validation (Validación de formas reactivas) y no con ngForm
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,13 +69,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     InscriptionComponent,
     PerfilAdminComponent,
     PerfilComponent,
-    EditStudentComponent,
+    // EditStudentComponent,
     HomeComponent,
     AppDashboardHeaderComponent,
     AppDashboardOffcanvasComponent,
     LayoutDashboardComponent,
     UpdateTeacherComponent,
-    CourseComponent
+    CourseComponent,
+    CurseStudentComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core'; /* 👶🏼 */
 })
 
 export class PerfilComponent implements OnInit {
-  dataUser: any[] = [];
+  dataUser: any = [];
 
   ngOnInit() {
     const data = JSON.parse(localStorage.userDevmaster);

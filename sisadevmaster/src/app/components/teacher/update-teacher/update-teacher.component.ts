@@ -9,11 +9,11 @@ import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
   selector: 'app-update-teacher',
-  templateUrl: './update-teacher.component.html',
-  styleUrls: ['./update-teacher.component.scss']
+  templateUrl: './update-teacher.component.html'
 })
 export class UpdateTeacherComponent implements OnInit {
     updateTeacherForm: FormGroup;
+    submitted = false;
 
     documentTypes: any;
     dataDepartament: any;
@@ -74,6 +74,17 @@ export class UpdateTeacherComponent implements OnInit {
         // Traida de 1 usuario
 
         // Actualización de 1 usuario
+    }
+
+    // convenience getter for easy access to form fields
+    get f() {
+        return this.updateTeacherForm.controls;
+        console.log(this.updateTeacherForm);
+    }
+
+    onSubmitUpdateTeacher() {
+        alert('hey!');
+        this.submitted = true;
     }
 
     /*

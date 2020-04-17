@@ -14,8 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-curse',
-    templateUrl: './course.component.html',
-    styleUrls: ['./course.component.scss']
+    templateUrl: './course.component.html'
 })
 export class CourseComponent implements OnInit {
     registerPaymentForm: FormGroup;
