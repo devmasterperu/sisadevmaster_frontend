@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
     onSubmitLogin() {
         this.objAuthenticationService
-                          .login(this.loginUserForm.value.username, this.loginUserForm.value.password)
+                          .login(this.loginUserForm.value)
                           .subscribe( (data: any) => {
                             if (data.length === 0 ) {
                               // [] vacío cuando el usuario no existe
@@ -47,8 +47,9 @@ export class HomeComponent implements OnInit {
                               *  Luego ya en cada vista traigo la info de usuario previamente almacenado en el localStorage
                               *  userDevmaster: Es la variable que tendre la info de mi localStorage
                               */
-                              localStorage.setItem('userDevmaster', JSON.stringify(data));
-                              switch (data[0].userTypeId) {
+                             console.log(data.userInfo);
+                              localStorage.setItem('userDevmaster', JSON.stringify(data.userInfo));
+                              switch (data.userInfo.userTypeId) {
                                 case 1:
                                   // Redireccionamiento
                                   this.router.navigate(['/administrador']);

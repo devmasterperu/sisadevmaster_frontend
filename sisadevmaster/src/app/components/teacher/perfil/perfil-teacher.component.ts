@@ -18,7 +18,10 @@ export class PerfilTeacherComponent implements OnInit {
         // LocalStorage
         // JSON.parse ➡️ convierte de string a objeto
         const dataStorage = JSON.parse(localStorage.userDevmaster);
-        this.dataUser = dataStorage[0];
+       
+        this.dataUser = dataStorage;
+        console.log(dataStorage);
+        console.log(this.dataUser);
 
         this.objCurseService
                             .getListCoursesTeacher(this.dataUser.id)

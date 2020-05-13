@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core'; /* 👶🏼 */
 /* Para metodos HTTP */
 import { HttpClient } from '@angular/common/http';
 
+import { UserLoginModel } from '../models/user-login.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +13,7 @@ export class authenticationService {
   // apiURLUpcomingCourses = '';
   constructor( private http: HttpClient) {}
 
-  // Use GET to load data from API
-  login(user, pass) {
-    return this.http.get('https://devmasterdeswebapi.azurewebsites.net/api/Login?username=' + user + '&password=' + pass);
+  login(userLoginModel:UserLoginModel) {
+    return this.http.post('https://devmasterdeswebapi.azurewebsites.net/api/Login',userLoginModel);
   }
 }
