@@ -20,9 +20,7 @@ export class PerfilTeacherComponent implements OnInit {
         const dataStorage = JSON.parse(localStorage.userDevmaster);
        
         this.dataUser = dataStorage;
-        console.log(dataStorage);
-        console.log(this.dataUser);
-
+      
         this.objCurseService
                             .getListCoursesTeacher(this.dataUser.id)
                             .subscribe( (data: any) =>  {
