@@ -10,6 +10,6 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     const data = JSON.parse(localStorage.userDevmaster);
-    this.dataUser = data[0];
+    this.dataUser = data;
   }
 }

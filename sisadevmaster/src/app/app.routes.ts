@@ -20,9 +20,6 @@ import { ConfigQualificationComponent } from './components/teacher/config-qualif
 import { ConfigAssistanceComponent } from './components/teacher/config-assistance/config-assistance.component';
 import { CourseComponent } from './components/teacher/course/course.component';
 
-/*Signup*/
-import { SignupComponent } from './components/signup/signup.component';
-
 export const ROUTES: Routes = [
     // Rutas con menos caracteres innecesario: Redirigir al Login
     { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -30,8 +27,8 @@ export const ROUTES: Routes = [
     // Ruta para Home
     { path: 'login', component: HomeComponent },
     
-    // Home route
-    { path: 'signup', component: SignupComponent },
+    // Route for Signup
+    { path: 'register_student', component: RegisterStudentComponent },
 
     // Rutas para Administrador
     {

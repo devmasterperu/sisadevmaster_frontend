@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sisadevmaster';
+  title = 'Devmasterperu';
+  isDisplay=true;
+
+  constructor(){}
+
+  showComponent(status:boolean){
+    this.isDisplay=status;
+  }
+
 }

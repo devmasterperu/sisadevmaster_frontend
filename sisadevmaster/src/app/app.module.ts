@@ -49,7 +49,6 @@ import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashb
 /* Modal Bootstrap */
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CurseStudentComponent } from './components/student/curse/curse-student.component';
-import { SignupComponent } from './components/signup/signup.component';
 
 // RouterModule.forRoot( ROUTES, { useHash: true } ) ✅ dentro de imports agregamos esa linea para el manejo de rutas
 // ⚠️ Eliminar en imports FormsModule, ya que estaremos trabajando con Reactive
@@ -77,8 +76,7 @@ import { SignupComponent } from './components/signup/signup.component';
     LayoutDashboardComponent,
     UpdateTeacherComponent,
     CourseComponent,
-    CurseStudentComponent,
-    SignupComponent
+    CurseStudentComponent
   ],
   imports: [
     BrowserModule,
